@@ -1,0 +1,12 @@
+<div class="d-flex flex-column">
+    <zulu-input class="mt-2" label="Giveaway Name" [setting]="settingPrefix + 'name'" [model]="giveaway.name" (inputChange)="onModelNameChange($event)" />
+    <zulu-button class="mt-2" (buttonClick)="onOpenFilePicker()">
+        Select Image
+    </zulu-button>
+    <zulu-input class="mt-2" label="Provided By" [setting]="settingPrefix + 'providedBy'" [model]="giveaway.providedBy ?? ''" (inputChange)="onModelProvidedChange($event)" />
+    <zulu-textarea class="mt-2" label="Description" [setting]="settingPrefix + 'description'" [model]="giveaway.description"
+        [rows]="3" (inputChange)="onModelDescriptionChange($event)" />
+    <zulu-input class="mt-2" label="Learn More URL (Include https://)" [setting]="settingPrefix + 'learnMoreUrl'"
+        [model]="giveaway.learnMoreUrl ?? ''" (inputChange)="onModelLearnMoreChange($event)" />
+    <zulu-checkbox class="mt-2" label="Track Winners" [setting]="settingPrefix + 'trackWinners'" [checked]="giveaway.trackWinners" (changed)="onModelTrackWinnersChange($event)" />
+</div>

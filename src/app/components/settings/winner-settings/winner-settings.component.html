@@ -1,0 +1,35 @@
+<h2 zuluMainStyle [background]="false">Winner Settings</h2>
+<zulu-card header="Image">
+    <zulu-button (buttonClick)="onOpenFilePicker()">
+        Select Winner Image
+    </zulu-button>
+    <zulu-checkbox label="Use Twitch Profile Image Where Available" [checked]="settings.useTwitchProfileImage" (changed)="onSettingChanged($event, 'useTwitchProfileImage')" />
+    <zulu-checkbox label="Show Twitch Messages from Winner" [checked]="settings.showWinnerMessages" (changed)="onSettingChanged($event, 'showWinnerMessages')" />
+</zulu-card>
+<zulu-card header="Winners Message">
+    <zulu-input (inputChange)="onSettingChanged($event, 'winnerMessage')" [model]="settings.winnerMessage" />
+    <br />
+    <zulu-radio-group [model]="settings.winnerRemove" (inputChange)="onSettingChanged($event, 'winnerRemove')" formName="winnerRemove" [options]="[
+        { label: 'Keep winner in the wheel for the next spin', value: WinnerRemoveType.Keep },
+        { label: 'Remove one instance of winner for the next spin', value: WinnerRemoveType.RemoveOne },
+        { label: 'Remove all instances of winner for the next spin', value: WinnerRemoveType.RemoveAll }
+    ]" />
+</zulu-card>
+<zulu-card header="Winner Confirmation">
+    <zulu-checkbox label="Require Confirmation on Win" [checked]="settings.winnerRequireConfirmation" (changed)="onSettingChanged($event, 'winnerRequireConfirmation')" />
+    <div *ngIf="settings.winnerRequireConfirmation">
+        <br />
+        <zulu-input label="Confirmation Message" (inputChange)="onSettingChanged($event, 'winnerRequireConfirmationMessage')"
+            [model]="settings.winnerRequireConfirmationMessage" />
+        <br />
+        <zulu-input label="Confirmation Lapsed Message" (inputChange)="onSettingChanged($event, 'winnerRequireConfirmationLapsedMessage')"
+            [model]="settings.winnerRequireConfirmationLapsedMessage" />
+        <br />
+        <label>Confirmation Timer</label>
+        <div class="d-flex align-items-center">
+            <zulu-input-number *ngIf="settings.winnerRequireConfirmation" (inputChange)="onSettingChanged($event, 'winnerRequireConfirmationTimer')"
+                [model]="settings.winnerRequireConfirmationTimer" [min]="0" [step]="0.1" />
+            <div class="">&nbsp;&nbsp;seconds&nbsp;&nbsp;</div>
+        </div>
+    </div>
+</zulu-card>

@@ -1,0 +1,70 @@
+.container {
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+    --bs-gutter-x: 0;
+}
+
+.wheel-container {
+    height: 10px;
+    position: absolute;
+    top: -10px;
+}
+
+.side-wheel-container {
+    height: 85%;
+    position: relative;
+    overflow-y: hidden;
+}
+
+.sub-winner-container {
+    text-align: center;
+    width: 50%;
+    font-size: 0.5em;
+    position: relative;
+    height: 10%;
+    min-height: 5%;
+
+    &.winner-container {
+        height: 20%;
+        width: 95%;
+        font-size: 4em;
+        z-index: 5;
+        border-radius: 20px;
+        border: 2px solid;
+    }
+    
+    &.sub-winner-container-xl {
+        width: 75%;
+        font-size: 2em;
+    }
+    
+    &.sub-winner-container-lg {
+        width: 60%;
+        font-size: 1em;
+    }
+}
+
+.sub-winner-label {
+    height: 100%;
+    position: relative;
+}
+
+.mat-mdc-card, .mat-mdc-card-content {
+    height: 100%;
+}
+
+.name-button-section {
+    height: 10%;
+    font-size: 1.75em;
+    flex-wrap: wrap;
+}
+
+.backdrop {
+    flex-grow: 1;
+    margin-bottom: 38px;
+}
+
+.d-block {
+    display: block;
+}

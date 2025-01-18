@@ -1,0 +1,32 @@
+<zulu-card *ngIf="staticWheel" className="h-100" [header]="staticWheel.name">
+    <zulu-input label="Wheel Name" [model]="staticWheel.name" (inputChange)="onSettingChange($event, 'name')" />
+    <div class="d-flex">
+        <zulu-button (buttonClick)="onOpenFilePickerOverlay()">
+            Wheel Overlay
+        </zulu-button>
+        <zulu-button (buttonClick)="onOpenFilePickerCenter()">
+            Wheel Center Image
+        </zulu-button>
+    </div>
+    <br />
+    <zulu-button #fontPickerElement=ngxFontPicker [(fontPicker)]="font!" (fontPickerChange)="onFontChange($event)"
+        [fpSizeSelect]="false" [fpStyleSelect]="false" [fontOverride]="staticWheel.itemFont ?? defaultFont">
+        Select Font ({{staticWheel.itemFont ?? defaultFont}})
+    </zulu-button>
+    <zulu-slider label="Label Position" [model]="staticWheel.labelRadius" [min]="0" [max]="1" [step]="0.05"
+        (inputChange)="onSettingChange($event, 'labelRadius')" />
+    <zulu-slider label="Idle Speed" [model]="staticWheel.idleSpeed" [min]="0" [max]="50" [step]="0.25"
+        (inputChange)="onSettingChange($event, 'idleSpeed')" />
+    <zulu-slider label="Pointer Angle" [model]="staticWheel.pointerAngle" [min]="0" [max]="315" [step]="45"
+        (inputChange)="showPointer($event)" [showSteps]="true" />
+
+    <br />
+    <zulu-input-number [model]="staticWheel.minPies" [min]="0" label="Min # of Wedges"
+        (inputChange)="onSettingChange($event, 'minPies')" />
+
+    <br />
+    <zulu-audio *ngIf="audioItem" [model]="audioItem" label="Wheel Tick"
+        (fileChanged)="onSettingChange($event, 'wheelTickSoundPath')"
+        (volumeChanged)="onSettingChange($event, 'wheelTickSoundVolume')"
+        (muteChanged)="onSettingChange($event, 'wheelTickSoundMute')" />
+</zulu-card>

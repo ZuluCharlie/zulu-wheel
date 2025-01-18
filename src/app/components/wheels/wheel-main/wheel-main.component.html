@@ -1,0 +1,27 @@
+<div [ngClass]="isSpinning ? 'spinning' : ''" class="container">
+    <div class="d-flex col-12 justify-content-center align-content-center name-button-section">
+        <zulu-button *ngIf="wheel && settings && !isSpinning" [disabled]="items.length === 0" className="btn-lg"
+            (buttonClick)="initiateSpin()">
+            Spin! ({{items.length}} Entries)
+        </zulu-button>
+        <h3 *ngIf="isSpinning" zuluMainStyle [background]="false" class="align-content-center">
+            {{currentWinner?.label ?? '&nbsp;'}}</h3>
+    </div>
+    <div #wheelContainer class="wheel-container justify-content-center" [ngClass]="uiGuid">
+        <div *ngIf="settings?.wheelCenterImagePath"
+            class="wheel-center justify-content-center align-items-center d-flex">
+            <img *ngIf="wheel && wheel.items.length > 0" #centerImage [src]="settings.wheelCenterImagePath"
+                [ngStyle]="{ 'max-height': settings.wheelCenterImageSize + '%', 'max-width': settings.wheelCenterImageSize + '%' }"
+                class="wheel-center-image rounded-circle">
+        </div>
+        <div *ngIf="settings?.wheelOverlayImagePath"
+            class="wheel-center justify-content-center align-items-center d-flex">
+            <img *ngIf="wheel && wheel.items.length > 0" [src]="settings.wheelOverlayImagePath"
+                [ngStyle]="{ 'max-height': '100%', 'max-width': '100%' }" class="wheel-background-image">
+        </div>
+        <div class="wheel-center justify-content-center align-items-center d-flex">
+            <canvas *ngIf="wheel && wheel.items.length > 0" #pointerCanvas class="wheel-center">
+            </canvas>
+        </div>
+    </div>
+</div>

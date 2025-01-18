@@ -1,0 +1,17 @@
+<h2 zuluMainStyle [background]="false">Countdown Settings</h2>
+<zulu-card header="Countdown">
+    <zulu-checkbox label="Run countdown before spins" [checked]="settings.countdown" (changed)="onCountdownChanged($event)" />
+    <zulu-checkbox *ngIf="settings.countdown" label="Show seconds remaining in countdown" [checked]="settings.countdownShowTimer" (changed)="onCountdownShowTimerChanged($event)" />
+    <zulu-checkbox *ngIf="settings.countdown" label="Show timer bar in countdown" [checked]="settings.countdownShowTimerBar" (changed)="onCountdownShowTimerBarChanged($event)" />
+</zulu-card>
+<zulu-card *ngIf="settings.countdown" header="Countdown Timer">
+    <div class="d-flex align-items-center">
+        <div class="col-2">
+            <zulu-input-number [model]="settings.countdownTimer" [min]="0" [step]="1" (inputChange)="onCountdownTimerChanged($event)" />
+        </div>
+        <div>&nbsp;&nbsp;seconds&nbsp;&nbsp;</div>
+    </div>
+</zulu-card>
+<zulu-card *ngIf="settings.countdown" header="Countdown Message">
+    <zulu-input [model]="settings.countdownMessage" (inputChange)="onCountdownMessageChanged($event)" />
+</zulu-card>

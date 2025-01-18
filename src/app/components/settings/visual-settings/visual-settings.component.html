@@ -1,0 +1,46 @@
+<h2 zuluMainStyle [background]="false">Visual Settings</h2>
+<zulu-card header="Wheel Name">
+    <zulu-input setting="wheelName" [model]="wheelName" (inputChange)="onWheelNameChange($event)" />
+</zulu-card>
+<zulu-card header="Style Settings">
+    <div>Global Font - {{fontFamily}}</div>
+    <zulu-button #fontPickerElement=ngxFontPicker [(fontPicker)]="font!" (fontPickerChange)="onFontChange($event)"
+        [fpSizeSelect]="false" [fpStyleSelect]="false">
+        Select Font
+    </zulu-button>
+    <br />
+    <p>Colors</p>
+    <div class="d-flex">
+        <div class="col-4 d-flex flex-column align-content-center">
+            <div>Menus</div>
+            <button class="btn w-100 mr-2" zuluMainStyle (click)="openGlobalColorPickerModal()">Edit</button>
+        </div>
+        <div class="col-4 d-flex flex-column align-content-center">
+            <div>Buttons</div>
+            <button class="btn w-100 mr-2" zuluButtonStyle (click)="openButtonColorPickerModal()">Edit</button>
+        </div>
+        <div class="col-4 d-flex flex-column align-content-center">
+            <div>Inputs</div>
+            <button class="btn w-100 mr-2" zuluInputStyle (click)="openInputColorPickerModal()">Edit</button>
+        </div>
+    </div>
+</zulu-card>
+<zulu-card header="Images">
+    <div class="d-flex flex-wrap">
+        <zulu-button (buttonClick)="onOpenFilePickerBackground()">
+            Background
+        </zulu-button>
+        <zulu-button (buttonClick)="onOpenFilePickerOverlay()">
+            Wheel Overlay
+        </zulu-button>
+        <zulu-button (buttonClick)="onOpenFilePickerCenter()">
+            Wheel Center Image
+        </zulu-button>
+    </div>
+    <zulu-slider label="Wheel Center Image Size" [min]="0" [max]="70" [step]="1"
+        [model]="wheelSettings.wheelCenterImageSize" setting="wheelCenterImageSize" />
+    <zulu-button (buttonClick)="downloadWheelTemplate()">
+        Download Wheel Overlay Template
+    </zulu-button>
+    <small>The Wheel Overlay Template can be copy/pasted or drag/dropped into your favorite image editing software to be used as an outline for creating your own overlay image.</small>
+</zulu-card>

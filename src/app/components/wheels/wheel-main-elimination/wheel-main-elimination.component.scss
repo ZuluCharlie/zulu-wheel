@@ -1,0 +1,17 @@
+.container {
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+    --bs-gutter-x: 0;
+}
+
+.name-button-section {
+    height: 10%;
+    font-size: 1.75em;
+    flex-wrap: wrap;
+}
+
+.backdrop {
+    flex-grow: 1;
+    margin-bottom: 38px;
+}

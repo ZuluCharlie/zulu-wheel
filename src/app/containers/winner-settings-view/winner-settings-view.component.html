@@ -1,0 +1,18 @@
+<div class="container d-flex">
+    <div class="col-4">
+        <app-winner-settings />
+    </div>
+    <div class="col-2">
+        <zulu-card header="Winner Message Variables" className="mt-5">
+            <p>
+                {{'${winner}'}}<br />
+                {{'${entryCount}'}}<br />
+            </p>
+        </zulu-card>
+    </div>
+    <div class="col-6 d-flex flex-column h-100">
+        <zulu-card class="winner-display-card flex-grow-1" className="h-100">
+            <app-winner-display [winner]="winner" [entryCount]="entryCount" [runTimer]="false" />
+        </zulu-card>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<h2 zuluMainStyle [background]="false">Streamer.bot Settings</h2>
+<div class="d-flex">
+    <div class="col-3">
+        <zulu-card header="Web Socket Settings">
+            <zulu-input label="Address" [model]="settings.webSocketAddress"
+                (inputChange)="onSettingChanged($event, 'webSocketAddress')" />
+            <br />
+            <zulu-input-number label="Port" [model]="settings.webSocketPort"
+                (inputChange)="onSettingChanged($event, 'webSocketPort')" />
+            <br />
+            <zulu-input label="Endpoint" [model]="settings.webSocketEndpoint"
+                (inputChange)="onSettingChanged($event, 'webSocketEndpoint')" />
+            <br />
+            <zulu-input type="password" label="Password" [model]="settings.webSocketPassword"
+                (inputChange)="onSettingChanged($event, 'webSocketPassword')" />
+        </zulu-card>
+    </div>
+    <div class="col-3">
+        <zulu-card header="Event Names">
+            <zulu-input label="Spin Wheel" [model]="settings.spinWheelEventName"
+                (inputChange)="onSettingChanged($event, 'spinWheelEventName')" />
+            <br />
+            <zulu-input label="Add Name To Wheel" [model]="settings.addNameEventName"
+                (inputChange)="onSettingChanged($event, 'addNameEventName')" />
+            <br />
+            <zulu-input label="Remove Name From Wheel" [model]="settings.removeNameEventName"
+                (inputChange)="onSettingChanged($event, 'removeNameEventName')" />
+            <br />
+            <zulu-input label="Clear Wheel" [model]="settings.clearWheelEventName"
+                (inputChange)="onSettingChanged($event, 'clearWheelEventName')" />
+            <br />
+            <zulu-input label="Confirm Winner" [model]="settings.confirmWinnerEventName"
+                (inputChange)="onSettingChanged($event, 'confirmWinnerEventName')" />
+        </zulu-card>
+    </div>
+
+    <div class="col-3">
+        <zulu-card header="Trigger Actions">
+            <zulu-select label="On Winner Revealed" [options]="allActionsSelectList"
+                [model]="settings.winnerRevealedActionId"
+                (inputChange)="onSettingChanged($event, 'winnerRevealedActionId')" />
+            <br />
+            <zulu-select label="On Winner Confirmed" [options]="allActionsSelectList"
+                [model]="settings.winnerConfirmedActionId"
+                (inputChange)="onSettingChanged($event, 'winnerConfirmedActionId')" />
+            <br />
+            <zulu-select label="On Winner Lapsed" [options]="allActionsSelectList"
+                [model]="settings.winnerLapsedActionId"
+                (inputChange)="onSettingChanged($event, 'winnerLapsedActionId')" />
+            <br />
+            <zulu-select label="On Re-Roll" [options]="allActionsSelectList" [model]="settings.reRollActionId"
+                (inputChange)="onSettingChanged($event, 'reRollActionId')" />
+            <br />
+            <zulu-select label="Send Giveaway Info" [options]="allActionsSelectList"
+                [model]="settings.sendGiveawayDataActionId"
+                (inputChange)="onSettingChanged($event, 'sendGiveawayDataActionId')" />
+        </zulu-card>
+    </div>
+    <div class="col-3">
+        <zulu-card>
+            <div *ngIf="streamerBotConnectedError">Streamer.bot connection error</div>
+            <zulu-button *ngIf="!streamerBotConnected && !streamerBotConnecting" (buttonClick)="connectToStreamerBot()"
+                icon="streamerbot" backgroundOverride="#161616" textOverride="#ffffff">
+                Connect to Streamer.bot
+            </zulu-button>
+            <zulu-button *ngIf="streamerBotConnected && !streamerBotConnecting" (buttonClick)="connectToStreamerBot()"
+                icon="streamerbot" backgroundOverride="#161616" textOverride="#ffffff">
+                Reconnect
+            </zulu-button>
+            <zulu-button *ngIf="streamerBotConnecting" [disabled]="true" icon="streamerbot" backgroundOverride="#161616"
+                textOverride="#ffffff">
+                Connecting...
+            </zulu-button>
+            <br />
+            <zulu-checkbox label="Use Twitch User Colors on Wheel" [checked]="settings.useStreamerBotColorsOnWheel"
+                (changed)="onSettingChanged($event, 'useStreamerBotColorsOnWheel')" />
+            <br />
+            <zulu-checkbox label="Show Twitch Profile Images on Wheel" [checked]="settings.showTwitchProfileImages"
+                (changed)="onSettingChanged($event, 'showTwitchProfileImages')" />
+            <br />
+            <zulu-textarea label="Entry Instructions" [model]="settings.streamerbotEntryInstructions"
+                (inputChange)="onSettingChanged($event, 'streamerbotEntryInstructions')" />
+        </zulu-card>
+    </div>
+</div>
+<zulu-card class="w-100">
+    <div class="d-flex align-items-center">
+        <div>The following import code will provide you with some helpful actions in Streamer.bot to familiarize you with
+            the integration.</div>
+        <div class="col-1"></div>
+        <zulu-button (buttonClick)="toggleImportCode()">{{ showImportCode ? 'Hide' : 'Show' }} Import Code</zulu-button>
+        <zulu-button (buttonClick)="copyImportCode()">Copy Import Code</zulu-button>
+        <small *ngIf="importCodeCopied">Copied</small>
+    </div>
+    <p *ngIf="showImportCode" class="import-code-text">{{ importCode }}</p>
+</zulu-card>

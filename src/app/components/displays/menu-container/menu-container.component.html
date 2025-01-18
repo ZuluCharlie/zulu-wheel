@@ -1,0 +1,78 @@
+<ng-container>
+    <mat-drawer-container autosize>
+        <ng-content></ng-content>
+        <mat-drawer [opened]="isMenuOpen" #drawer mode="over" (openedChange)="toggled.emit($event)" zuluMainStyle>
+            <div class="d-flex flex-column justify-content-between align-items-start h-100">
+                <ul class="nav flex-column w-100">
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/giveaway']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Giveaway
+                            View</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/giveaway-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Manage
+                            Giveaways</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/static']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Static
+                            Wheels</a>
+                    </li>
+                    <hr />
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/wheel-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Wheel
+                            Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/item-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Wedge
+                            Color
+                            Settings</a>
+                    </li>
+                    <hr />
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/countdown-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Countdown
+                            Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/winner-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Winner
+                            Settings</a>
+                    </li>
+                    <hr />
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/twitch-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Twitch
+                            Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/streamerbot-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false"
+                            zuluAnimatedUnderline>Streamer.bot
+                            Settings</a>
+                    </li>
+                    <hr />
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/visual-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Visual
+                            Settings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/audio-settings']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>Audio
+                            Settings</a>
+                    </li>
+                </ul>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link btn" (click)="onReload()" zuluMainStyle [background]="false"
+                            zuluAnimatedUnderline>Reload</a>
+                    </li>
+                </ul>
+            </div>
+        </mat-drawer>
+    </mat-drawer-container>
+</ng-container>

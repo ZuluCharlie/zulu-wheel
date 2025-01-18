@@ -1,0 +1,6 @@
+<div class="form-group d-flex flex-column justify-content-center">
+    <label *ngIf="label" zuluMainStyle>{{label}}</label>
+    <input [type]="type" [(ngModel)]="model" class="form-control" [placeholder]="placeholder"
+        (ngModelChange)="onInputChange($event)" zuluInputStyle cursor="text">
+    <small *ngIf="small" class="form-text text-muted">{{small}}</small>
+</div>

@@ -1,0 +1,42 @@
+<div class="container d-flex flex-wrap">
+    <div class="col-6 d-flex flex-column">
+        <div class="header">
+            <div class="d-flex justify-content-between">
+                <zulu-select *ngIf="allWheels.length > 0" [options]="allWheels" [model]="currentWheelIndex"
+                    (inputChange)="onSelect($event)" />
+                <div class="d-flex">
+                    <zulu-button (buttonClick)="onAddWheel()">Add New Wheel</zulu-button>
+                    <zulu-button (buttonClick)="toggleEdit()">
+                        {{ isEditingWheel ? 'Finish Edit' : 'Edit Wheel'}}
+                    </zulu-button>
+                    <zulu-button (buttonClick)="onDeleteWheel()">Delete Wheel</zulu-button>
+                    <zulu-button (buttonClick)="toggleHotSeat()">{{ isHotSeatOpen ? 'Close' : 'Open' }} Hot Seat</zulu-button>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="currentWheel" class="d-flex items-container w-100">
+            <app-static-wheel-items [items]="currentWheel.items" [currentWheelIndex]="currentWheelIndex!"
+                [wheelFont]="currentWheel.itemFont" (editItem)="onEditWheelItem($event)"
+                (deleteItem)="onDeleteWheelItem($event)" class="flex-grow-1 h-100" />
+            <app-static-wheel-settings *ngIf="isEditingWheel" [staticWheel]="currentWheel"
+                [staticWheelIndex]="currentWheelIndex!" class="col-5 h-100"
+                (showPointerChange)="onShowPointer($event)" />
+            <app-static-wheel-item-settings *ngIf="!isEditingWheel && this.currentEditingItemIndex !== null"
+                [staticWheelItem]="currentEditingItem!" [staticWheelIndex]="currentWheelIndex"
+                [staticWheelItemIndex]="currentEditingItemIndex" (finish)="onFinishEditWheelItem()"
+                class="col-5 h-100" />
+            <zulu-card *ngIf="!isEditingWheel && this.currentEditingItemIndex === null && isHotSeatOpen"
+                class="col-5" className="h-100">
+                <div class="d-flex flex-column h-100">
+                    <zulu-input label="Chatters (Separate with comma)" (inputChange)="onHotSeatChattersChange($event)" />
+                    <app-twitch-messages [chatterUserNames]="hotSeatChatters" />
+                </div>
+            </zulu-card>
+        </div>
+    </div>
+    <div class="col-6">
+        <app-wheel-main [items]="wheelItems" [staticWheelSettings]="wheelSettings" [runCountdown]="false"
+            (winnerRevealed)="onWinnerDeclared($event)" [showPointer]="showPointer" [staticWheelTickOverride]="wheelTick"
+            [fontOverride]="currentWheel?.itemFont" />
+    </div>
+</div>

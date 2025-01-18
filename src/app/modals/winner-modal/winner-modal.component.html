@@ -1,0 +1,6 @@
+<zulu-modal-base [header]="winner" [saveText]="lapsed ? 'Remove ' + winner : 'Confirm'"
+    [disabled]="runTimer && !confirmed && !lapsed" cancelText="Re-Roll" (saved)="confirmWinner()">
+    <app-winner-display [winner]="winner" [entryCount]="entryCount" [runTimer]="runTimer" [imgSrc]="imgSrc"
+        [winnerMessageOverride]="winnerMessageOverride" [winnerSoundOverride]="winnerSoundOverride"
+        (confirmed)="onConfirmed()" (confirmLapsed)="onLapsed()" />
+</zulu-modal-base>

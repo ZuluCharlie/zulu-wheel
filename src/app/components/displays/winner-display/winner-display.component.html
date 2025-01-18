@@ -1,0 +1,21 @@
+<div *ngIf="settings" class="d-flex flex-column justify-content-center align-items-center h-100" zuluMainStyle
+    [background]="false">
+    <div class="d-flex flex-grow-1 w-100">
+        <zulu-image [imagePath]="!imgSrc ? settings.winnerImagePath : imgSrc" class="winner-image flex-grow-1" />
+        <div class="winner-message-container mt-2">
+            <app-twitch-messages class="winner-message" *ngIf="settings.showWinnerMessages" [chatterUserNames]="[winner]" />
+            <app-twitch-messages class="winner-message" *ngIf="twitchFeatureChatters.length > 0" [chatterUserNames]="twitchFeatureChatters" />
+        </div>
+    </div>
+    <div *ngIf="!isLapsed">{{winnerMessageDisplay}}</div>
+    <div *ngIf="runTimer" class="w-100">
+        <div *ngIf="isLapsed">{{settings.winnerRequireConfirmationLapsedMessage}}</div>
+        <div *ngIf="!isConfirmed && !isLapsed">{{settings.winnerRequireConfirmationMessage}}</div>
+        <div *ngIf="!isConfirmed && !isLapsed" class="progress" role="progressbar" zuluMainStyle>
+            <div class="progress-bar-striped progress-bar-animated" zuluButtonStyle
+                [ngStyle]="{ 'width': percentRemaining + '%' }"></div>
+        </div>
+    </div>
+</div>
+<zulu-timer *ngIf="timerStarted" [time]="settings.winnerRequireConfirmationTimer * 1000" (ticked)="onTick($event)"
+    (lapsed)="onLapsed()" />

@@ -1,0 +1,31 @@
+.header {
+    height: 10%;
+}
+
+.container {
+    height: 90%;
+    max-width: 100%;
+    padding: 0;
+    --bs-gutter-x: 0;
+}
+
+.mat-mdc-card-footer {
+    padding: 0 16px 16px;
+}
+
+.wheel-control {
+    width: 100%;
+    margin: 2px;
+}
+
+textarea {
+    text-overflow: ellipsis;
+    text-wrap: nowrap;
+    overflow-x: hidden;
+    resize: none;
+}
+
+.list-container {
+    position: absolute;
+    overflow-y: auto;
+}

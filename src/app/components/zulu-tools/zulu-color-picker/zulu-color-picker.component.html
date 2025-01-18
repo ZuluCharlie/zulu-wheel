@@ -1,0 +1,8 @@
+<div class="d-flex flex-column justify-content-start align-items-center color-picker-container">
+    <div class="color-picker-label" zuluMainStyle>
+        {{label}}
+    </div>
+    <span #colorPicker [style.background]="model" [cpToggle]="true" cpDialogDisplay='inline' [cpCancelButton]="true"
+        cpAlphaChannel="always" cpOutputFormat="hex" [cpEyeDropper]="true" [(colorPicker)]="model"
+        (colorPickerChange)="onColorChange($event)"></span>
+</div>

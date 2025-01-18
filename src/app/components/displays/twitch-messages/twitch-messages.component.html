@@ -1,0 +1,7 @@
+<div zuluMainStyle class="message-container d-flex flex-column">
+    <zulu-button *ngIf="!isConnected" (buttonClick)="connectToTwitch()" icon="twitch" backgroundOverride="#6441a5"
+        textOverride="#ffffff">
+        Connect to Twitch
+    </zulu-button>
+    <zulu-twitch-message *ngFor="let message of allMessages" [message]="message"></zulu-twitch-message>
+</div>

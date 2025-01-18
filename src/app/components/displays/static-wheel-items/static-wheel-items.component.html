@@ -1,0 +1,25 @@
+<zulu-card header="Items" className="h-100">
+    <zulu-button (buttonClick)="addWheelItem()">Add Item</zulu-button>
+    <div cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="onReorderItems($event)">
+        <div *ngFor="let item of items; let i = index" class="d-flex mb-1" cdkDrag>
+            <div class="d-flex reorder-column h-100 justify-content-center align-items-center" cdkDragHandle
+                mat-mini-fab>
+                <mat-icon>reorder</mat-icon>
+            </div>
+            <div class="flex-grow-1 align-content-center p-2" [ngStyle]="{
+                'background-color': item.backgroundColor,
+                'color': item.labelColor,
+                'font-family': wheelFont
+                }">{{item.label}}</div>
+            <zulu-button (buttonClick)="editItem.emit(i)">Edit</zulu-button>
+            <zulu-button (buttonClick)="deleteItem.emit(i)">Delete</zulu-button>
+            <div *cdkDragPreview class="d-flex">
+                <div class="flex-grow-1 align-content-center p-2" [ngStyle]="{
+                'background-color': item.backgroundColor,
+                'color': item.labelColor,
+                'font-family': wheelFont
+                }">{{item.label}}</div>
+            </div>
+        </div>
+    </div>
+</zulu-card>

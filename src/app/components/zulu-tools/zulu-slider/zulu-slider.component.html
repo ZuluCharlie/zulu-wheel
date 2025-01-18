@@ -1,0 +1,6 @@
+<label class="form-label">{{label}}</label>
+<input #slider [(ngModel)]="model" type="range" class="zulu-range" [class]="className" [min]="min" [max]="max"
+    [step]="step" (ngModelChange)="inputChange.emit($event)" zuluInputStyle />
+<div #stepsCanvasContainer *ngIf="showSteps" class="d-flex slider-steps">
+    <canvas #stepsCanvas></canvas>
+</div>

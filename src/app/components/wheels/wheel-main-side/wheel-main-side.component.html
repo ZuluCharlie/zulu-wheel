@@ -1,0 +1,13 @@
+<div [ngClass]="isSpinning ? 'spinning' : ''" class="container">
+    <div class="d-flex flex-column align-content-center h-100">
+        <div class="d-flex col-12 justify-content-center align-content-center name-button-section">
+            <zulu-button *ngIf="settings && !isSpinning" [disabled]="items.length === 0" className="btn-lg"
+                (buttonClick)="initiateSpin()">
+                Spin! ({{items.length}} Entries)
+            </zulu-button>
+        </div>
+        <div #canvasContainer class="w-100 h-100 backdrop">
+            <canvas #canvas class="d-block"></canvas>
+        </div>
+    </div>
+</div>

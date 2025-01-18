@@ -1,0 +1,11 @@
+<div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
+    <h2>{{ giveaway.name }}</h2>
+    <zulu-image *ngIf="giveaway.imagePath" [imagePath]="giveaway.imagePath" class="giveaway-image" />
+    <h4 *ngIf="giveaway.providedBy" class="description-header">Provided by <strong>{{ giveaway.providedBy
+            }}</strong></h4>
+    <div *ngIf="giveaway.description" class="description-body position-relative w-100 mb-2">
+        <p class="h-100 position-absolute">{{ giveaway.description }}</p>
+    </div>
+    <zulu-button class="description-footer" *ngIf="giveaway.learnMoreUrl" (buttonClick)="onLearnMore()"
+        target="_blank">Learn More</zulu-button>
+</div>

@@ -1,0 +1,8 @@
+button {
+    border: 2px solid;
+    margin: 2px;
+
+    &:disabled {
+        cursor: default;
+    }
+}

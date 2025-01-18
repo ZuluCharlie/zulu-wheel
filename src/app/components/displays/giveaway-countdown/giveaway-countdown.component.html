@@ -1,0 +1,12 @@
+<div *ngIf="settings" class="d-flex flex-column justify-content-center align-items-center h-100 w-100" zuluMainStyle [background]="false">
+    <div *ngIf="settings.countdownMessage" class="countdown-message">{{settings.countdownMessage}}</div>
+    <div *ngIf="settings.countdownShowTimer" class="flex-grow-1 countdown-timer">
+        {{timeRemaining}}</div>
+    <div *ngIf="settings.countdownShowTimerBar" class="progress w-100" role="progressbar" zuluMainStyle>
+        <div class="progress-bar-striped progress-bar-animated" zuluButtonStyle
+            [ngStyle]="{ 'width': percentRemaining + '%' }"></div>
+    </div>
+
+    <zulu-timer *ngIf="timerStarted" [time]="settings.countdownTimer * 1000" (ticked)="onTick($event)"
+        (lapsed)="onLapsed()" />
+</div>

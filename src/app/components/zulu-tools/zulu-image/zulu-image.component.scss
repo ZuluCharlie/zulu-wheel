@@ -1,0 +1,13 @@
+.image-container {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+}
+
+.img-item {
+    position: absolute;
+    max-height: 100%;
+    max-width: 100%;
+}

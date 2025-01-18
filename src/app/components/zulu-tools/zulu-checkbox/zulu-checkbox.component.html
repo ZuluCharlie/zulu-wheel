@@ -1,0 +1,6 @@
+<div class="zulu-check d-flex align-items-center">
+    <input zuluInputStyle class="zulu-check-input me-2" type="checkbox" [class]="className" [(ngModel)]="checked" (ngModelChange)="onChange($event)">
+    <label class="zulu-check-label" (click)="onChange(!checked)">
+        {{ label }}
+    </label>
+</div>

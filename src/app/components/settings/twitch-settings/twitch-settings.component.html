@@ -1,0 +1,22 @@
+<h2 zuluMainStyle [background]="false">Twitch Settings</h2>
+<zulu-card>
+    <div *ngIf="authToken" class="d-flex align-content-center">
+        <div class="align-content-center">Connected to Twitch ({{ twitchUsername | async }})&nbsp;</div>
+        <zulu-button *ngIf="authToken" (buttonClick)="reAuth()">
+            Not you?
+        </zulu-button>
+    </div>
+    <zulu-button *ngIf="!authToken" (buttonClick)="connectToTwitch()" icon="twitch" backgroundOverride="#6441a5"
+        textOverride="#ffffff">
+        Connect to Twitch
+    </zulu-button>
+</zulu-card>
+<zulu-card>
+    <zulu-checkbox label="Use Twitch User Colors on Wheel" [checked]="twitchSettings.useTwitchUserColors" (changed)="onSettingChanged('useTwitchUserColors', $event)" />
+    <zulu-checkbox label="Show Twitch Profile Images on Wheel" [checked]="twitchSettings.showTwitchProfileImages" (changed)="onSettingChanged('showTwitchProfileImages', $event)" />
+</zulu-card>
+<zulu-card header="Commands">
+    <zulu-input label="Enter" [model]="twitchSettings.twitchEnterCommand" setting="twitchEnterCommand" (inputChange)="onSettingChanged('twitchEnterCommand', $event)" />
+    <br />
+    <zulu-input label="Remove" [model]="twitchSettings.twitchRemoveCommand" setting="twitchRemoveCommand" (inputChange)="onSettingChanged('twitchRemoveCommand', $event)" />
+</zulu-card>

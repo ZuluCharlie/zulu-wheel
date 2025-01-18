@@ -1,0 +1,18 @@
+.container {
+    height: 100%;
+    max-width: 100%;
+}
+
+.header {
+    max-width: 100%;
+}
+
+.giveaway-container {
+    flex-grow: 1;
+    margin-bottom: 38px;
+}
+
+.twitch-command {
+    font-size: 1.25em;
+    text-wrap: nowrap;
+}

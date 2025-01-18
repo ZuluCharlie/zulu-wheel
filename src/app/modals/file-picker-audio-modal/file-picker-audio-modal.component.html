@@ -1,0 +1,36 @@
+<zulu-modal-base [header]="data.folderName" (saved)="onSubmit()" [disabled]="!currentPicked && !nullSelected">
+    <input hidden (change)="onFileUpload($event)" #fileInput type="file" accept=".mp3, .wav, .ogg" />
+    <div class="d-flex list-group list-group-horizontal flex-wrap align-items-center">
+        <div class="d-flex flex-column align-items-center list-group-item col-3">
+            <zulu-button (buttonClick)="fileInput.click()">
+                <div class="d-flex flex-column align-items-center">
+                    <mat-icon>upload</mat-icon>
+                    <div class="upload-text">Upload New</div>
+                </div>
+            </zulu-button>
+        </div>
+        <a class="list-group-item col-3" [ngClass]="nullSelected ? 'active' : ''" (click)="onNullSelected()"
+            (dblclick)="onNullSelectedDbl()">
+            <div class="d-flex flex-column align-items-center">
+                <mat-icon [ngStyle]="{ color: styleSettings.globalFontColor}">close</mat-icon>
+                <div zuluMainStyle class="fileNameText">None</div>
+            </div>
+        </a>
+        <a *ngFor="let file of files" class="list-group-item col-3"
+            [ngClass]="data.folderPath +'/' + file === currentPicked ? 'active' : ''" (click)="onFileSelected(file)"
+            (dblclick)="onFileSelectedDbl(file)">
+            <div class="d-flex flex-column align-items-center">
+                <mat-icon [ngStyle]="{ color: styleSettings.globalFontColor}" svgIcon="audio">audio</mat-icon>
+                <div zuluMainStyle [background]="false" class="fileNameText">{{file}}</div>
+            </div>
+        </a>
+    </div>
+    <div class="d-flex align-items-center">
+        <hr class="flex-grow-1" />
+        <span>&nbsp;&nbsp;OR&nbsp;&nbsp;</span>
+        <hr class="flex-grow-1" />
+    </div>
+    <div class="d-flex align-items-center w-100">
+        <zulu-input label="Image URL" [model]="fileUrl" (inputChange)="onUrlChange($event)" class="w-100" />
+    </div>
+</zulu-modal-base>

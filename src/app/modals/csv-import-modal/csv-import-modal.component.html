@@ -1,0 +1,19 @@
+<zulu-modal-base header="CSV Import" (saved)="onSubmit()" [disabled]="!results">
+    <input hidden (change)="onFileUpload($event)" #fileInput type="file" accept=".csv" />
+    <br />
+    <zulu-button (buttonClick)="downloadImportCsvTemplate()">
+        Download CSV Template
+    </zulu-button>
+    <small>To import giveaway information, you will need the data in a CSV (Comma Separated Value) format.
+        You can find the template by clicking on the button above and edit the file using a spreadsheet
+        editing software such as Microsoft Excel or Google Sheets. DO NOT remove the header or change the order of the
+        columns</small>
+    <br /><br />
+    <zulu-button (buttonClick)="fileInput.click()">
+        Select File To Import
+    </zulu-button>
+    <small>Please keep in mind that if you have giveaways currently active, they will be overwritten with the import. Be
+        sure to export your current data before running a new import.</small>
+    <br /><br />
+    <div *ngIf="results">{{results.length}} records will be imported</div>
+</zulu-modal-base>

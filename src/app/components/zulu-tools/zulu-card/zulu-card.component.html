@@ -1,0 +1,10 @@
+<ng-container>
+    <div class="card" [class]="className" zuluMainStyle [border]="true">
+        <div *ngIf="header" class="card-header" zuluMainStyle [background]="false" [border]="true">
+            {{header}}
+        </div>
+        <div class="card-body" [ngClass]="{ 'p-0': noPadding }">
+            <ng-content></ng-content>
+        </div>
+    </div>
+</ng-container>

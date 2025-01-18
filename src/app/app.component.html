@@ -1,0 +1,15 @@
+<menu-container [isMenuOpen]="isMenuOpen" (toggled)="onMenuToggle($event)">
+    <div *ngIf="!wheelSettingsLoading && !fontLoading" class="main-background"
+        [style.background-image]="'url(\'' + wheelSettings.wheelBackgroundImagePath + '\')'">
+        <mat-toolbar class="header">
+            <button mat-icon-button class="example-icon" (click)="isMenuOpen = !isMenuOpen">
+                <mat-icon [ngStyle]="{ 'color': styleSettings.globalFontColor }">menu</mat-icon>
+            </button>
+            <span [ngStyle]="{ 'color': styleSettings.globalFontColor, 'font-family': styleSettings.globalFont}">{{
+                styleSettings.wheelName }}</span>
+        </mat-toolbar>
+        <div class="container">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</menu-container>

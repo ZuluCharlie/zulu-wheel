@@ -1,0 +1,43 @@
+<zulu-card *ngIf="staticWheelItem && !showImageSettings && !showWinnerSettings" [header]="staticWheelItem.label"
+    className="h-100">
+    <zulu-input [model]="staticWheelItem.label" label="Label" (inputChange)="onSettingChange($event, 'label')" />
+    <zulu-input-number [model]="staticWheelItem.itemWeight" label="Item Weight"
+        (inputChange)="onSettingChange($event, 'itemWeight')" />
+    <br />
+    <zulu-button [backgroundOverride]="staticWheelItem.backgroundColor" [textOverride]="staticWheelItem.labelColor"
+        (click)="openColorPickerModal()">Edit Wedge Color</zulu-button>
+    <br />
+    <zulu-button (buttonClick)="onShowImageSettings()">Image Settings</zulu-button>
+    <zulu-button (buttonClick)="onShowWinnerSettings()">Winner Settings</zulu-button>
+    <br />
+    <zulu-button (buttonClick)="finish.emit()">Finish Editing</zulu-button>
+</zulu-card>
+<zulu-card *ngIf="staticWheelItem && showImageSettings" [header]="staticWheelItem.label">
+    <zulu-button (buttonClick)="onShowMainSettings()">Back</zulu-button>
+    <zulu-button (buttonClick)="onOpenFilePickerOverlay()">
+        Select Image
+    </zulu-button>
+    <zulu-slider label="Image Position" [model]="staticWheelItem.imageRadius" [min]="0" [max]="1" [step]="0.05"
+        (inputChange)="onSettingChange($event, 'imageRadius')" />
+    <zulu-slider label="Image Rotation" [model]="staticWheelItem.imageRotation" [min]="0" [max]="360" [step]="15"
+        (inputChange)="onSettingChange($event, 'imageRotation')" />
+    <zulu-slider label="Image Opacity" [model]="staticWheelItem.imageOpacity" [min]="0" [max]="1" [step]="0.05"
+        (inputChange)="onSettingChange($event, 'imageOpacity')" />
+    <zulu-slider label="Image Scale" [model]="staticWheelItem.imageScale" [min]="0" [max]="1" [step]="0.05"
+        (inputChange)="onSettingChange($event, 'imageScale')" />
+    <br />
+    <zulu-button (buttonClick)="finish.emit()">Finish Editing</zulu-button>
+</zulu-card>
+<zulu-card *ngIf="staticWheelItem && showWinnerSettings" [header]="staticWheelItem.label">
+    <zulu-button (buttonClick)="onShowMainSettings()">Back</zulu-button>
+    <br />
+    <zulu-input [model]="staticWheelItem.itemWinningMessage" label="Winning Message"
+        (inputChange)="onSettingChange($event, 'itemWinningMessage')" />
+    <br />
+    <zulu-audio [model]="staticWheelItemAudio" label="Winning Sound"
+        (fileChanged)="onSettingChange($event, 'itemWinningSound')"
+        (volumeChanged)="onSettingChange($event, 'itemWinningSoundVolume')"
+        (muteChanged)="onSettingChange($event, 'itemWinningSoundMute')" />
+    <br />
+    <zulu-button (buttonClick)="finish.emit()">Finish Editing</zulu-button>
+</zulu-card>

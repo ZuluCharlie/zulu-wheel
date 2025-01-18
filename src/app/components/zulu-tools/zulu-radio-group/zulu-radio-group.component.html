@@ -1,0 +1,6 @@
+<div *ngFor="let option of options" class="form-check" [ngClass]="inline ? 'form-check-inline' : ''">
+    <input class="form-check-input" type="radio" [name]="formName" [value]="option.value"
+        [checked]="option.value === model" (click)="onChange(option.value)" zuluInputStyle cursor="pointer"
+        [ngStyle]="{ 'background-image': option.value === model ? checkedImageUrl : 'none' }">
+    <label class="form-check-label" [for]="formName" (click)="onChange(option.value)">{{ option.label }}</label>
+</div>

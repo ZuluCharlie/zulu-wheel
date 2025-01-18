@@ -1,0 +1,52 @@
+{
+  "name": "zulu-wheel",
+  "version": "0.0.0",
+  "main": "app.js",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng build --base-href ./ && electron .",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "startprod": "ng build --base-href ./ --configuration production && electron ."
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^18.2.0",
+    "@angular/cdk": "^18.2.8",
+    "@angular/common": "^18.2.0",
+    "@angular/compiler": "^18.2.0",
+    "@angular/core": "^18.2.0",
+    "@angular/forms": "^18.2.0",
+    "@angular/material": "^18.2.8",
+    "@angular/platform-browser": "^18.2.0",
+    "@angular/platform-browser-dynamic": "^18.2.0",
+    "@angular/router": "^18.2.0",
+    "@electron/remote": "^2.1.2",
+    "@simonwep/pickr": "^1.9.1",
+    "@streamerbot/client": "^1.9.5",
+    "bootstrap": "^5.3.3",
+    "csv-parser": "^3.0.0",
+    "easing-utils": "^1.0.0",
+    "electron-settings": "^4.0.4",
+    "electron-store": "^10.0.0",
+    "export-to-csv": "^1.4.0",
+    "neat-csv": "^7.0.0",
+    "ngx-color-picker": "^17.0.0",
+    "ngx-font-picker": "^17.0.0",
+    "rxjs": "~7.8.0",
+    "spin-wheel-ts": "^1.0.0-alpha.7",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.10"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^18.2.7",
+    "@angular/cli": "^18.2.7",
+    "@angular/compiler-cli": "^18.2.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/node": "^22.8.1",
+    "electron": "^33.2.1",
+    "jasmine-core": "~5.2.0",
+    "typescript": "~5.5.2"
+  }
+}

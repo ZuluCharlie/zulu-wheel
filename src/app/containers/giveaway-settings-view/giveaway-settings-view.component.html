@@ -1,0 +1,24 @@
+<div *ngIf="allGiveaways" class="container d-flex">
+    <div *ngIf="!currentGiveaway" class="col-12">
+        <giveaway-list [giveaways]="allGiveaways" (selected)="onSelectGiveaway($event)" (reordered)="onReorderedGiveaways($event)" (deleted)="onDeletedGiveaways($event)" />
+    </div>
+    <div *ngIf="currentGiveaway" class="col-4">
+        <h2 zuluMainStyle [background]="false">Giveaway Settings</h2>
+        <zulu-card>
+            <div class="d-flex flex-column">
+                <div class="d-flex">
+                    <zulu-button (buttonClick)="onSelectGiveaway(null)">Back</zulu-button>
+                    <zulu-select class="flex-grow-1 d-flex align-items-center" [options]="giveawayListItems" [model]="this.currentGiveawayIndex"
+                        (inputChange)="onSelectGiveaway($event)" />
+                </div>
+                <giveaway-settings [giveaway]="currentGiveaway" [index]="currentGiveawayIndex!" (giveawayChanged)="onGiveawayUpdated($event)" />
+            </div>
+        </zulu-card>
+    </div>
+    <div *ngIf="currentGiveaway" class="col-2"></div>
+    <div *ngIf="currentGiveaway" class="col-6 d-flex flex-column h-100">
+        <zulu-card class="giveaway-display-card" className="h-100">
+            <giveaway-details [giveaway]="currentGiveaway" />
+        </zulu-card>
+    </div>
+</div>

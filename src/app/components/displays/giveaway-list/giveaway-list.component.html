@@ -1,0 +1,52 @@
+<zulu-card cdkDropList [cdkDropListData]="giveaways" (cdkDropListDropped)="onReorderGiveaways($event)"
+    class="d-flex flex-container giveaways-list-container" className="h-100 w-100">
+    <div class="d-flex giveaways-list-actions justify-content-end">
+        <zulu-button icon="add" (buttonClick)="onAddGiveaway()">New Giveaway</zulu-button>
+        <zulu-button icon="upload" (buttonClick)="onImportGiveaway()">Import</zulu-button>
+        <zulu-button icon="download" (buttonClick)="onExportGiveaways()">Export</zulu-button>
+        <zulu-button icon="delete_forever" (buttonClick)="onClear()">Delete All</zulu-button>
+    </div>
+    <div class="d-flex giveaways-list flex-column">
+        <div class="d-flex giveaways-list-header align-items-end" [ngStyle]="headerStyle">
+            <div class="reorder-column"></div>
+            <div class="reorder-column"></div>
+            <div class="col-4">Giveaway Name</div>
+            <div class="col-2">Provided By</div>
+            <div class="col-4">Winner(s)</div>
+            <div class="flex-grow-1">
+                &nbsp;
+            </div>
+        </div>
+        <hr />
+        <div class="giveaways-list-body position-relative" #giveawayListBody>
+            <div class="position-absolute w-100">
+                <div *ngFor="let giveaway of giveaways; let i = index" cdkDrag>
+                    <div class="d-flex align-items-center">
+                        <div class="reorder-column h-100 justify-content-center align-items-center" cdkDragHandle
+                            mat-mini-fab>
+                            <mat-icon>reorder</mat-icon>
+                        </div>
+                        <div class="reorder-column">{{ i + 1 }}</div>
+                        <div class="col-4 h-100 justify-content-start align-items-center ellipsis">
+                            {{ giveaway.name }}
+                        </div>
+                        <div class="col-2 h-100 justify-content-start align-items-center ellipsis">
+                            {{ giveaway.providedBy }}
+                        </div>
+                        <div class="col-4 h-100 justify-content-start align-items-center ellipsis">
+                            {{ giveaway.winners.join(', ') }}
+                        </div>
+                        <div class="flex-grow-1 edit-column h-100 d-flex justify-content-start align-items-center">
+                            <zulu-button (buttonClick)="selected.emit(i)">Edit</zulu-button>
+                            <zulu-button (buttonClick)="deleted.emit(i)" [isSecondary]="true">Delete</zulu-button>
+                        </div>
+                        <div *cdkDragPreview zuluMainStyle>
+                            {{ i + 1 }} - {{ giveaway.name }}
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+            </div>
+        </div>
+    </div>
+</zulu-card>

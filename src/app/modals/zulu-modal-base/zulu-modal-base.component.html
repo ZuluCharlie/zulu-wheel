@@ -1,0 +1,16 @@
+<div zuluMainStyle>
+    <h2 zuluMainStyle class="dialog-head" mat-dialog-title>
+        {{header}}
+    </h2>
+    <mat-dialog-content class="dialog-body" zuluMainStyle>
+        <ng-content></ng-content>
+    </mat-dialog-content>
+    <mat-dialog-actions class="dialog-foot" zuluMainStyle>
+        <zulu-button [mat-dialog-close]="undefined" [isSecondary]="true">
+            {{!cancelText ? 'Cancel' : cancelText }}
+        </zulu-button>
+        <zulu-button [disabled]="disabled" (buttonClick)="onSaved()">
+            {{!saveText ? 'Save' : saveText }}
+        </zulu-button>
+    </mat-dialog-actions>
+</div>

@@ -1,0 +1,13 @@
+<div class="form-group d-flex flex-column justify-content-center">
+    <label *ngIf="label" >{{label}}</label>
+    <input type="number"
+        [(ngModel)]="model"
+        class="form-control"
+        [placeholder]="placeholder"
+        [min]="min"
+        [max]="max"
+        [step]="step"
+        (ngModelChange)="onInputChange($event)"
+        zuluInputStyle cursor="text"/>
+    <small *ngIf="small" class="form-text text-muted">{{small}}</small>
+</div>

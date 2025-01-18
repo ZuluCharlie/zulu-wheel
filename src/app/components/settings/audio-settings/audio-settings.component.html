@@ -1,0 +1,43 @@
+<h2 zuluMainStyle [background]="false">Audio Settings</h2>
+<div class="d-flex">
+    <div class="col-6">
+        <zulu-card *ngIf="settings" header="Wheel Tick">
+            <zulu-audio [model]="settings.wheelTick" setting="Wheel Tick"
+                (fileChanged)="onFileChanged($event, settings.wheelTick, 'wheelTick')"
+                (volumeChanged)="onVolumeChanged($event, settings.wheelTick, 'wheelTick')"
+                (muteChanged)="onMuteChanged($event, settings.wheelTick, 'wheelTick')" />
+        </zulu-card>
+        <zulu-card *ngIf="settings" header="Countdown Running">
+            <zulu-audio [model]="settings.countdownRunning" setting="Countdown Running"
+                (fileChanged)="onFileChanged($event, settings.countdownRunning, 'countdownRunning')"
+                (volumeChanged)="onVolumeChanged($event, settings.countdownRunning, 'countdownRunning')"
+                (muteChanged)="onMuteChanged($event, settings.countdownRunning, 'countdownRunning')" />
+        </zulu-card>
+        <zulu-card *ngIf="settings" header="Giveaway Running">
+            <zulu-audio [model]="settings.giveawayRunning" setting="Giveaway Running"
+                (fileChanged)="onFileChanged($event, settings.giveawayRunning, 'giveawayRunning')"
+                (volumeChanged)="onVolumeChanged($event, settings.giveawayRunning, 'giveawayRunning')"
+                (muteChanged)="onMuteChanged($event, settings.giveawayRunning, 'giveawayRunning')" />
+        </zulu-card>
+    </div>
+    <div class="col-6">
+        <zulu-card *ngIf="settings" header="Winner Announced">
+            <zulu-audio [model]="settings.winnerAnnounced" setting="Winner Announced"
+                (fileChanged)="onFileChanged($event, settings.winnerAnnounced, 'winnerAnnounced')"
+                (volumeChanged)="onVolumeChanged($event, settings.winnerAnnounced, 'winnerAnnounced')"
+                (muteChanged)="onMuteChanged($event, settings.winnerAnnounced, 'winnerAnnounced')" />
+        </zulu-card>
+        <zulu-card *ngIf="settings" header="Winner Confirmed">
+            <zulu-audio [model]="settings.winnerConfirmed" setting="Winner Confirmed"
+                (fileChanged)="onFileChanged($event, settings.winnerConfirmed, 'winnerConfirmed')"
+                (volumeChanged)="onVolumeChanged($event, settings.winnerConfirmed, 'winnerConfirmed')"
+                (muteChanged)="onMuteChanged($event, settings.winnerConfirmed, 'winnerConfirmed')" />
+        </zulu-card>
+        <zulu-card *ngIf="settings" header="Winner Lapsed">
+            <zulu-audio [model]="settings.winnerLapsed" setting="Winner Lapsed"
+                (fileChanged)="onFileChanged($event, settings.winnerLapsed, 'winnerLapsed')"
+                (volumeChanged)="onVolumeChanged($event, settings.winnerLapsed, 'winnerLapsed')"
+                (muteChanged)="onMuteChanged($event, settings.winnerLapsed, 'winnerLapsed')" />
+        </zulu-card>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<div [title]="tooltip ?? ''">
+    <button class="btn d-flex align-items-center" [disabled]="disabled" [class]="className" (click)="buttonClick.emit()"
+        zuluButtonStyle [isSecondary]="isSecondary" [backgroundOverride]="backgroundOverride"
+        [textOverride]="textOverride" [fontOverride]="fontOverride">
+        <mat-icon *ngIf="icon" [svgIcon]="icon" [color]="fontColor" [ngStyle]="{ 'color': fontColor }"
+            class="d-flex align-items-center h-100">{{icon}}</mat-icon>
+        <ng-content></ng-content>
+    </button>
+</div>

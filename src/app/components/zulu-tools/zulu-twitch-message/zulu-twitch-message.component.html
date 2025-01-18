@@ -1,0 +1,9 @@
+<div class="mb-2" *ngIf="message.message.fragments?.length === 0" zuluMainStyle>[{{ message.chatter_user_name }}]: {{ message.message.text }}</div>
+<div class="d-flex flex-wrap mb-2">
+    <div class="me-2">[{{ message.chatter_user_name }}]:</div>
+    <div *ngFor="let fragment of message.message.fragments" class="d-flex align-items-center">
+        <div *ngIf="fragment.type === 'text'" class="fragment-text">{{ fragment.text }}</div>
+        <div *ngIf="fragment.type === 'emote'"><img [src]="fragment.emote.id | twitchEmote" /></div>
+        <div *ngIf="fragment.type === 'mention'" class="fragment-text">{{ fragment.mention.user_name }}</div>
+    </div>
+</div>

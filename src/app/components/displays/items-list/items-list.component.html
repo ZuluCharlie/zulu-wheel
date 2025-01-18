@@ -1,0 +1,9 @@
+<zulu-card header="Entries" className="h-100" [noPadding]="true">
+    <zulu-textarea *ngIf="isManual" [model]="itemsStr" (inputChange)="onItemsChange($event)"
+        [disabled]="isSpinning" className="h-100 w-100" class="h-100 w-100"></zulu-textarea>
+    <div *ngIf="!isManual" zuluMainStyle [background]="false" class="h-100 w-100 position-relative">
+        <div class="h-100 w-100 list-container">
+            <div *ngFor="let item of items">{{item.label}}</div>
+        </div>
+    </div>
+</zulu-card>

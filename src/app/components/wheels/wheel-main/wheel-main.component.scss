@@ -1,0 +1,97 @@
+.container {
+    height: 100%;
+    max-width: 100%;
+    padding: 0;
+    --bs-gutter-x: 0;
+}
+
+.row {
+    height: 100%;
+}
+
+h2, h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.wheel-container {
+    height: 85%;
+    position: relative;
+}
+
+.sub-winner-container {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+}
+
+.spinning {
+    .winner-container {
+        text-align: center;
+        font-size: 100px;
+    }
+    
+    .sub-winner-container-xl {
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        font-size: 50px;
+    }
+    
+    .sub-winner-container-lg {
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        font-size: 25px;
+    }
+}
+
+.spin-container {
+    height: 100%;
+    flex-grow: 9;
+}
+
+.config-container {
+    height: 10%;
+    flex-grow: 1;
+}
+
+.side-wheel-container {
+    flex-grow: 2;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.nav-tabs {
+    height: 5%;
+    .nav-item, .nav-link {
+        height: 100%;
+        align-content: center;
+    }
+}
+
+.inner-container {
+    height: 85%;
+}
+
+.hide-wheel .wheel-container {
+    visibility: hidden;
+    height: 0;
+}
+
+.wheel-center {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.wheel-center-image {
+    aspect-ratio: 1/1;
+    z-index: 5;
+}
+
+.name-button-section {
+    height: 10%;
+    font-size: 1.75em;
+    flex-wrap: wrap;
+}

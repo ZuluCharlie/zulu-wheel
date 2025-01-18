@@ -1,0 +1,51 @@
+<h2 zuluMainStyle [background]="false">Wheel Settings</h2>
+<zulu-card header="Minimum # of Wedges">
+    <div class="col-4">
+        <zulu-input-number [model]="settings.minPies" [min]="0" setting="minPies" />
+    </div>
+</zulu-card>
+<zulu-card header="Spin Duration">
+    <div class="d-flex align-items-center">
+        <div class="col-2">
+            <zulu-input-number [model]="settings.minDuration" [min]="0" [max]="settings.maxDuration" [step]="0.1"
+                setting="minDuration" />
+        </div>
+        <div class="">&nbsp;&nbsp;to&nbsp;&nbsp;</div>
+        <div class="col-2">
+            <zulu-input-number [model]="settings.maxDuration" [min]="settings.minDuration" [step]="0.1"
+                setting="maxDuration" />
+        </div>
+        <div class="">&nbsp;&nbsp;seconds&nbsp;&nbsp;</div>
+    </div>
+    <small>Note: Spin Duration applies to all wheel display types</small>
+</zulu-card>
+<zulu-card header="Revolutions">
+    <div class="d-flex align-items-center">
+        <div class="col-2">
+            <zulu-input-number [model]="settings.minRevolutions" [min]="0" [max]="settings.maxRevolutions" [step]="1"
+                setting="minRevolutions" />
+        </div>
+        <div class="">&nbsp;&nbsp;to&nbsp;&nbsp;</div>
+        <div class="col-2">
+            <zulu-input-number [model]="settings.maxRevolutions" [min]="settings.minRevolutions" [step]="1"
+                setting="maxRevolutions" />
+        </div>
+        <div class="">&nbsp;&nbsp;spins&nbsp;&nbsp;</div>
+    </div>
+</zulu-card>
+<zulu-card header="Spin Function">
+    <div class="d-flex align-items-center">
+        <div class="col-4">
+            <zulu-select [model]="settings.easeOutFunction" [options]="spinFunctionsListItems"
+                setting="easeOutFunction" />
+        </div>
+        <div class="col-1"></div>
+        <div class="col-7">
+            <zulu-radio-group [model]="settings.isCounterClockwise" [options]="spinDirectionListItems" formName="spin-direction" setting="isCounterClockwise" />
+        </div>
+    </div>
+</zulu-card>
+<zulu-card>
+    <zulu-slider label="Idle Speed" [model]="settings.idleSpeed" [min]="0" [max]="50" [step]="0.25" setting="idleSpeed" />
+    <zulu-slider label="Pointer Angle" [model]="settings.pointerAngle" [min]="0" [max]="315" [step]="45" setting="pointerAngle" [showSteps]="true" />
+</zulu-card>

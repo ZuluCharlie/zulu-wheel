@@ -1,0 +1,25 @@
+.file-picker-image {
+    width: 100%;
+    max-width: 100%;
+}
+
+.fileNameText {
+    width: 100%;
+    font-size: x-small;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+
+.list-group-item {
+    background: none;
+    cursor: pointer;
+
+    &:not(.active) {
+        border: none;
+    }
+}
+
+.upload-text {
+    font-size: x-small;
+}

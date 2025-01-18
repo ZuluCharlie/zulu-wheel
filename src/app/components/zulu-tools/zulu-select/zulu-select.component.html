@@ -1,0 +1,10 @@
+<div class="d-flex flex-column justify-content-center">
+    <label *ngIf="label" zuluMainStyle>
+        {{label}}
+    </label>
+    <select [disabled]="disabled" class="form-select" [(ngModel)]="model" (ngModelChange)="onInputChange($event)" zuluInputStyle cursor="pointer"
+    [ngStyle]="{ 'background-image': checkedImageUrl}">
+        <option *ngFor="let option of options" [ngValue]="option.value" [disabled]="option.disabled" [title]="option.tooltip ?? ''">{{option.label}}</option>
+    </select>
+    <small *ngIf="small" zuluMainStyle>{{small}}</small>
+</div>
