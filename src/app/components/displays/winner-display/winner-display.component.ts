@@ -34,6 +34,7 @@ export class WinnerDisplayComponent implements OnInit {
   @Input() winnerMessageOverride?: string | null = null;
   @Input() winnerSoundOverride?: AudioSettingsItem | null = null;
   @Input() twitchFeatureChatters: string[] = [];
+  @Input() showHotSeat: boolean;
 
   @Output() confirmed = new EventEmitter<void>();
   @Output() confirmLapsed = new EventEmitter<void>();

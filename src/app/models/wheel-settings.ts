@@ -46,7 +46,7 @@ export const defaultWheelSettings: WheelSettings = {
     wheelOverlayImagePath: 'assets/img/overlay-images/Wheel Template.png',
     wheelCenterImagePath: 'assets/img/center-images/Z.png',
     wheelCenterImageSize: 12,
-    wheelBackgroundImagePath: 'assets/img/background-images/Cosmic Dust.jpg',
+    wheelBackgroundImagePath: 'assets/img/background-images/Zulu Background.png',
     sideWheelEntries: 10,
     wheelDisplayType: WheelDisplayTypes.Wheel,
     easeOutFunction: 'Circular',

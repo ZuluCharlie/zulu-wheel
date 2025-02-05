@@ -4,11 +4,13 @@
   "main": "app.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng build --base-href ./ && electron .",
+    "start": "electron-forge start",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "startprod": "ng build --base-href ./ --configuration production && electron ."
+    "startprod": "ng build --base-href ./ --configuration production && electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +31,7 @@
     "csv-parser": "^3.0.0",
     "easing-utils": "^1.0.0",
     "electron-settings": "^4.0.4",
+    "electron-squirrel-startup": "^1.0.1",
     "electron-store": "^10.0.0",
     "export-to-csv": "^1.4.0",
     "neat-csv": "^7.0.0",
@@ -43,10 +46,21 @@
     "@angular-devkit/build-angular": "^18.2.7",
     "@angular/cli": "^18.2.7",
     "@angular/compiler-cli": "^18.2.0",
+    "@electron-forge/cli": "^7.6.0",
+    "@electron-forge/maker-deb": "^7.6.0",
+    "@electron-forge/maker-rpm": "^7.6.0",
+    "@electron-forge/maker-squirrel": "^7.6.0",
+    "@electron-forge/maker-zip": "^7.6.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
+    "@electron-forge/plugin-fuses": "^7.6.0",
+    "@electron/fuses": "^1.8.0",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^22.8.1",
     "electron": "^33.2.1",
     "jasmine-core": "~5.2.0",
     "typescript": "~5.5.2"
-  }
+  },
+  "license": "MIT",
+  "author": "ZuluCharlie",
+  "description": "A fully customizeable spin-wheel and giveaway tool with integration to Twitch and Streamer.bot"
 }

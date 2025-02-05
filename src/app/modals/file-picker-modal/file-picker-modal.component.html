@@ -19,10 +19,10 @@
             </div>
         </a>
         <a *ngFor="let file of files" class="list-group-item col-3" [ngClass]="data.folderPath +'/' + file === currentPicked ? 'active' : ''"
-            (click)="onFileSelected(file)" (dblclick)="onFileSelectedDbl(file)">
-            <img [src]="data.folderPath +'/' + file" class="file-picker-image col-12">
+            (click)="onFileSelected(file.fullPath)" (dblclick)="onFileSelectedDbl(file.fullPath)">
+            <img [src]="file.fullPath" class="file-picker-image col-12">
             <div zuluMainStyle [background]="false"
-                class="fileNameText">{{file}}</div>
+                class="fileNameText">{{file.fileName}}</div>
         </a>
     </div>
     <div class="d-flex align-items-center">

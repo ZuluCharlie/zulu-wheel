@@ -84,8 +84,8 @@ export class FilePickerAudioModalComponent {
     this.uploadFile = event.target.files[0];
 
     this.uploadFile.arrayBuffer().then((buffer) => {
-      this.fileService.saveFile(`${this.data.folderPath}/${this.uploadFile.name}`, buffer, () => {
-        this.currentPicked = `${this.data.folderPath}/${this.uploadFile.name}`;
+      this.fileService.saveFile(`${this.data.folderPath}/${this.uploadFile.name}`, buffer, (fileName) => {
+        this.currentPicked = fileName;
         this.onSubmit();
       })
     })

@@ -11,7 +11,7 @@ export const defaultAudioSettings: AudioSettings = {
     wheelTick: { soundPath: 'assets/sounds/tick.mp3', volume: 0.75, muted: false },
     winnerAnnounced: { soundPath: 'assets/sounds/kids_cheering.mp3', volume: 0.25, muted: false },
     countdownRunning: { soundPath: '', volume: 1.0, muted: false },
-    giveawayRunning: { soundPath: '', volume: 1.0, muted: false },
+    giveawayRunning: { soundPath: 'assets/sounds/spin_music.mp3', volume: 0.1, muted: false },
     winnerConfirmed: { soundPath: '', volume: 1.0, muted: false },
     winnerLapsed: { soundPath: '', volume: 1.0, muted: false },
 }

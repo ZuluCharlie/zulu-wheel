@@ -26,7 +26,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   styleUrl: './file-picker-modal.component.scss'
 })
 export class FilePickerModalComponent {
-  files: string[];
+  files: { fullPath: string, fileName: string }[];
   settings: WheelSettings;
   styleSettings: StyleSettings = defaultStyleSettings;
   currentPicked: string;
@@ -39,18 +39,18 @@ export class FilePickerModalComponent {
   constructor(private fileService: FileService, private settingsService: SettingsService, private styleService: StyleService, private modal: MatDialogRef<FilePickerModalComponent>) {
     this.settingsService.wheelSettings$.pipe(takeUntilDestroyed()).subscribe(ws => this.settings = ws);
     this.fileService.getFilesInDirectory(this.data.folderPath, (files: string[]) =>
-      this.files = files);
+      this.files = files.map(f => ({ fullPath: f, fileName: this.extractFilename(f) })));
 
     this.styleService.styleSettings$.pipe(takeUntilDestroyed()).subscribe(ss => this.styleSettings = ss);
   }
 
   onFileSelected(file: string) {
-    this.currentPicked = `${this.data.folderPath}/${file}`;
+    this.currentPicked = file;
     this.nullSelected = false;
   }
 
   onFileSelectedDbl(file: string) {
-    this.currentPicked = `${this.data.folderPath}/${file}`;
+    this.currentPicked = file;
     this.nullSelected = false;
     this.onSubmit();
   }
@@ -81,10 +81,16 @@ export class FilePickerModalComponent {
     this.uploadFile = event.target.files[0];
 
     this.uploadFile.arrayBuffer().then((buffer) => {
-      this.fileService.saveFile(`${this.data.folderPath}/${this.uploadFile.name}`, buffer, () => {
-        this.currentPicked = `${this.data.folderPath}/${this.uploadFile.name}`;
+      this.fileService.saveFile(`${this.data.folderPath}/${this.uploadFile.name}`, buffer, (fileName) => {
+        this.currentPicked = fileName;
         this.onSubmit();
       })
     })
   }
+
+  extractFilename(path: string) {
+    const pathArray = path.split("/");
+    const lastIndex = pathArray.length - 1;
+    return pathArray[lastIndex];
+ };
 }

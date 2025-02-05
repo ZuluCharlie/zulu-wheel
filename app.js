@@ -17,8 +17,6 @@ function createWindow() {
             spellcheck: false,
         },
         icon: path.join(__dirname, 'public/favicon.ico'),
-        //resizable: false,
-        //movable: false
     });
 
     mainWindow.maximize();
@@ -30,8 +28,6 @@ function createWindow() {
             slashes: true
         })
     );
-    // Open the DevTools. If you don't want you delete this
-    mainWindow.webContents.openDevTools()
 
     mainWindow.on('closed', function () {
         mainWindow = null
@@ -111,7 +107,18 @@ ipcMain.handle("readSetting", (event, setting) => {
 
 ipcMain.handle("getFilesInDirectory", async (event, folderPath) => {
     try {
-        return fs.readdirSync(path.join(__dirname, 'dist/zulu-wheel/browser', folderPath));
+        const fullFolderPath = path.join(app.getPath('appData'), app.name, folderPath);
+
+        if (!fs.existsSync(fullFolderPath)) {
+            fs.mkdirSync(fullFolderPath, { recursive: true });
+        }
+
+        const defaultFiles = fs.readdirSync(path.join(__dirname, 'dist/zulu-wheel/browser', folderPath));
+        const userFiles = fs.readdirSync(fullFolderPath);
+
+        return [
+            ...defaultFiles.map(f => path.join(__dirname, 'dist/zulu-wheel/browser', folderPath, f).replaceAll('\\', '/')),
+            ...userFiles.map(f => path.join(fullFolderPath, f).replaceAll('\\', '/'))];
     } catch (error) {
         console.error("Error retrieving user data", error);
     }
@@ -119,12 +126,14 @@ ipcMain.handle("getFilesInDirectory", async (event, folderPath) => {
 
 ipcMain.handle("saveFile", async (event, filePath, file) => {
     try {
-        const fileName = path.join(__dirname, 'dist/zulu-wheel/browser', filePath);
+        const folderPath = path.join(app.getPath('appData'), app.name, path.dirname(filePath));
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath, { recursive: true });
+        }
+        
+        const fileName = path.join(app.getPath('appData'), app.name, filePath);
         fs.writeFileSync(fileName, Buffer.from(file));
-
-        // Is this going to blow up in production...?
-        const fileName2 = path.join(__dirname, 'src', filePath);
-        fs.writeFileSync(fileName2, Buffer.from(file));
+        return fileName.replaceAll('\\', '/');
     } catch (error) {
         console.error("Error retrieving user data", error);
     }

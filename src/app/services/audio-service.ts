@@ -50,6 +50,9 @@ export class AudioService {
         audio.muted = item.muted;
 
         if (key) {
+            if (key === 'giveawayRunning') {
+                audio.loop = true;
+            }
             this.audioElements[key] = audio;
         }
 

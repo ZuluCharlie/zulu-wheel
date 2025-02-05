@@ -17,7 +17,7 @@ export interface WinnerSettings {
 }
 
 export const defaultWinnerSettings: WinnerSettings = {
-    winnerImagePath: 'assets/img/winner-images/Diamond v2.png',
+    winnerImagePath: '',
     winnerMessage: '${winner} has won the giveaway with ${entryCount} entries!',
     winnerRequireConfirmation: false,
     winnerRequireConfirmationMessage: 'Hurry up and claim your prize!',

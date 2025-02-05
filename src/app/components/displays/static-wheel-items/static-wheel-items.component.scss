@@ -27,3 +27,8 @@
 .cdk-drag-handle {
     cursor: move;
 }
+
+.static-wheel-item-viewport {
+    height: calc(100% - 40px);
+    overflow-y: auto;
+}

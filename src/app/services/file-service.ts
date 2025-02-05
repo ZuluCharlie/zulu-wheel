@@ -75,12 +75,12 @@ export class FileService {
         }
     }
 
-    saveFile(filePath: string, file: ArrayBuffer, callback: () => void, error?: (error: string) => void) {
+    saveFile(filePath: string, file: ArrayBuffer, callback: (fileName: string) => void, error?: (error: string) => void) {
         if (window.electronAPI) {
             window.electronAPI
                 .saveFile(filePath, file)
-                .then(() => {
-                    callback();
+                .then((fileName) => {
+                    callback(fileName);
                 })
                 .catch((errorMessage) => {
                     if (error) {

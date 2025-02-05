@@ -63,6 +63,7 @@ export class AppComponent implements OnInit {
   isMenuOpen: boolean = false;
 
   staticWheelFonts: string[] = [];
+  backgroundImage: string;
 
   constructor(
     private sanitizer: DomSanitizer,
@@ -109,6 +110,7 @@ export class AppComponent implements OnInit {
     this.settingsService.wheelSettings$.pipe(takeUntilDestroyed()).subscribe(ws => {
       this.wheelSettings = ws;
       this.wheelSettingsLoading = false;
+      this.backgroundImage = `url('${ ws.wheelBackgroundImagePath }')`
     });
 
     this.styleService.styleSettings$.pipe(takeUntilDestroyed()).subscribe(ss => {
