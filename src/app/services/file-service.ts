@@ -178,7 +178,7 @@ export class FileService {
         const headers = headerMapping.map(h => h.property);
         const rows = data.map(row =>
             headerMapping.map(h => {
-                const value = row[h.property];
+                const value = row[h.property] || '';
                 return typeof value === "string" ? `"${value.replace(/"/g, '""')}"` :
                     Array.isArray(value) ? `"${value.map(v => v.replace(/"/g, '""')).join(', ')}"` :
                     value.toString();

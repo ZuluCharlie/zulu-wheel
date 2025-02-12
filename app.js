@@ -7,6 +7,8 @@ const { Duplex } = require('stream');
 const csv = require('csv-parser');
 const http = require('http');
 
+if (require('electron-squirrel-startup')) app.quit();
+
 let mainWindow
 
 function createWindow() {

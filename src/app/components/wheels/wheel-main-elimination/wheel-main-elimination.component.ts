@@ -118,10 +118,12 @@ export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnC
     if (this.settings && changes['items']) {
       const newItems = changes['items'].currentValue as Partial<Item>[];
 
+      const itemsDeleted = this.drawnItems.some(item => !newItems.some(i => i.label === item.label));
+      const shuffled = this.drawnItems.length === newItems.length;
       if (newItems.length === 0) {
         this.clear();
       }
-      else if (this.drawnItems.some(item => !newItems.some(i => i.label === item.label))) {
+      else if (itemsDeleted || shuffled) {
         this.initItems();
       }
       else {
