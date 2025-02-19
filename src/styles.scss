@@ -51,7 +51,6 @@ body {
 
   .zulu-wheel-container .mat-icon:not(.mat-mdc-icon-button *),
   .zulu-wheel-container .mat-mdc-icon-button {
-    //, .mat-mdc-button-touch-target {
     transform: scale(0.875);
 
     .mat-mdc-button-touch-target {
@@ -67,11 +66,10 @@ body {
 
   .zulu-wheel-container .mat-icon:not(.mat-mdc-icon-button *),
   .zulu-wheel-container .mat-mdc-icon-button {
-    //, .mat-mdc-button-touch-target {
     transform: scale(0.75);
 
     .mat-mdc-button-touch-target {
-      transform: scale(0.875) translate(-50%, -50%);
+      transform: scale(0.75) translate(-50%, -50%);
     }
   }
 }
@@ -83,11 +81,10 @@ body {
 
   .zulu-wheel-container .mat-icon:not(.mat-mdc-icon-button *),
   .zulu-wheel-container .mat-mdc-icon-button {
-    //, .mat-mdc-button-touch-target {
     transform: scale(0.625);
 
     .mat-mdc-button-touch-target {
-      transform: scale(0.875) translate(-50%, -50%);
+      transform: scale(0.625) translate(-50%, -50%);
     }
   }
 }
@@ -99,11 +96,10 @@ body {
 
   .zulu-wheel-container .mat-icon:not(.mat-mdc-icon-button *),
   .zulu-wheel-container .mat-mdc-icon-button {
-    //, .mat-mdc-button-touch-target {
     transform: scale(0.5);
 
     .mat-mdc-button-touch-target {
-      transform: scale(0.875) translate(-50%, -50%);
+      transform: scale(0.5) translate(-50%, -50%);
     }
   }
 }
@@ -115,11 +111,10 @@ body {
 
   .zulu-wheel-container .mat-icon:not(.mat-mdc-icon-button *),
   .zulu-wheel-container .mat-mdc-icon-button {
-    //, .mat-mdc-button-touch-target {
     transform: scale(0.375);
 
     .mat-mdc-button-touch-target {
-      transform: scale(0.875) translate(-50%, -50%);
+      transform: scale(0.375) translate(-50%, -50%);
     }
   }
 }
