@@ -41,6 +41,9 @@ import { TwitchChatMessage } from '../../types/twitch-message';
 import { AudioService } from '../../services/audio-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ModalService } from '../../services/modal-service';
+import { AnimatedUnderlineDirective } from '../../directives/animated-underline.directive';
+import { RouterModule } from '@angular/router';
+import { MainStyleDirective } from '../../directives/main-style.directive';
 
 const DEFAULT_FONT_PICKER_CONFIG: FontPickerConfigInterface = {
   apiKey: 'AIzaSyD-sn9nq8KSAAKgmqgDVZGck844ueiKkNE'
@@ -66,7 +69,10 @@ const DEFAULT_FONT_PICKER_CONFIG: FontPickerConfigInterface = {
     ZuluCardComponent,
     ZuluSelectComponent,
     WheelMainEliminationComponent,
-    CurrentGiveawayComponent
+    CurrentGiveawayComponent,
+    AnimatedUnderlineDirective,
+    RouterModule,
+    MainStyleDirective
   ],
   templateUrl: './giveaway-view.component.html',
   styleUrl: './giveaway-view.component.scss',

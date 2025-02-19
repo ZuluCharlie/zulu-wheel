@@ -3,83 +3,109 @@
         <div class="header">
             <zulu-card>
                 <div class="d-flex align-items-center justify-content-start">
-                    <div class="d-flex flex-column justify-content-around align-items-start">
-                        <zulu-select label="Wheel Display" setting="wheelDisplayType"
-                            [model]="wheelSettings.wheelDisplayType" [options]="[
+                    <!-- <div class="d-flex flex-column justify-content-around align-items-start wheel-options"> -->
+
+                    <div class="d-flex flex-column col-5">
+                        <div class="d-flex flex-grow-1">
+                            <zulu-select label="Wheel Display" setting="wheelDisplayType"
+                                [model]="wheelSettings.wheelDisplayType" [options]="[
                                 { label: 'Top', value: WheelEntryType.Manual, disabled: isOverTopWheelMax, tooltip: isOverTopWheelMax ? 'Top view disabled for more than ' + wheelSettings.maxTopWheelWedges + ' entries': undefined },
                                 { label: 'Side', value: WheelEntryType.Twitch, disabled: false },
                                 { label: 'Elimination', value: WheelEntryType.StreamerBot, disabled: false }]" />
-                        <zulu-select [disabled]="items.length > 0 && wheelSettings.wheelEntryType !== WheelEntryType.File" label="Entry Method"
-                            [small]="items.length > 0 && wheelSettings.wheelEntryType !== WheelEntryType.File ? 'Clear to change' : '&nbsp;'"
-                            setting="wheelEntryType" [model]="wheelSettings.wheelEntryType" [options]="[
+                            <div class="col-1"></div>
+                            <zulu-select
+                                [disabled]="items.length > 0 && wheelSettings.wheelEntryType !== WheelEntryType.File"
+                                label="Entry Method"
+                                [small]="items.length > 0 && wheelSettings.wheelEntryType !== WheelEntryType.File ? 'Clear to change' : '&nbsp;'"
+                                setting="wheelEntryType" [model]="wheelSettings.wheelEntryType" [options]="[
                                 { label: 'Manual', value: WheelEntryType.Manual, disabled: false },
                                 { label: 'Twitch', value: WheelEntryType.Twitch, disabled: false },
                                 { label: 'Streamer.bot', value: WheelEntryType.StreamerBot, disabled: false },
                                 { label: 'File', value: WheelEntryType.File, disabled: false }]" />
+                        </div>
+                        <!-- </div>
+                    <div class="d-flex flex-column flex-grow-1"> -->
+                        <div *ngIf="wheelSettings.wheelEntryType !== WheelEntryType.File"
+                            class="d-flex flex-grow-1 justify-content-start align-items-start">
+                            <zulu-button class="wheel-control" (buttonClick)="sortEntries()" [disabled]="isSpinning">
+                                Sort
+                            </zulu-button>
+                            <zulu-button class="wheel-control" (buttonClick)="shuffleEntries()" [disabled]="isSpinning">
+                                Shuffle
+                            </zulu-button>
+                            <zulu-button class="wheel-control" (buttonClick)="clearWheel()" [disabled]="isSpinning">
+                                Clear
+                            </zulu-button>
+                        </div>
                     </div>
                     <div class="col-1"></div>
-                    <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.Manual"
-                        class="d-flex flex-column flex-grow-1 justify-content-start align-items-start">
-                        <zulu-button class="wheel-control" (buttonClick)="addRandom()" [disabled]="isSpinning">
-                            Add Random
-                        </zulu-button>
-                        <zulu-button class="wheel-control" (buttonClick)="addRandomX100()" [disabled]="isSpinning">
-                            Add x100
-                        </zulu-button>
-                    </div>
-                    <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.Twitch"
-                        class="d-flex flex-column flex-grow-1 justify-content-start align-items-start">
-                        <div class="twitch-command" *ngIf="twitchSettings.twitchAuthToken">
-                            <div *ngIf="twitchSettings.twitchEnterCommand">{{ twitchSettings.twitchEnterCommand }} to
-                                enter</div>
-                            <div *ngIf="twitchSettings.twitchRemoveCommand">{{ twitchSettings.twitchRemoveCommand }}
-                                to remove</div>
+                    <div class="d-flex flex-grow-1">
+                        <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.Manual"
+                            class="d-flex flex-grow-1 justify-content-start align-items-start">
+                            <zulu-button class="wheel-control" (buttonClick)="addRandom()" [disabled]="isSpinning">
+                                Add Random
+                            </zulu-button>
+                            <zulu-button class="wheel-control" (buttonClick)="addRandomX100()" [disabled]="isSpinning">
+                                Add x100
+                            </zulu-button>
                         </div>
-                        <zulu-button *ngIf="!twitchSettings.twitchAuthToken" (buttonClick)="connectToTwitch()"
-                            icon="twitch" backgroundOverride="#6441a5" textOverride="#ffffff">
-                            Connect to Twitch
-                        </zulu-button>
-                    </div>
-                    <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.StreamerBot"
-                        class="d-flex flex-column flex-grow-1 justify-content-start align-items-start">
-                        <div *ngIf="streamerBotConnectedError" class="twitch-command">Streamer.bot connection error
+                        <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.Twitch"
+                            class="d-flex flex-grow-1 justify-content-start align-items-start">
+                            <div class="twitch-command" *ngIf="twitchSettings.twitchAuthToken">
+                                <div *ngIf="twitchSettings.twitchEnterCommand">{{ twitchSettings.twitchEnterCommand }}
+                                    to
+                                    enter</div>
+                                <div *ngIf="twitchSettings.twitchRemoveCommand">{{ twitchSettings.twitchRemoveCommand }}
+                                    to remove</div>
+                            </div>
+                            <zulu-button *ngIf="!twitchSettings.twitchAuthToken" (buttonClick)="connectToTwitch()"
+                                icon="twitch" backgroundOverride="#6441a5" textOverride="#ffffff">
+                                Connect to Twitch
+                            </zulu-button>
                         </div>
-                        <zulu-button *ngIf="!streamerBotConnected && !streamerBotConnecting"
-                            (buttonClick)="connectToStreamerBot()" icon="streamerbot" backgroundOverride="#161616"
-                            textOverride="#ffffff">
-                            Connect to Streamer.bot
-                        </zulu-button>
-                        <zulu-button *ngIf="streamerBotConnecting" [disabled]="true" icon="streamerbot"
-                            backgroundOverride="#161616" textOverride="#ffffff">
-                            Connecting...
-                        </zulu-button>
-                        <div *ngIf="streamerBotConnected" class="twitch-command">
-                            {{streamerBotSettings.streamerbotEntryInstructions}}
+                        <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.StreamerBot"
+                            class="d-flex flex-grow-1 justify-content-start align-items-start">
+                            <div class="d-flex flex-column w-100 justify-content-start align-items-start">
+                                <zulu-button *ngIf="!streamerBotConnected && !streamerBotConnecting"
+                                    (buttonClick)="connectToStreamerBot()" icon="streamerbot"
+                                    backgroundOverride="#161616" textOverride="#ffffff">
+                                    Connect to Streamer.bot
+                                </zulu-button>
+                                <zulu-button *ngIf="streamerBotConnecting" [disabled]="true" icon="streamerbot"
+                                    backgroundOverride="#161616" textOverride="#ffffff">
+                                    Connecting...
+                                </zulu-button>
+                                <zulu-button
+                                    *ngIf="streamerBotConnected && streamerBotSettings.sendGiveawayDataActionId && currentGiveaway"
+                                    (buttonClick)="sendGiveawayInfoToStreamerbot()">
+                                    Send Current Giveaway Info to Streamer.bot
+                                </zulu-button>
+                                <small *ngIf="streamerBotConnectedError">
+                                    Cannot connect to Streamer.bot.
+                                    Please ensure Streamer.bot is running,
+                                    and connection settings match
+                                    <a class="nav-link btn" [routerLink]="['/streamerbot-settings']"
+                                        routerLinkActive="active" zuluMainStyle [background]="false"
+                                        zuluAnimatedUnderline>
+                                        here
+                                    </a>
+                                </small>
+                                <div *ngIf="streamerBotConnected" class="twitch-command">
+                                    {{streamerBotSettings.streamerbotEntryInstructions || '&nbsp;'}}
+                                </div>
+                                <div *ngIf="!streamerBotConnectedError && !streamerBotConnected">
+                                    &nbsp;
+                                </div>
+                            </div>
                         </div>
-                        <zulu-button *ngIf="streamerBotConnected && streamerBotSettings.sendGiveawayDataActionId && currentGiveaway"
-                            (buttonClick)="sendGiveawayInfoToStreamerbot()">
-                            Send Current Giveaway Info to Streamer.bot 
-                        </zulu-button>
-                    </div>
-                    <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.File"
-                        class="d-flex flex-column flex-grow-1 justify-content-start align-items-start">
-                        <input hidden (change)="onFileWatchSelected($event)" #fileInput type="file" accept=".txt" />
-                        <zulu-button (buttonClick)="fileInput.click()" icon="upload">
-                            {{ isFileWatching ? 'Change Watch File' : 'Select File to Watch'}}
-                        </zulu-button>
-                        <div *ngIf="isFileError">There was an error reading your file</div>
-                    </div>
-                    <div class="col-1"></div>
-                    <div *ngIf="wheelSettings.wheelEntryType !== WheelEntryType.File" class="d-flex flex-column justify-content-start align-items-start">
-                        <zulu-button class="wheel-control" (buttonClick)="sortEntries()" [disabled]="isSpinning">
-                            Sort
-                        </zulu-button>
-                        <zulu-button class="wheel-control" (buttonClick)="shuffleEntries()" [disabled]="isSpinning">
-                            Shuffle
-                        </zulu-button>
-                        <zulu-button class="wheel-control" (buttonClick)="clearWheel()" [disabled]="isSpinning">
-                            Clear
-                        </zulu-button>
+                        <div *ngIf="wheelSettings.wheelEntryType === WheelEntryType.File"
+                            class="d-flex flex-grow-1 justify-content-start align-items-start">
+                            <input hidden (change)="onFileWatchSelected($event)" #fileInput type="file" accept=".txt" />
+                            <zulu-button (buttonClick)="fileInput.click()" icon="upload">
+                                {{ isFileWatching ? 'Change Watch File' : 'Select File to Watch'}}
+                            </zulu-button>
+                            <div *ngIf="isFileError">There was an error reading your file</div>
+                        </div>
                     </div>
                 </div>
             </zulu-card>

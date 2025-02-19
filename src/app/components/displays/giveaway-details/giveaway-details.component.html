@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center h-100 w-100">
-    <h2>{{ giveaway.name }}</h2>
+    <div class="giveaway-header">{{ giveaway.name }}</div>
     <zulu-image *ngIf="giveaway.imagePath" [imagePath]="giveaway.imagePath" class="giveaway-image" />
     <h4 *ngIf="giveaway.providedBy" class="description-header">Provided by <strong>{{ giveaway.providedBy
             }}</strong></h4>

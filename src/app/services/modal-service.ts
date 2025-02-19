@@ -42,11 +42,11 @@ export class ModalService {
     }  
     
     open<TComponent, TResult>(component: ComponentType<TComponent>, data: object, callback: (result: TResult) => void, config: Partial<MatDialogConfig> = {}) {
-        this.openModal(component, false, data, callback, config);
+        this.openModal(component, true, data, callback, config);
     }
 
     openModal<TComponent, TResult>(component: ComponentType<TComponent>, hasBackdrop: boolean, data: object, callback: (result: TResult) => void, config: Partial<MatDialogConfig> = {}) {
-        const dialogRef = this.dialog.open<TComponent,object,TResult>(component, {...this.defaultConfig, ...config, hasBackdrop, data});
+        const dialogRef = this.dialog.open<TComponent,object,TResult>(component, {...this.defaultConfig, ...config, hasBackdrop, disableClose: !hasBackdrop, data});
         firstValueFrom<TResult|undefined>(dialogRef.afterClosed()).then(result => {
             if (result !== undefined) {
                 callback(result);

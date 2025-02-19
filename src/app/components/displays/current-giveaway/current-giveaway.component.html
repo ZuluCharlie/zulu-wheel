@@ -7,12 +7,23 @@
         </div>
         <div *ngIf="currentGiveaway?.trackWinners && currentGiveaway?.winners?.length ?? 0 > 0" class="d-flex justify-content-start align-items-center flex-wrap">
             <div>Winners:</div>
-            <div *ngFor="let winner of currentGiveaway?.winners; let i = index" class="badge d-flex align-items-center"
+            <div class="badge d-flex align-items-center"
                 zuluMainStyle>
-                <span>{{winner}}</span>
-                <button mat-icon-button (click)="onRemoveWinner(i)">
+                <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 1]}}</span>
+                <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 1)">
                     <mat-icon>cancel</mat-icon>
                 </button>
+            </div>
+            <div *ngIf="currentGiveaway!.winners.length > 1" class="badge d-flex align-items-center"
+                zuluMainStyle>
+                <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 2]}}</span>
+                <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 2)">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </div>
+            <div *ngIf="currentGiveaway!.winners.length > 2" class="badge d-flex align-items-center"
+                zuluMainStyle>
+                <span>+{{currentGiveaway!.winners.length - 2}} others...</span>
             </div>
         </div>
         <div *ngIf="currentGiveaway?.trackWinners" class="d-flex justify-content-start align-items-center">
@@ -24,7 +35,7 @@
             <zulu-select [options]="giveawayListItems"
                 [model]="currentGiveawayIndex" (inputChange)="onSelect($event)" />
             <zulu-button (buttonClick)="onForward()" [disabled]="!canForward">Next</zulu-button>
-            <zulu-button *ngIf="currentGiveawayIndex" (buttonClick)="onEditGiveaway()">Edit</zulu-button>
+            <zulu-button *ngIf="currentGiveawayIndex || currentGiveawayIndex === 0" (buttonClick)="onEditGiveaway()">Edit</zulu-button>
         </div>
     </div>
 </zulu-card>

@@ -58,8 +58,9 @@ export class WinnerDisplayComponent implements OnInit {
 
   get winnerMessageDisplay() {
     return this.winnerMessage
-      .replace('${winner}', this.winner)
-      .replace('${entryCount}', this.entryCount.toString());
+      .replace('[winner]', this.winner)
+      .replace('[entryCount]', this.entryCount.toString())
+      .replace('[loserCount]', (this.entryCount - 1).toString());
   }
 
   constructor(

@@ -14,11 +14,13 @@ import { GiveawayService } from '../../services/giveaway-service';
 import { MainStyleDirective } from '../../directives/main-style.directive';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-giveaway-settings-view',
   standalone: true,
-  imports: [CommonModule, GiveawaySettingsComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluCardComponent, GiveawayListComponent, ZuluButtonComponent, MainStyleDirective],
+  imports: [CommonModule, GiveawaySettingsComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluCardComponent, GiveawayListComponent, ZuluButtonComponent, MainStyleDirective, MatIconModule, MatButtonModule],
   templateUrl: './giveaway-settings-view.component.html',
   styleUrl: './giveaway-settings-view.component.scss'
 })
@@ -76,6 +78,15 @@ export class GiveawaySettingsViewComponent {
     this.allGiveaways[this.currentGiveawayIndex!] = e;
     this.giveawayListItems[this.currentGiveawayIndex!].label = `${this.currentGiveawayIndex! + 1} - ${e.name}`;
 
+    this.giveawayService.saveGiveaway(this.currentGiveaway, this.currentGiveawayIndex!);
+  }
+
+  onRemoveWinner(index: number) {
+    if (!this.currentGiveaway) {
+      return;
+    }
+
+    this.currentGiveaway.winners = this.currentGiveaway.winners.filter((w, i) => i !== index);
     this.giveawayService.saveGiveaway(this.currentGiveaway, this.currentGiveawayIndex!);
   }
 

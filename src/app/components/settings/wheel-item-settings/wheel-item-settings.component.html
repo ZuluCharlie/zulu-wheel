@@ -11,18 +11,18 @@
             <zulu-card class="col-6 color-picker-card" cdkDrag
                 *ngFor="let itemSetting of settings.itemSettings; let i = index">
                 <div class="d-flex justify-content-around align-items-center">
-                    <div class="col-1 h-100 justify-content-center align-items-center">
+                    <div class="h-100 justify-content-center align-items-center">
                         <div class="h-100 justify-content-center align-items-center" cdkDragHandle mat-mini-fab>
                             <mat-icon>reorder</mat-icon>
                         </div>
                     </div>
-                    <div class="col-10 flex-column">
+                    <div class="flex-grow-1">
                         <button class="btn w-100 h-100" [ngStyle]="{
                         'background-color': itemSetting.pieColor,
                         'color': itemSetting.pieFontColor
                         }" (click)="openColorPickerModal(i)">Edit</button>
                     </div>
-                    <div class="col-1 h-100 align-items-center">
+                    <div class="h-100 align-items-center">
                         <button class="h-100 justify-content-center align-items-center" (click)="onDeleteWedgeColor(i)"
                             mat-icon-button>
                             <mat-icon>cancel</mat-icon>
