@@ -18,7 +18,7 @@ export interface WinnerSettings {
 
 export const defaultWinnerSettings: WinnerSettings = {
     winnerImagePath: '',
-    winnerMessage: '${winner} has won the giveaway with ${entryCount} entries!',
+    winnerMessage: '[winner] has won the giveaway with [entryCount] entries!',
     winnerRequireConfirmation: false,
     winnerRequireConfirmationMessage: 'Hurry up and claim your prize!',
     winnerRequireConfirmationLapsedMessage: 'Too late!',

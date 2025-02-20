@@ -22,6 +22,7 @@ import { AudioService } from '../../../services/audio-service';
 import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { ModalService } from '../../../services/modal-service';
 import { AudioSettingsItem } from '../../../models/audio-settings';
+import { ZuluImageComponent } from '../../zulu-tools/zulu-image/zulu-image.component';
 
 
 @Component({
@@ -29,7 +30,7 @@ import { AudioSettingsItem } from '../../../models/audio-settings';
   selector: 'app-wheel-main',
   templateUrl: './wheel-main.component.html',
   styleUrl: './wheel-main.component.scss',
-  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective]
+  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective, ZuluImageComponent]
 })
 export class WheelMainComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
   @Input() items: Partial<Item>[];

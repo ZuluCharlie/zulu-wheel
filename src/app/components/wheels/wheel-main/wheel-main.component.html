@@ -14,11 +14,15 @@
                 [ngStyle]="{ 'max-height': settings.wheelCenterImageSize + '%', 'max-width': settings.wheelCenterImageSize + '%' }"
                 class="wheel-center-image rounded-circle">
         </div>
-        <div *ngIf="settings?.wheelOverlayImagePath"
+        <div *ngIf="wheel && wheel.items.length > 0 && settings?.wheelOverlayImagePath"
+            [style.background-image]="'url(\'' + settings.wheelOverlayImagePath + '\')'"
+            class="wheel-overlay">
+        </div>
+        <!-- <div *ngIf="settings?.wheelOverlayImagePath"
             class="wheel-center justify-content-center align-items-center d-flex">
             <img *ngIf="wheel && wheel.items.length > 0" [src]="settings.wheelOverlayImagePath"
                 [ngStyle]="{ 'max-height': '100%', 'max-width': '100%' }" class="wheel-background-image">
-        </div>
+        </div> -->
         <div class="wheel-center justify-content-center align-items-center d-flex">
             <canvas *ngIf="wheel && wheel.items.length > 0" #pointerCanvas class="wheel-center">
             </canvas>

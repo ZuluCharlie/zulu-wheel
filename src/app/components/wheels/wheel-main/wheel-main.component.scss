@@ -9,7 +9,8 @@
     height: 100%;
 }
 
-h2, h3 {
+h2,
+h3 {
     width: 100%;
     text-align: center;
 }
@@ -25,26 +26,26 @@ h2, h3 {
     width: 100%;
 }
 
-.spinning {
-    .winner-container {
-        text-align: center;
-        font-size: 100px;
-    }
-    
-    .sub-winner-container-xl {
-        text-align: center;
-        height: 100%;
-        width: 100%;
-        font-size: 50px;
-    }
-    
-    .sub-winner-container-lg {
-        text-align: center;
-        height: 100%;
-        width: 100%;
-        font-size: 25px;
-    }
-}
+// .spinning {
+//     .winner-container {
+//         text-align: center;
+//         font-size: 100px;
+//     }
+
+//     .sub-winner-container-xl {
+//         text-align: center;
+//         height: 100%;
+//         width: 100%;
+//         font-size: 50px;
+//     }
+
+//     .sub-winner-container-lg {
+//         text-align: center;
+//         height: 100%;
+//         width: 100%;
+//         font-size: 25px;
+//     }
+// }
 
 .spin-container {
     height: 100%;
@@ -64,7 +65,9 @@ h2, h3 {
 
 .nav-tabs {
     height: 5%;
-    .nav-item, .nav-link {
+
+    .nav-item,
+    .nav-link {
         height: 100%;
         align-content: center;
     }
@@ -94,4 +97,13 @@ h2, h3 {
     height: 10%;
     font-size: 1.75rem;
     flex-wrap: wrap;
+}
+
+.wheel-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
