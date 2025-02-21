@@ -30,7 +30,7 @@ import { ZuluImageComponent } from '../../zulu-tools/zulu-image/zulu-image.compo
   selector: 'app-wheel-main',
   templateUrl: './wheel-main.component.html',
   styleUrl: './wheel-main.component.scss',
-  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective, ZuluImageComponent]
+  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective]
 })
 export class WheelMainComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
   @Input() items: Partial<Item>[];

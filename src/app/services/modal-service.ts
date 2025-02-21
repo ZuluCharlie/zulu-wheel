@@ -46,7 +46,7 @@ export class ModalService {
     }
 
     openModal<TComponent, TResult>(component: ComponentType<TComponent>, hasBackdrop: boolean, data: object, callback: (result: TResult) => void, config: Partial<MatDialogConfig> = {}) {
-        const dialogRef = this.dialog.open<TComponent,object,TResult>(component, {...this.defaultConfig, ...config, hasBackdrop, disableClose: !hasBackdrop, data});
+        const dialogRef = this.dialog.open<TComponent,object,TResult>(component, {...this.defaultConfig, ...config, hasBackdrop, disableClose: hasBackdrop, data});
         firstValueFrom<TResult|undefined>(dialogRef.afterClosed()).then(result => {
             if (result !== undefined) {
                 callback(result);
