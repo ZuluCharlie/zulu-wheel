@@ -82,7 +82,7 @@ export class WinnerDisplayComponent implements OnInit {
     this.streamerBotService.streamerBotSettings$.pipe(takeUntilDestroyed()).subscribe(ss => this.streamerBotSettings = ss);
 
     this.twitchService.chatMessageReceived$.pipe(skip(1), takeUntilDestroyed()).subscribe(msg => {
-      if (msg?.chatter_user_name === this.winner) {
+      if (msg?.chatter_user_name.toLowerCase() === this.winner.toLowerCase()) {
         if (!this.isLapsed && this.timerStarted && !this.isConfirmed) {
           this.confirmWinner();
         }

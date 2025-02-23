@@ -6,6 +6,8 @@
 :root {
   @include mat.all-component-themes(zulu.$dark-theme);
   --mdc-dialog-container-color: transparent;
+  --mat-dialog-container-max-width: 80vw;
+
 }
 
 html,

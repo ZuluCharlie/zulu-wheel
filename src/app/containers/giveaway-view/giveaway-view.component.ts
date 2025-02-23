@@ -239,11 +239,14 @@ export class GiveawayViewComponent {
       (this.wheelSettings.wheelEntryType === WheelEntryType.Twitch && this.twitchSettings.twitchAuthToken !== null) ||
       this.wheelSettings.wheelEntryType === WheelEntryType.StreamerBot;
 
+    const showHotSeat = this.wheelSettings.wheelEntryType === WheelEntryType.Twitch && this.winnerSettings.showWinnerMessages;
+
     const data = {
       winner,
       entryCount: this.items.length,
       runTimer: canConfirm && this.winnerSettings.winnerRequireConfirmation,
-      imgSrc: winnerImgSrc
+      imgSrc: winnerImgSrc,
+      showHotSeat
     }; 
 
     this.modalService.open(WinnerModalComponent, data, (result: WinnerResult) => {
@@ -274,7 +277,7 @@ export class GiveawayViewComponent {
       }
 
       this.settingsService.forceRefresh();
-    });
+    }, { width: showHotSeat ? '75vw' : 'inherit' });
   }
 
   addGiveawayWinner(winner: string) {

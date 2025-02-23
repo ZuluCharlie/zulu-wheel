@@ -25,6 +25,7 @@ export class WinnerModalComponent implements OnInit {
   winnerSoundOverride?: AudioSettingsItem | null = null;
 
   lapsed: boolean = false;
+  showHotSeat: boolean = false;
 
   constructor(private modal: MatDialogRef<WinnerModalComponent>, private twitchService: TwitchService) {
   }
@@ -36,6 +37,7 @@ export class WinnerModalComponent implements OnInit {
     this.imgSrc = this.data.imgSrc;
     this.winnerMessageOverride = this.data.winnerMessageOverride;
     this.winnerSoundOverride = this.data.winnerSoundOverride;
+    this.showHotSeat = this.data.showHotSeat ?? false;
     if (!this.data.runTimer) {
       this.confirmed = true;
     }
