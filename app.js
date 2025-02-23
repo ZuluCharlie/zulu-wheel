@@ -110,12 +110,17 @@ ipcMain.handle("readSetting", (event, setting) => {
 ipcMain.handle("getFilesInDirectory", async (event, folderPath) => {
     try {
         const fullFolderPath = path.join(app.getPath('appData'), app.name, folderPath);
+        const fullDistPath = path.join(__dirname, 'dist/zulu-wheel/browser', folderPath);
 
         if (!fs.existsSync(fullFolderPath)) {
             fs.mkdirSync(fullFolderPath, { recursive: true });
         }
 
-        const defaultFiles = fs.readdirSync(path.join(__dirname, 'dist/zulu-wheel/browser', folderPath));
+        if (!fs.existsSync(fullDistPath)) {
+            fs.mkdirSync(fullDistPath, { recursive: true });
+        }
+
+        const defaultFiles = fs.readdirSync(fullDistPath);
         const userFiles = fs.readdirSync(fullFolderPath);
 
         return [
@@ -132,12 +137,35 @@ ipcMain.handle("saveFile", async (event, filePath, file) => {
         if (!fs.existsSync(folderPath)) {
             fs.mkdirSync(folderPath, { recursive: true });
         }
-        
+
         const fileName = path.join(app.getPath('appData'), app.name, filePath);
         fs.writeFileSync(fileName, Buffer.from(file));
         return fileName.replaceAll('\\', '/');
     } catch (error) {
         console.error("Error retrieving user data", error);
+    }
+})
+
+ipcMain.handle("downloadFile", async (event, url, filePath) => {
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const folderPath = path.join(app.getPath('appData'), app.name, path.dirname(filePath));
+        if (!fs.existsSync(folderPath)) {
+            fs.mkdirSync(folderPath, { recursive: true });
+        }
+
+        const fileName = path.join(app.getPath('appData'), app.name, filePath);
+        const arrBuffer = await response.arrayBuffer();
+        const buffer = Buffer.from(arrBuffer);
+        fs.writeFileSync(fileName, buffer);
+        console.log(`Image downloaded successfully to ${fileName}`);
+        return fileName.replaceAll('\\', '/');
+    } catch (error) {
+        console.error('Error downloading image:', error);
     }
 })
 

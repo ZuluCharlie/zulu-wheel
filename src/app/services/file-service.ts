@@ -90,6 +90,21 @@ export class FileService {
         }
     }
 
+    downloadFile(url: string, filePath: string, callback: (fileName: string) => void, error?: (error: string) => void) {
+        if (window.electronAPI) {
+            window.electronAPI
+                .downloadFile(url, filePath)
+                .then((fileName) => {
+                    callback(fileName);
+                })
+                .catch((errorMessage) => {
+                    if (error) {
+                        error(errorMessage);
+                    };
+                });
+        }
+    }
+
     importCsv(file: ArrayBuffer, headers: string[], callback: () => void, error?: (error: string) => void) {
         if (window.electronAPI) {
             window.electronAPI

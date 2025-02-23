@@ -9,6 +9,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
     readSetting: (setting) => ipcRenderer.invoke("readSetting", setting),
     getFilesInDirectory: (folderPath) => ipcRenderer.invoke("getFilesInDirectory", folderPath),
     saveFile: (folderPath, file) => ipcRenderer.invoke("saveFile", folderPath, file),
+    downloadFile: (url, filePath) => ipcRenderer.invoke("downloadFile", url, filePath),
     twitchAuthDeviceCode: (deviceCode) => ipcRenderer.invoke("twitchAuthDeviceCode", deviceCode),
     twitchAuth: (forceVerify) => ipcRenderer.invoke("twitchAuth", forceVerify),
     getTwitchAccessToken: () => ipcRenderer.invoke("getTwitchAccessToken"),

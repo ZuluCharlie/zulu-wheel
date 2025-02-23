@@ -353,9 +353,9 @@ export class GiveawayViewComponent {
 
     var userId = message.chatter_user_id;
     var username = message.chatter_user_name;
-    var messageText = message.message.text;
+    var messageText = message.message.text.toLowerCase();
 
-    if (messageText === this.twitchSettings?.twitchEnterCommand) {
+    if (messageText === this.twitchSettings?.twitchEnterCommand?.toLowerCase()) {
       const newItem: Partial<Item> = { label: username, imageRadius: .9, imageScale: 0.5 };
       if (this.twitchSettings.useTwitchUserColors) {
         var color = message.color;
@@ -377,7 +377,7 @@ export class GiveawayViewComponent {
       }
     }
 
-    if (messageText === this.twitchSettings?.twitchRemoveCommand) {
+    if (messageText === this.twitchSettings?.twitchRemoveCommand?.toLowerCase()) {
       this.removeAllFromWheel(username);
     }
 
@@ -385,10 +385,10 @@ export class GiveawayViewComponent {
     if (userId === this.twitchBroadcasterUserId) {
       const messages = messageText.split(' ');
       if (messages.length > 1) {
-        if (messages[0] === this.twitchSettings?.twitchEnterCommand) {
+        if (messages[0] === this.twitchSettings?.twitchEnterCommand?.toLowerCase()) {
           this.addToWheel({ label: messages[1].replace('@', '') }, true);
         }
-        if (messages[0] === this.twitchSettings?.twitchRemoveCommand) {
+        if (messages[0] === this.twitchSettings?.twitchRemoveCommand?.toLowerCase()) {
           this.removeAllFromWheel(messages[1].replace('@', ''));
         }
       }

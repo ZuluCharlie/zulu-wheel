@@ -18,6 +18,7 @@ export type ElectronAPI = {
   readSetting: (fileName: string) => Promise<SettingsValue>,
   getFilesInDirectory: (fileName: string) => Promise<string[]>,
   saveFile: (fileName: string, file: ArrayBuffer) => Promise<string>,
+  downloadFile: (url: string, filePath: string) => Promise<string>,
   twitchAuth: (forceVerify: boolean) => Promise<string>,
   twitchAuthDeviceCode: (deviceCode: string) => Promise<string>,
   getTwitchAccessToken: () => Promise<string>,
