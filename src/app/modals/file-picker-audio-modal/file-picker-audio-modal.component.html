@@ -17,11 +17,11 @@
             </div>
         </a>
         <a *ngFor="let file of files" class="list-group-item col-3"
-            [ngClass]="data.folderPath +'/' + file === currentPicked ? 'active' : ''" (click)="onFileSelected(file)"
-            (dblclick)="onFileSelectedDbl(file)">
+            [ngClass]="file.fullPath === currentPicked ? 'active' : ''" (click)="onFileSelected(file.fullPath)"
+            (dblclick)="onFileSelectedDbl(file.fullPath)">
             <div class="d-flex flex-column align-items-center">
                 <mat-icon [ngStyle]="{ color: styleSettings.globalFontColor}" svgIcon="audio">audio</mat-icon>
-                <div zuluMainStyle [background]="false" class="fileNameText">{{file}}</div>
+                <div zuluMainStyle [background]="false" class="fileNameText">{{file.fileName}}</div>
             </div>
         </a>
     </div>

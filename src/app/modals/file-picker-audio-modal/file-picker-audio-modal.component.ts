@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { AudioSettings } from '../../models/audio-settings';
 import { AudioService } from '../../services/audio-service';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
@@ -23,8 +23,8 @@ import { GuidGenerator } from '../../util/guid-generator';
   templateUrl: './file-picker-audio-modal.component.html',
   styleUrl: './file-picker-audio-modal.component.scss'
 })
-export class FilePickerAudioModalComponent {
-  files: string[];
+export class FilePickerAudioModalComponent implements OnDestroy {
+  files: { fullPath: string, fileName: string }[];
   settings: AudioSettings;
   styleSettings: StyleSettings = defaultStyleSettings;
   currentPicked: string;
@@ -41,24 +41,28 @@ export class FilePickerAudioModalComponent {
   constructor(private fileService: FileService, private audioService: AudioService, private styleService: StyleService, private modal: MatDialogRef<FilePickerAudioModalComponent>) {
     this.audioService.audioSettings$.pipe(takeUntilDestroyed()).subscribe(as => this.settings = as);
     this.fileService.getFilesInDirectory(this.data.folderPath, (files: string[]) =>
-      this.files = files);
+      this.files = files.map(f => ({ fullPath: f, fileName: this.extractFilename(f) })));
 
     this.styleService.styleSettings$.pipe(takeUntilDestroyed()).subscribe(ss => this.styleSettings = ss);
   }
 
+  ngOnDestroy(): void {
+    this.currentAudio?.pause();
+  }
+
   onFileSelected(file: string) {
-    if (this.currentPicked === `${this.data.folderPath}/${file}`) {
+    if (this.currentPicked === file) {
       return;
     }
 
-    this.currentPicked = `${this.data.folderPath}/${file}`;
+    this.currentPicked = file;
     this.playSound(this.currentPicked);
     this.nullSelected = false;
     this.isUrl = false;
   }
 
   onFileSelectedDbl(file: string) {
-    this.currentPicked = `${this.data.folderPath}/${file}`;
+    this.currentPicked = file;
     this.nullSelected = false;
     this.isUrl = false;
     this.onSubmit();
@@ -123,6 +127,12 @@ export class FilePickerAudioModalComponent {
     this.currentAudio.load();
     this.currentAudio.play();
   }
+
+  extractFilename(path: string) {
+    const pathArray = path.split("/");
+    const lastIndex = pathArray.length - 1;
+    return pathArray[lastIndex];
+  };
 
   getFileExtensionFromUrl(url: string) {
     const fileName = url.substring(url.lastIndexOf('/') + 1);

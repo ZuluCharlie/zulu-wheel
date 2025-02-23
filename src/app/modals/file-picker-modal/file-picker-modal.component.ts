@@ -65,7 +65,7 @@ export class FilePickerModalComponent {
   }
 
   onFileSelectedDbl(file: string) {
-    this.currentPicked = file;
+    this.currentPicked = file;  
     this.nullSelected = false;
     this.isUrl = false;
     this.onSubmit();
