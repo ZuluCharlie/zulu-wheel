@@ -15,6 +15,7 @@ export class ModalService {
     defaultConfig: MatDialogConfig = {
         enterAnimationDuration: '300ms',
         exitAnimationDuration: '300ms',
+        width: '30vw'
     };
 
     confirm(message: string, callback: () => void, confirmText?: string, cancelText?: string) {

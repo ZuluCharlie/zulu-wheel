@@ -104,8 +104,8 @@ export class StaticWheelService {
         return {
             name: obj['name'] as string,
             featureChatters: this.mapStringArr(obj['featureChatters']),
-            centerImagePath: obj['centerImagePath'] as string,
-            overlayImagePath: obj['overlayImagePath'] as string,
+            wheelCenterImagePath: obj['wheelCenterImagePath'] as string,
+            wheelOverlayImagePath: obj['wheelOverlayImagePath'] as string,
             wheelTickSoundPath: obj['wheelTickSoundPath'] as string,
             wheelTickSoundVolume: obj['wheelTickSoundVolume'] as number,
             wheelTickSoundMute: obj['wheelTickSoundMute'] as boolean,
@@ -123,8 +123,8 @@ export class StaticWheelService {
         return {
             ['name']: wheel.name as SettingsValue,
             ['featureChatters']: wheel.featureChatters.map((w: string) => w as SettingsValue) as SettingsValue,
-            ['centerImagePath']: wheel.centerImagePath as SettingsValue,
-            ['overlayImagePath']: wheel.overlayImagePath as SettingsValue,
+            ['wheelCenterImagePath']: wheel.wheelCenterImagePath as SettingsValue,
+            ['wheelOverlayImagePath']: wheel.wheelOverlayImagePath as SettingsValue,
             ['wheelTickSoundPath']: wheel.wheelTickSoundPath as SettingsValue,
             ['wheelTickSoundVolume']: wheel.wheelTickSoundVolume as SettingsValue,
             ['wheelTickSoundMute']: wheel.wheelTickSoundMute as SettingsValue,

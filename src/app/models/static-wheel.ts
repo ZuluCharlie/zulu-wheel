@@ -19,8 +19,8 @@ export interface StaticWheelItem {
 export interface StaticWheel {
     name: string;
     featureChatters: string[];
-    centerImagePath: string;
-    overlayImagePath: string;
+    wheelCenterImagePath: string;
+    wheelOverlayImagePath: string;
     wheelTickSoundPath: string;
     wheelTickSoundVolume: number;
     wheelTickSoundMute: boolean;
@@ -54,8 +54,8 @@ export const defaultStaticWheelItem: StaticWheelItem = {
 export const defaultStaticWheel: StaticWheel = {
     name: 'New Static Wheel',
     featureChatters: [],
-    centerImagePath: 'assets/img/center-images/Z.png',
-    overlayImagePath: 'assets/img/overlay-images/Wheel Template.png', 
+    wheelCenterImagePath: 'assets/img/center-images/Z.png',
+    wheelOverlayImagePath: 'assets/img/overlay-images/Wheel Template.png', 
     wheelTickSoundPath: 'assets/sounds/tick.mp3',
     wheelTickSoundVolume: 1,
     wheelTickSoundMute: false,

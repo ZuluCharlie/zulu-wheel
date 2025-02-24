@@ -82,8 +82,8 @@ export class StaticWheelViewComponent implements OnInit {
 
   buildWheelSettings(): Partial<WheelSettings> | null {
     return !this.currentWheel ? null : {
-      wheelCenterImagePath: this.currentWheel.centerImagePath,
-      wheelOverlayImagePath: this.currentWheel.overlayImagePath,
+      wheelCenterImagePath: this.currentWheel.wheelCenterImagePath,
+      wheelOverlayImagePath: this.currentWheel.wheelOverlayImagePath,
       pointerAngle: this.currentWheel.pointerAngle,
       idleSpeed: this.currentWheel.idleSpeed,
       minPies: this.currentWheel.minPies,

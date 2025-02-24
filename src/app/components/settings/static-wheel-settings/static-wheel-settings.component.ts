@@ -52,13 +52,13 @@ export class StaticWheelSettingsComponent {
 
   onOpenFilePickerOverlay() {
     this.modalService.openFilePicker('Overlay Images', 'assets/img/overlay-images', (result: string) => {
-      this.onSettingChange('overlayImagePath', result);
+      this.onSettingChange(result, 'wheelOverlayImagePath');
     });
   }
 
   onOpenFilePickerCenter() {
     this.modalService.openFilePicker('Center Images', 'assets/img/center-images', (result: string) => {
-      this.onSettingChange('centerImagePath', result);
+      this.onSettingChange(result, 'wheelCenterImagePath');
     });
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "zulu-wheel",
-  "version": "0.0.13",
+  "version": "0.0.15",
   "main": "app.js",
   "scripts": {
     "ng": "ng",
