@@ -104,6 +104,7 @@ export class GiveawayViewComponent {
   twitchBroadcasterUserId: string;
   authToken: string;
   isOverTopWheelMax: boolean;
+  maximized: boolean = false;
 
   chatInitialized: boolean = false;
   streamerBotConnected: boolean = false;
@@ -451,6 +452,10 @@ export class GiveawayViewComponent {
 
     this.isFileWatching = false;
     this.isFileError = true;
+  }
+
+  toggleMaximize() {
+    this.maximized = !this.maximized;
   }
 
   private onWheelSettingsUpdate(ws: WheelSettings) {

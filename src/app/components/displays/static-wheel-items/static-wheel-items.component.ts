@@ -6,13 +6,15 @@ import { ZuluCardComponent } from '../../zulu-tools/zulu-card/zulu-card.componen
 import { StaticWheelService } from '../../../services/static-wheel-service';
 import { CdkDrag, CdkDropList, CdkDragHandle, CdkDragDrop, moveItemInArray, CdkDragPreview } from '@angular/cdk/drag-drop';
 import { MatIconModule } from '@angular/material/icon';
+import { SettingsValue } from '../../../../main';
+import { ZuluInputComponent } from "../../zulu-tools/zulu-input/zulu-input.component";
 
 @Component({
   selector: 'app-static-wheel-items',
   standalone: true,
   imports: [ZuluCardComponent, CommonModule, ZuluButtonComponent, CdkDrag,
     CdkDropList, CdkDragPreview,
-    CdkDragHandle, MatIconModule],
+    CdkDragHandle, MatIconModule, ZuluInputComponent],
   templateUrl: './static-wheel-items.component.html',
   styleUrl: './static-wheel-items.component.scss'
 })
@@ -33,8 +35,16 @@ export class StaticWheelItemsComponent {
     });
   }
 
+  onSettingChange(e: SettingsValue, setting: string, itemIndex: number) {
+    this.staticWheelService.saveStaticWheelItemSetting(setting, e, this.currentWheelIndex, itemIndex);
+  }
+
   onReorderItems(e: CdkDragDrop<StaticWheelItem[]>) {
     moveItemInArray(this.items, e.previousIndex, e.currentIndex);
     this.staticWheelService.saveStaticWheelItems('items', this.items, this.currentWheelIndex);
+  }
+
+  itemTrack(index: number) {
+    return index;
   }
 }

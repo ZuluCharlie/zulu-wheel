@@ -1,10 +1,8 @@
-<div class="container d-flex flex-wrap">
-    <div class="col-6 d-flex flex-column">
+<div class="container d-flex">
+    <div *ngIf="!maximized" class="col-6 d-flex flex-column">
         <div class="header">
             <zulu-card>
                 <div class="d-flex align-items-center justify-content-start">
-                    <!-- <div class="d-flex flex-column justify-content-around align-items-start wheel-options"> -->
-
                     <div class="d-flex flex-column col-5">
                         <div class="d-flex flex-grow-1">
                             <zulu-select label="Wheel Display" setting="wheelDisplayType"
@@ -23,8 +21,6 @@
                                 { label: 'Streamer.bot', value: WheelEntryType.StreamerBot, disabled: false },
                                 { label: 'File', value: WheelEntryType.File, disabled: false }]" />
                         </div>
-                        <!-- </div>
-                    <div class="d-flex flex-column flex-grow-1"> -->
                         <div *ngIf="wheelSettings.wheelEntryType !== WheelEntryType.File"
                             class="d-flex flex-grow-1 justify-content-start align-items-start">
                             <zulu-button class="wheel-control" (buttonClick)="sortEntries()" [disabled]="isSpinning">
@@ -119,12 +115,12 @@
             </div>
         </div>
     </div>
-    <div class="col-6">
-        <app-wheel-main *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.Wheel" [items]="items"
-            [runCountdown]="countdownSettings.countdown" (winnerRevealed)="onWinnerDeclared($event)" />
-        <app-wheel-main-side *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.SideWheel" [items]="items"
-            [runCountdown]="countdownSettings.countdown" (winnerRevealed)="onWinnerDeclared($event)" />
-        <app-wheel-main-elimination *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.Elimination"
-            [runCountdown]="countdownSettings.countdown" [items]="items" (winnerRevealed)="onWinnerDeclared($event)" />
+    <div [ngClass]="maximized ? 'col-12' : 'col-6'">
+        <app-wheel-main *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.Wheel" [items]="items" [isMaximized]="maximized"
+            [runCountdown]="countdownSettings.countdown" (winnerRevealed)="onWinnerDeclared($event)" (viewToggled)="toggleMaximize()" />
+        <app-wheel-main-side *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.SideWheel" [items]="items" [isMaximized]="maximized"
+            [runCountdown]="countdownSettings.countdown" (winnerRevealed)="onWinnerDeclared($event)" (viewToggled)="toggleMaximize()" />
+        <app-wheel-main-elimination *ngIf="wheelSettings.wheelDisplayType === WheelDisplayType.Elimination" [isMaximized]="maximized"
+            [runCountdown]="countdownSettings.countdown" [items]="items" (winnerRevealed)="onWinnerDeclared($event)" (viewToggled)="toggleMaximize()" />
     </div>
 </div>

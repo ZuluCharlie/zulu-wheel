@@ -1,6 +1,6 @@
 <zulu-card *ngIf="staticWheelItem && !showImageSettings && !showWinnerSettings" [header]="staticWheelItem.label"
     className="h-100">
-    <zulu-input [model]="staticWheelItem.label" label="Label" (inputChange)="onSettingChange($event, 'label')" />
+    <!-- <zulu-input [model]="staticWheelItem.label" label="Label" (inputChange)="onSettingChange($event, 'label')" /> -->
     <zulu-input-number [model]="staticWheelItem.itemWeight" label="Item Weight"
         (inputChange)="onSettingChange($event, 'itemWeight')" />
     <br />

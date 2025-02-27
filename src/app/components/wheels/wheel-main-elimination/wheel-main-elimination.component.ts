@@ -41,7 +41,9 @@ export interface EliminationItem {
 export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() items: Partial<Item>[];
   @Input() runCountdown: boolean = false;
+  @Input() isMaximized: boolean = false;
   @Output() winnerRevealed = new EventEmitter<EliminationItem>();
+  @Output() viewToggled = new EventEmitter();
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('canvasContainer') canvasContainer: ElementRef;
 
@@ -340,5 +342,13 @@ export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnC
         this.spin(this.settings);
       }
     });
+  }
+
+  toggleMaximize() {
+    this.viewToggled.emit();
+    setTimeout(() => {
+      this.initItems();
+      this.drawAll();
+    }, 10);
   }
 }

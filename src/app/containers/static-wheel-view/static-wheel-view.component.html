@@ -1,5 +1,5 @@
 <div class="container d-flex flex-wrap">
-    <div class="col-6 d-flex flex-column h-100">
+    <div *ngIf="!maximized" class="col-6 d-flex flex-column h-100">
         <div class="header">
             <div class="d-flex justify-content-between">
                 <zulu-select *ngIf="allWheels.length > 0" [options]="allWheels" [model]="currentWheelIndex"
@@ -34,9 +34,9 @@
             </zulu-card>
         </div>
     </div>
-    <div class="col-6">
+    <div [ngClass]="maximized ? 'col-12' : 'col-6'">
         <app-wheel-main [items]="wheelItems" [staticWheelSettings]="wheelSettings" [runCountdown]="false"
             (winnerRevealed)="onWinnerDeclared($event)" [showPointer]="showPointer" [staticWheelTickOverride]="wheelTick"
-            [fontOverride]="currentWheel?.itemFont" />
+            [fontOverride]="currentWheel?.itemFont" [isMaximized]="maximized" (viewToggled)="toggleMaximize()" />
     </div>
 </div>

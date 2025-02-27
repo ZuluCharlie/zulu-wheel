@@ -31,7 +31,9 @@ import { ModalService } from '../../../services/modal-service';
 export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
   @Input() items: Partial<Item>[];
   @Input() runCountdown: boolean = false;
+  @Input() isMaximized: boolean = false;
   @Output() winnerRevealed = new EventEmitter<Partial<Item>>();
+  @Output() viewToggled = new EventEmitter();
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('canvasContainer') canvasContainer: ElementRef;
 
@@ -130,7 +132,9 @@ export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges,
   initWheelItems() {
     this.items = shuffle([...this.items]);
     this.populateWinnerItems(0);
-    this.draw();
+    setTimeout(() => {
+      this.draw();
+    }, 10);
   }
 
   onWheelRest() {
@@ -313,5 +317,10 @@ export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges,
         this.spinToItem(this.settings);
       }
     });
+  }
+
+  toggleMaximize() {
+    this.viewToggled.emit();
+    setTimeout(() => this.initWheelItems(), 10);
   }
 }

@@ -29,4 +29,6 @@
         (fileChanged)="onSettingChange($event, 'wheelTickSoundPath')"
         (volumeChanged)="onSettingChange($event, 'wheelTickSoundVolume')"
         (muteChanged)="onSettingChange($event, 'wheelTickSoundMute')" />
+    <br />
+    <zulu-checkbox [checked]="staticWheel.showWinnerPopup" label="Show Winner Popup" (changed)="onSettingChange($event, 'showWinnerPopup')" />
 </zulu-card>

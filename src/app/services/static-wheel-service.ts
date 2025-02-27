@@ -114,6 +114,7 @@ export class StaticWheelService {
             minPies: obj['minPies'] as number,
             itemFont: obj['itemFont'] as string,
             labelRadius: obj['labelRadius'] as number,
+            showWinnerPopup: obj['showWinnerPopup'] as boolean,
 
             items: this.mapStaticWheelItemsFromSettings(obj['items'])
         };
@@ -133,6 +134,7 @@ export class StaticWheelService {
             ['minPies']: wheel.minPies as SettingsValue,
             ['itemFont']: wheel.itemFont as SettingsValue,
             ['labelRadius']: wheel.labelRadius as SettingsValue,
+            ['showWinnerPopup']: wheel.showWinnerPopup as SettingsValue,
 
             items: this.mapStaticWheelItemsToSettings(wheel.items)
         };

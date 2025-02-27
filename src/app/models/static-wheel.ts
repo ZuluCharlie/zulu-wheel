@@ -29,12 +29,13 @@ export interface StaticWheel {
     minPies: number;
     itemFont: string | null;
     labelRadius: number;
+    showWinnerPopup: boolean;
 
     items: StaticWheelItem[];
 }
 
 export const defaultStaticWheelItem: StaticWheelItem = {
-    label: 'New Item',
+    label: '',
     labelColor: '#000000',
     backgroundColor: '#ffffff',
     imagePath: '',
@@ -64,6 +65,7 @@ export const defaultStaticWheel: StaticWheel = {
     minPies: 1,
     itemFont: null,
     labelRadius: 0.95,
+    showWinnerPopup: true,
 
     items: []
 }

@@ -84,6 +84,8 @@ export class AppComponent implements OnInit {
     this.matIconRegistry.addSvgIcon('close', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/close.svg'));
     this.matIconRegistry.addSvgIcon('delete_forever', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/delete_forever.svg'));
     this.matIconRegistry.addSvgIcon('download', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/download.svg'));
+    this.matIconRegistry.addSvgIcon('maximize', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/maximize.svg'));
+    this.matIconRegistry.addSvgIcon('minimize', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/minimize.svg'));
     this.matIconRegistry.addSvgIcon('mute', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/mute.svg'));
     this.matIconRegistry.addSvgIcon('play', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/play.svg'));
     this.matIconRegistry.addSvgIcon('stop', this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/stop.svg'));

@@ -41,6 +41,7 @@ export class StaticWheelViewComponent implements OnInit {
   showPointer: boolean;
   isHotSeatOpen: boolean = false;
   hotSeatChatters: string[] = [];
+  maximized: boolean = false;
 
   constructor(
     private staticWheelService: StaticWheelService,
@@ -157,6 +158,10 @@ export class StaticWheelViewComponent implements OnInit {
   }
 
   onWinnerDeclared(item: Item) {
+    if (!this.currentWheel!.showWinnerPopup) {
+      return;
+    }
+
     const winningItem = this.currentWheel!.items[+(item.value!)];
     const winnerImgSrc = winningItem.imagePath;
     if (winningItem.itemWinningStreamerbotActionId) {
@@ -196,5 +201,9 @@ export class StaticWheelViewComponent implements OnInit {
       this.currentEditingItemIndex = null;
       this.isEditingWheel = false;
     }
+  }
+
+  toggleMaximize() {
+    this.maximized = !this.maximized;
   }
 }

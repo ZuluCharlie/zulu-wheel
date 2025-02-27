@@ -22,7 +22,7 @@ import { AudioService } from '../../../services/audio-service';
 import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { ModalService } from '../../../services/modal-service';
 import { AudioSettingsItem } from '../../../models/audio-settings';
-import { ZuluImageComponent } from '../../zulu-tools/zulu-image/zulu-image.component';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -30,16 +30,18 @@ import { ZuluImageComponent } from '../../zulu-tools/zulu-image/zulu-image.compo
   selector: 'app-wheel-main',
   templateUrl: './wheel-main.component.html',
   styleUrl: './wheel-main.component.scss',
-  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective]
+  imports: [CommonModule, MatButtonModule, ZuluButtonComponent, MainStyleDirective, MatIconModule]
 })
 export class WheelMainComponent implements OnInit, OnDestroy, AfterViewInit, OnChanges {
   @Input() items: Partial<Item>[];
   @Input() runCountdown: boolean = false;
   @Input() showPointer: boolean = false;
+  @Input() isMaximized: boolean = false;
   @Input() staticWheelSettings?: Partial<WheelSettings> | null = null;
   @Input() staticWheelTickOverride?: AudioSettingsItem | null = null;
   @Input() fontOverride?: string | null = null;
   @Output() winnerRevealed = new EventEmitter<Item>();
+  @Output() viewToggled = new EventEmitter();
   @ViewChild('centerImage') centerImage: ElementRef<HTMLImageElement>;
   @ViewChild('wheelContainer') wheelContainer: ElementRef;
   @ViewChild('pointerCanvas') pointerCanvas: ElementRef<HTMLCanvasElement>;
@@ -388,6 +390,10 @@ export class WheelMainComponent implements OnInit, OnDestroy, AfterViewInit, OnC
         this.spinToItem(this.settings);
       }
     });
+  }
+
+  toggleMaximize() {
+    this.viewToggled.emit();
   }
 
   private getPixelRatio(): number | undefined {

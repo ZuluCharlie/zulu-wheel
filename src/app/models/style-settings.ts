@@ -16,6 +16,6 @@ export const defaultStyleSettings: StyleSettings = {
     globalButtonFontColor: '#000000',
     globalButtonColor: '#ffffff',
     globalInputFontColor: '#000000',
-    globalInputBackgroundColor: '#cccccc',
+    globalInputBackgroundColor: '#eeeeee',
     globalFont: 'Roboto'
 }

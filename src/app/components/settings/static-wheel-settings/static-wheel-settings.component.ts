@@ -14,11 +14,12 @@ import { StyleService } from '../../../services/style-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ZuluAudioComponent } from "../../zulu-tools/zulu-audio/zulu-audio.component";
 import { AudioSettingsItem } from '../../../models/audio-settings';
+import { ZuluCheckboxComponent } from "../../zulu-tools/zulu-checkbox/zulu-checkbox.component";
 
 @Component({
   selector: 'app-static-wheel-settings',
   standalone: true,
-  imports: [FontPickerModule, ZuluCardComponent, CommonModule, ZuluInputComponent, ZuluButtonComponent, ZuluSliderComponent, ZuluInputNumberComponent, ZuluAudioComponent],
+  imports: [FontPickerModule, ZuluCardComponent, CommonModule, ZuluInputComponent, ZuluButtonComponent, ZuluSliderComponent, ZuluInputNumberComponent, ZuluAudioComponent, ZuluCheckboxComponent],
   templateUrl: './static-wheel-settings.component.html',
   styleUrl: './static-wheel-settings.component.scss'
 })
