@@ -4,7 +4,7 @@ Thank you so much for checking out the Zulu Wheel! I made this to give streamers
 
 ## [Download](https://github.com/ZuluCharlie/zulu-wheel/releases/latest)
 
-[Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version, then click the 'zulu-wheel-setup-beta.exe' link to download the executable. Then, you only need to run the executable from your download floder, and you're on your way!
+[Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version, then click the 'zulu-wheel-setup-beta.exe' link to download the executable. Then, you only need to run the executable from your download folder, and you're on your way!
 
 ## Current Features
 
