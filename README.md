@@ -1,27 +1,43 @@
 # ZuluWheel
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.7.
+Thank you so much for checking out the Zulu Wheel! I made this to give streamers a giveaway too that was not only easy and quick to use, but also highly customizable to their own brand. 
 
-## Development server
+## [Download](https://github.com/ZuluCharlie/zulu-wheel/releases/latest)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version, then click the 'zulu-wheel-setup-beta.exe' link to download the executable. Then, you only need to run the executable from your download floder, and you're on your way!
 
-## Code scaffolding
+## Current Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Giveaway View - Three different visual options to display your giveaway in an exciting way.
+### Show the details of all your giveaways, with import/export ability
+### Twitch integration
+### Streamer.bot integration
+### Read entries directly from a text file
+### Control every aspect of the giveaway, from the background images to the sounds of the wheel can be customized! Play around with all the settings available and make this truly your own!
+### Static Wheels - Highly specialized wheels with more options available, such as adding images, items weights, individual winner messages, and more.
 
-## Build
+## [Send feedback](https://github.com/ZuluCharlie/zulu-wheel/issues)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This app is currently in beta, and only available on Windows. If you come across any issues or have a feature you'd like to request [please leave them here.](https://github.com/ZuluCharlie/zulu-wheel/issues)
 
-## Running unit tests
+## [Support me](https://ko-fi.com/zulucharlie)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Check out my Ko-Fi page](https://ko-fi.com/zulucharlie) to check out the various other projects I have going on, and please consider leaving a donation. Your support helps offset the costs of making cool stuff like this, and allows me to continue offering them free of charge.
 
-## Running end-to-end tests
+If you love the Zulu Wheel, please be sure to spread the word. The best support you can give is a recommendation! 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Special thanks
 
-## Further help
+Finally, I want to give a special shoutout and thank you to all  that helped make this a reality. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[MoCoMade](https://www.twitch.tv/mocomade) - Main Inspiration and Alpha Tester
+
+[Pix_Stitch](https://www.twitch.tv/pix_stitch) - Alpha Tester
+
+[SmileySloth](https://www.twitch.tv/smileysloth) - Alpha Tester
+
+[Nagen_tm](https://www.twitch.tv/nagen_tm) - Alpha Tester
+
+[TheStreamScribe](https://www.twitch.tv/thestreamscribe) - Creator of the Z logo
+
+[Qaantar](https://www.twitch.tv/qaantar) - Creator of the Wheel Spin music
