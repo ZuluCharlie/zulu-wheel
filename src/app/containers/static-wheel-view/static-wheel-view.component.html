@@ -35,6 +35,8 @@
         </div>
     </div>
     <div [ngClass]="maximized ? 'col-12' : 'col-6'">
+        <zulu-select *ngIf="maximized" [options]="allWheels" [model]="currentWheelIndex"
+            (inputChange)="onSelect($event)" class="position-absolute" />
         <app-wheel-main [items]="wheelItems" [staticWheelSettings]="wheelSettings" [runCountdown]="false"
             (winnerRevealed)="onWinnerDeclared($event)" [showPointer]="showPointer" [staticWheelTickOverride]="wheelTick"
             [fontOverride]="currentWheel?.itemFont" [isMaximized]="maximized" (viewToggled)="toggleMaximize()" />
