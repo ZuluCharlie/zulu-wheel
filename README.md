@@ -1,6 +1,6 @@
 # ZuluWheel
 
-Thank you so much for checking out the Zulu Wheel! I made this to give streamers a giveaway too that was not only easy and quick to use, but also highly customizable to their own brand. 
+Thank you so much for checking out the Zulu Wheel! I made this to give streamers a giveaway tool that was not only easy and quick to use, but also highly customizable to their own brand. 
 
 ## [Download](https://github.com/ZuluCharlie/zulu-wheel/releases/latest)
 
