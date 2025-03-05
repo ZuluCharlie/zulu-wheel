@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
-import { skip, Subscription } from 'rxjs';
+import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
+import { debounceTime, fromEvent, skip, Subject, Subscription, takeUntil } from 'rxjs';
 import { Item } from 'spin-wheel-ts';
 import { WheelDisplayTypes } from '../../../models/wheel-display-types';
 import { WheelItemSettings } from '../../../models/wheel-item-settings';
@@ -36,6 +36,8 @@ export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges,
   @Output() viewToggled = new EventEmitter();
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('canvasContainer') canvasContainer: ElementRef;
+    
+  private destroy$ = new Subject<void>();
 
   oldSettings: WheelSettings;
   oldStyleSettings: StyleSettings;
@@ -102,6 +104,15 @@ export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges,
         this.initiateSpin();
       }
     });
+    
+    fromEvent(window, 'resize')
+      .pipe(
+        debounceTime(200),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.initWheelItems();
+      });
   }
 
   ngAfterViewInit(): void {
@@ -116,6 +127,8 @@ export class WheelMainSideComponent implements OnInit, AfterViewInit, OnChanges,
     this.styleSettingsSubscription.unsubscribe();
     this.spinWheelSubscription.unsubscribe();
     this.streamerBotSubscription.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   ngOnChanges(changes: SimpleChanges): void {

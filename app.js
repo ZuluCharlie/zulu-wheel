@@ -6,8 +6,10 @@ const settings = require("electron-settings");
 const { Duplex } = require('stream');
 const csv = require('csv-parser');
 const http = require('http');
+const { updateElectronApp } = require('update-electron-app');
 
 if (require('electron-squirrel-startup')) app.quit();
+updateElectronApp(); 
 
 let mainWindow
 
@@ -19,6 +21,8 @@ function createWindow() {
             spellcheck: false,
         },
         icon: path.join(__dirname, 'public/favicon.ico'),
+        resizable: true,
+        maximizable: false
     });
 
     mainWindow.maximize();
@@ -27,7 +31,7 @@ function createWindow() {
         url.format({
             pathname: path.join(__dirname, 'dist/zulu-wheel/browser/index.html'),
             protocol: "file:",
-            slashes: true
+            slashes: true,
         })
     );
 

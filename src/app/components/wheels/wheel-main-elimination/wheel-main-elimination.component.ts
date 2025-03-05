@@ -8,7 +8,7 @@ import { WheelService } from '../../../services/wheel-service';
 import { getRandomNumber, toRad } from '../../../util/helpers';
 import { easeOutCubic } from 'easing-utils';
 import { CountdownModalComponent } from '../../../modals/countdown-modal/countdown-modal.component';
-import { skip, Subscription } from 'rxjs';
+import { debounceTime, fromEvent, skip, Subject, Subscription, takeUntil } from 'rxjs';
 import { StyleService } from '../../../services/style-service';
 import { StyleSettings } from '../../../models/style-settings';
 import { StreamerBotService } from '../../../services/streamerbot-service';
@@ -46,6 +46,8 @@ export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnC
   @Output() viewToggled = new EventEmitter();
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('canvasContainer') canvasContainer: ElementRef;
+  
+  private destroy$ = new Subject<void>();
 
   settings: WheelSettings;
   styleSettings: StyleSettings;
@@ -107,6 +109,16 @@ export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnC
       this.initItems();
       this.drawAll();
     });
+
+    fromEvent(window, 'resize')
+      .pipe(
+        debounceTime(200),
+        takeUntil(this.destroy$)
+      )
+      .subscribe(() => {
+        this.initItems();
+        this.drawAll();
+      });
   }
 
   ngAfterViewInit(): void {
@@ -142,6 +154,8 @@ export class WheelMainEliminationComponent implements OnInit, AfterViewInit, OnC
     this.styleServiceSubscription.unsubscribe();
     this.wheelSettingsRefreshSubscription.unsubscribe();
     this.streamerBotSubscription.unsubscribe();
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   initItems() {
