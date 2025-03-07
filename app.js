@@ -22,7 +22,7 @@ function createWindow() {
         },
         icon: path.join(__dirname, 'public/favicon.ico'),
         resizable: true,
-        maximizable: false
+        //maximizable: false
     });
 
     mainWindow.maximize();
