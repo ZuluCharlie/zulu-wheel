@@ -3,12 +3,13 @@ import { GiveawayDetails } from '../../../models/giveaway-details';
 import { CommonModule } from '@angular/common';
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
 import { ZuluImageComponent } from "../../zulu-tools/zulu-image/zulu-image.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'giveaway-details',
   standalone: true,
-  imports: [CommonModule, ZuluButtonComponent, ZuluImageComponent],
+  imports: [CommonModule, ZuluImageComponent, 
+      RouterModule, ZuluButtonComponent],
   templateUrl: './giveaway-details.component.html',
   styleUrl: './giveaway-details.component.scss'
 })

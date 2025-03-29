@@ -12,23 +12,24 @@ h2 {
 }
 
 .giveaway-header {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
 }
 
 .description-header {
     height: 10%;
     margin: 5px;
+    text-align: center;
 }
 
 .description-body {
     overflow: auto;
     margin: 5px;
-    flex-grow: 1;
-}
 
-.description-footer {
-    height: 15%;
-    margin: 5px;
+    p {
+        text-align: center;
+        font-size: 1.5rem;
+    }
 }
 
 .giveaway-image {
@@ -39,4 +40,9 @@ h2 {
 .winners-list {
     font-size: 1.5rem;
     margin: 5px;
+}
+
+.learn-more-button {
+    right: calc(var(--bs-card-spacer-y) * -1);
+    top: calc(var(--bs-card-spacer-x) * -1);
 }

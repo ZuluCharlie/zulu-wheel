@@ -7,10 +7,12 @@
         <h2 zuluMainStyle [background]="false">Giveaway Settings</h2>
         <zulu-card>
             <div class="d-flex flex-column">
-                <div class="d-flex">
-                    <zulu-button (buttonClick)="onSelectGiveaway(null)">Back</zulu-button>
+                <zulu-button (buttonClick)="onSelectGiveaway(null)">Return to Giveaway List</zulu-button>
+                <div *ngIf="currentGiveawayIndex !== null && currentGiveawayIndex >= 0" class="d-flex">
+                    <zulu-button [disabled]="currentGiveawayIndex === 0" (buttonClick)="onSelectGiveaway(currentGiveawayIndex - 1)">Back</zulu-button>
                     <zulu-select class="flex-grow-1 d-flex align-items-center" [options]="giveawayListItems"
-                        [model]="this.currentGiveawayIndex" (inputChange)="onSelectGiveaway($event)" />
+                        [model]="currentGiveawayIndex" (inputChange)="onSelectGiveaway($event)" />
+                    <zulu-button [disabled]="currentGiveawayIndex === allGiveaways.length - 1" (buttonClick)="onSelectGiveaway(currentGiveawayIndex + 1)">Next</zulu-button>
                 </div>
                 <giveaway-settings [giveaway]="currentGiveaway" [index]="currentGiveawayIndex!"
                     (giveawayChanged)="onGiveawayUpdated($event)" />
