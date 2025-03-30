@@ -9,7 +9,11 @@ const http = require('http');
 const { updateElectronApp } = require('update-electron-app');
 
 if (require('electron-squirrel-startup')) app.quit();
-updateElectronApp(); 
+
+// Only use auto-updater if not on macOS (since we're not signing the macOS build)
+if (process.platform !== 'darwin') {
+    updateElectronApp();
+}
 
 let mainWindow
 
