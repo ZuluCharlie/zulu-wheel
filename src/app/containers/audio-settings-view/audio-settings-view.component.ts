@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AudioSettingsComponent } from "../../components/settings/audio-settings/audio-settings.component";
 import { WheelMainComponent } from "../../components/wheels/wheel-main/wheel-main.component";
-import { Item } from 'spin-wheel-ts';
 import { getRandomNumber } from '../../util/helpers';
 import { randomNames } from '../../util/random-names';
+import { Item } from '../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-audio-settings-view',

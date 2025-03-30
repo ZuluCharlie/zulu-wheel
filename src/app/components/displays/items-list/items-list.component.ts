@@ -1,16 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Item } from 'spin-wheel-ts';
 import { SettingsService } from '../../../services/settings-service';
 import { WheelService } from '../../../services/wheel-service';
 import { WheelEntryType, WheelSettings } from '../../../models/wheel-settings';
 import { TwitchService } from '../../../services/twitch-service';
 import { ZuluCardComponent } from "../../zulu-tools/zulu-card/zulu-card.component";
-import { Subscription } from 'rxjs';
 import { MainStyleDirective } from '../../../directives/main-style.directive';
 import { ZuluTextareaComponent } from '../../zulu-tools/zulu-textarea/zulu-textarea.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Item } from '../../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-items-list',

@@ -1,4 +1,5 @@
-import { Item } from "spin-wheel-ts";
+import { Item } from "../spin-wheel-ts/item";
+
 
 export type Alignment = 'left' | 'center' | 'right';
 export type Offset = {

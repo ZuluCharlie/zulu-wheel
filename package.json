@@ -1,6 +1,6 @@
 {
   "name": "zulu-wheel",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "main": "app.js",
   "scripts": {
     "ng": "ng",
@@ -39,7 +39,6 @@
     "ngx-color-picker": "^17.0.0",
     "ngx-font-picker": "^17.0.0",
     "rxjs": "~7.8.0",
-    "spin-wheel-ts": "^1.0.0-alpha.7",
     "tslib": "^2.3.0",
     "update-electron-app": "^3.1.1",
     "zone.js": "~0.14.10"

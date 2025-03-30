@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { WheelSettings } from './models/wheel-settings';
 import { CommonModule } from '@angular/common';
-import { Item } from 'spin-wheel-ts';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FONT_PICKER_CONFIG, FontInterface, FontPickerConfigInterface, FontPickerModule, FontPickerService } from 'ngx-font-picker';
 import { SettingsService } from './services/settings-service';
@@ -22,6 +21,7 @@ import { AudioService } from './services/audio-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { take } from 'rxjs';
 import { StaticWheelService } from './services/static-wheel-service';
+import { Item } from './spin-wheel-ts/item';
 
 const DEFAULT_FONT_PICKER_CONFIG: FontPickerConfigInterface = {
   apiKey: 'AIzaSyD-sn9nq8KSAAKgmqgDVZGck844ueiKkNE'

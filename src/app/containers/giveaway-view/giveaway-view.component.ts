@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ItemsListComponent } from "../../components/displays/items-list/items-list.component";
 import { WheelMainComponent } from "../../components/wheels/wheel-main/wheel-main.component";
-import { Item } from 'spin-wheel-ts';
 import { WheelEntryType, WheelSettings } from '../../models/wheel-settings';
 import { SafeStyle } from '@angular/platform-browser';
 import { FONT_PICKER_CONFIG, FontInterface, FontPickerConfigInterface, FontPickerModule, FontPickerService } from 'ngx-font-picker';
@@ -44,6 +43,7 @@ import { ModalService } from '../../services/modal-service';
 import { AnimatedUnderlineDirective } from '../../directives/animated-underline.directive';
 import { RouterModule } from '@angular/router';
 import { MainStyleDirective } from '../../directives/main-style.directive';
+import { Item } from '../../spin-wheel-ts/item';
 
 const DEFAULT_FONT_PICKER_CONFIG: FontPickerConfigInterface = {
   apiKey: 'AIzaSyD-sn9nq8KSAAKgmqgDVZGck844ueiKkNE'

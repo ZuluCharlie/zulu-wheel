@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
 import { WheelSettings } from '../../../models/wheel-settings';
-import { Item } from 'spin-wheel-ts';
 import { SettingsService } from '../../../services/settings-service';
 import { WheelService } from '../../../services/wheel-service';
 import { getRandomNumber, toRad } from '../../../util/helpers';
@@ -15,6 +14,7 @@ import { StreamerBotService } from '../../../services/streamerbot-service';
 import { AudioService } from '../../../services/audio-service';
 import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { ModalService } from '../../../services/modal-service';
+import { Item } from '../../../spin-wheel-ts/item';
 
 export interface EliminationItem {
   label: string;

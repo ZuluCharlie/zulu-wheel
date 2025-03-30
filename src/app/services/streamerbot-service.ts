@@ -3,8 +3,6 @@ import { StreamerbotClient } from '@streamerbot/client';
 import { BehaviorSubject } from 'rxjs';
 import { defaultStreamerBotSettings, StreamerBotSettings } from '../models/streamerbot-settings';
 import { SettingsValue } from '../../main';
-import { Item } from 'spin-wheel-ts';
-import { getVisibleTextColor } from '../util/helpers';
 import { GiveawayDetails } from '../models/giveaway-details';
 import { SelectValue } from '../models/wheel-settings';
 

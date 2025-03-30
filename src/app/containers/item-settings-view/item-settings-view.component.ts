@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { WheelItemSettingsComponent } from "../../components/settings/wheel-item-settings/wheel-item-settings.component";
 import { WheelMainComponent } from "../../components/wheels/wheel-main/wheel-main.component";
-import { Item } from 'spin-wheel-ts';
 import { getRandomNumber } from '../../util/helpers';
 import { randomNames } from '../../util/random-names';
+import { Item } from '../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-item-settings-view',

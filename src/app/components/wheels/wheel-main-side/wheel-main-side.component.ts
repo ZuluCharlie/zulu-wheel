@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, HostListener, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { debounceTime, fromEvent, skip, Subject, Subscription, takeUntil } from 'rxjs';
-import { Item } from 'spin-wheel-ts';
 import { WheelDisplayTypes } from '../../../models/wheel-display-types';
 import { WheelItemSettings } from '../../../models/wheel-item-settings';
 import { WheelSettings } from '../../../models/wheel-settings';
@@ -20,6 +19,7 @@ import { StreamerBotService } from '../../../services/streamerbot-service';
 import { AudioService } from '../../../services/audio-service';
 import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { ModalService } from '../../../services/modal-service';
+import { Item } from '../../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-wheel-main-side',

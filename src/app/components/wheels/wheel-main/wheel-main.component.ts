@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ViewChild } from '@angular/core';
-import { Item, Wheel } from 'spin-wheel-ts';
 import { WheelSettings } from '../../../models/wheel-settings';
 import { CurrentIndexChangeEvent, Props, RestEvent } from '../../../types/wheel-types';
 import { CommonModule } from '@angular/common';
@@ -23,6 +22,8 @@ import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { ModalService } from '../../../services/modal-service';
 import { AudioSettingsItem } from '../../../models/audio-settings';
 import { MatIconModule } from '@angular/material/icon';
+import { Item } from '../../../spin-wheel-ts/item';
+import { Wheel } from '../../../spin-wheel-ts/wheel';
 
 
 @Component({

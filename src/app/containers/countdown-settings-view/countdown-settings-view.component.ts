@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Item } from 'spin-wheel-ts';
 import { getRandomNumber } from '../../util/helpers';
 import { randomNames } from '../../util/random-names';
 import { WheelMainComponent } from "../../components/wheels/wheel-main/wheel-main.component";
 import { CountdownSettingsComponent } from "../../components/settings/countdown-settings/countdown-settings.component";
+import { Item } from '../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-countdown-settings-view',

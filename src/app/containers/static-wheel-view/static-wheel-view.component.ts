@@ -10,7 +10,6 @@ import { SelectValue, WheelSettings } from '../../models/wheel-settings';
 import { ZuluButtonComponent } from "../../components/zulu-tools/zulu-button/zulu-button.component";
 import { CommonModule } from '@angular/common';
 import { ModalService } from '../../services/modal-service';
-import { Item } from 'spin-wheel-ts';
 import { WheelMainComponent } from "../../components/wheels/wheel-main/wheel-main.component";
 import { StreamerBotService } from '../../services/streamerbot-service';
 import { WinnerModalComponent } from '../../modals/winner-modal/winner-modal.component';
@@ -19,6 +18,7 @@ import { TwitchMessagesComponent } from "../../components/displays/twitch-messag
 import { ZuluInputComponent } from "../../components/zulu-tools/zulu-input/zulu-input.component";
 import { ZuluCardComponent } from "../../components/zulu-tools/zulu-card/zulu-card.component";
 import { AudioSettingsItem } from '../../models/audio-settings';
+import { Item } from '../../spin-wheel-ts/item';
 
 @Component({
   selector: 'app-static-wheel-view',
