@@ -15,7 +15,7 @@ if (process.platform !== 'darwin') {
     updateElectronApp();
 }
 
-let mainWindow
+let mainWindow, server1, server2;
 
 function createWindow() {
     mainWindow = new BrowserWindow({
@@ -50,7 +50,6 @@ function createWindow() {
 
     mainWindow.setMenuBarVisibility(false);
 
-    var server1, server2;
     server1 = http.createServer(function (req, res) {
         res.write('<script>window.location = "http://localhost:6912/" + window.location.hash.substring(14,44)</script>');
         res.end();
@@ -81,7 +80,15 @@ function createWindow() {
 }
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit()
+    if (server1) {
+        server1.close();
+    }
+    if (server2) {
+        server2.close();
+    }
+    if (process.platform !== 'darwin') {
+        app.quit();
+    }
 })
 
 app.whenReady().then(() => {
