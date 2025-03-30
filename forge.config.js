@@ -51,12 +51,6 @@ module.exports = {
         format: 'ULFO',
         name: 'Zulu Wheel',
         icon: 'public/favicon.ico',
-        contents: options => {
-          return [
-            { x: 448, y: 344, type: 'link', path: '/Applications' },
-            { x: 192, y: 344, type: 'file', path: options.appPath }
-          ];
-        }
       }
     },
   ],
