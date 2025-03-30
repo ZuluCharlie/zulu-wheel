@@ -20,7 +20,9 @@ jobs:
           node-version: 20.18.0
       - name: Install
         run: npm install
+      - name: Build
+        run: npm run build
       - name: Publish app
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-        run: npm run publish
+        run: npm publish
