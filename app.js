@@ -54,6 +54,11 @@ function createWindow() {
     server1 = http.createServer(function (req, res) {
         res.write('<script>window.location = "http://localhost:6912/" + window.location.hash.substring(14,44)</script>');
         res.end();
+    }).on('error', (e) => {
+        if (e.code === 'EADDRINUSE') {
+            dialog.showErrorBox('Error opening Zulu Wheel', 'Please ensure the app is not already running');
+            app.quit();
+        }
     }).listen(4448);
 
     server2 = http.createServer(function (req, res) {
@@ -69,6 +74,9 @@ function createWindow() {
             res.write('Your Twitch login has been authenticated successfully. You may now close this window.');
         }
         res.end();
+    }).on('error', (e) => {
+        if (e.code === 'EADDRINUSE') {
+        }
     }).listen(6912);
 }
 

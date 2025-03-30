@@ -21,7 +21,6 @@ module.exports = {
         iconUrl: path.join(__dirname, 'public/favicon.ico'),
         setupIcon: path.join(__dirname, 'public/favicon.ico'),
         noMsi: true,
-        setupExe: 'zulu-wheel-setup-beta.exe'
       },
     },
     {
