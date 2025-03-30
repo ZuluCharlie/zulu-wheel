@@ -80,15 +80,17 @@ function createWindow() {
     }).listen(6912);
 }
 
-app.on('ready', createWindow)
-
 app.on('window-all-closed', function () {
     if (process.platform !== 'darwin') app.quit()
 })
 
-app.on('activate', function () {
-    if (mainWindow === null) createWindow()
-})
+app.whenReady().then(() => {
+    createWindow()
+  
+    app.on('activate', () => {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+    })
+  })
 
 ipcMain.handle("writeData", async (event, data, fileName) => {
     try {
