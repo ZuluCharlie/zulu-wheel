@@ -72,5 +72,6 @@
   },
   "license": "MIT",
   "author": "ZuluCharlie",
-  "description": "A fully customizeable spin-wheel and giveaway tool with integration to Twitch and Streamer.bot"
+  "description": "A fully customizeable spin-wheel and giveaway tool with integration to Twitch and Streamer.bot",
+  "productName": "Zulu Wheel"
 }
