@@ -7,22 +7,23 @@ Thank you so much for checking out the Zulu Wheel! I made this to give streamers
 [Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version. Please note that this application is not yet signed, so you may need to take extra steps to run the app, depending on your OS.
 
 ### Windows
-zulu-wheel-{version}.Setup.exe
-zulu-wheel-win32-x64-{version}.zip
+- zulu-wheel-{version}.Setup.exe
+- zulu-wheel-win32-x64-{version}.zip
 
 If you see a blue window that says "Windows protected your PC", click 'More Info', then 'Run Anyway'
 
 ### Mac
-Zulu.Wheel.dmg
-zulu-wheel-darwin-arm64-{version}.zip
+- Zulu.Wheel.dmg
+- zulu-wheel-darwin-arm64-{version}.zip
 
 If you see a pop-up that says "zulu-wheel is damaged and can't be opened", run the following command in the Terminal
+
 `xattr -c /Applications/zulu-wheel.app`
 
 ### Linux
-Zulu-Wheel-{version}-1.x86_64.rpm
-zulu-wheel-linux-x64-{version}.zip
-zulu-wheel_{version}_amd64.deb
+- Zulu-Wheel-{version}-1.x86_64.rpm
+- zulu-wheel-linux-x64-{version}.zip
+- zulu-wheel_{version}_amd64.deb
 
 ## Current Features
 
