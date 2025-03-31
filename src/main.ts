@@ -32,7 +32,8 @@ export type ElectronAPI = {
   onTokenCollected(cb: ((customData: string) => void)): void,
   onImportedCsv(cb: ((customData: object[]) => void)): void,
   onFileWatchChange(cb: ((customData: string) => void)): void,
-  onFileWatchError(cb: (() => void)): void;
+  onFileWatchError(cb: (() => void)): void,
+  getAppVersionNumber: () => Promise<string>
 }
 
 declare global {

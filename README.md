@@ -4,7 +4,25 @@ Thank you so much for checking out the Zulu Wheel! I made this to give streamers
 
 ## [Download](https://github.com/ZuluCharlie/zulu-wheel/releases/latest)
 
-[Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version, then click the 'zulu-wheel-setup-beta.exe' link to download the executable. Then, you only need to run the executable from your download folder, and you're on your way!
+[Click here](https://github.com/ZuluCharlie/zulu-wheel/releases/latest) to find the latest version. Please note that this application is not yet signed, so you may need to take extra steps to run the app, depending on your OS.
+
+### Windows
+zulu-wheel-{version}.Setup.exe
+zulu-wheel-win32-x64-{version}.zip
+
+If you see a blue window that says "Windows protected your PC", click 'More Info', then 'Run Anyway'
+
+### Mac
+Zulu.Wheel.dmg
+zulu-wheel-darwin-arm64-{version}.zip
+
+If you see a pop-up that says "zulu-wheel is damaged and can't be opened", run the following command in the Terminal
+`xattr -c /Applications/zulu-wheel.app`
+
+### Linux
+Zulu-Wheel-{version}-1.x86_64.rpm
+zulu-wheel-linux-x64-{version}.zip
+zulu-wheel_{version}_amd64.deb
 
 ## Current Features
 
@@ -13,12 +31,12 @@ Thank you so much for checking out the Zulu Wheel! I made this to give streamers
 ### Twitch integration
 ### Streamer.bot integration
 ### Read entries directly from a text file
-### Control every aspect of the giveaway, from the background images to the sounds of the wheel can be customized! Play around with all the settings available and make this truly your own!
+### Control every aspect of the giveaway! Everything from the background images to the sounds of the wheel can be customized! Play around with all the settings available and make this truly your own!
 ### Static Wheels - Highly specialized wheels with more options available, such as adding images, items weights, individual winner messages, and more.
 
 ## [Send feedback](https://github.com/ZuluCharlie/zulu-wheel/issues)
 
-This app is currently in beta, and only available on Windows. If you come across any issues or have a feature you'd like to request [please leave them here.](https://github.com/ZuluCharlie/zulu-wheel/issues)
+If you come across any issues or have a feature you'd like to request [please leave them here.](https://github.com/ZuluCharlie/zulu-wheel/issues)
 
 ## [Support me](https://ko-fi.com/zulucharlie)
 

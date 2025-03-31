@@ -10,6 +10,7 @@ import { GiveawaySettingsViewComponent } from './containers/giveaway-settings-vi
 import { StreamerbotSettingsViewComponent } from './containers/streamerbot-settings-view/streamerbot-settings-view.component';
 import { AudioSettingsViewComponent } from './containers/audio-settings-view/audio-settings-view.component';
 import { StaticWheelViewComponent } from './containers/static-wheel-view/static-wheel-view.component';
+import { AboutComponent } from './containers/about/about.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'giveaway', pathMatch: 'full' },
@@ -24,5 +25,6 @@ export const routes: Routes = [
     { path: 'giveaway-settings', component: GiveawaySettingsViewComponent, pathMatch: 'full' },
     { path: 'giveaway-settings/:id', component: GiveawaySettingsViewComponent, pathMatch: 'full' },
     { path: 'streamerbot-settings', component: StreamerbotSettingsViewComponent, pathMatch: 'full' },
-    { path: 'audio-settings', component: AudioSettingsViewComponent, pathMatch: 'full' }
+    { path: 'audio-settings', component: AudioSettingsViewComponent, pathMatch: 'full' },
+    { path: 'about', component: AboutComponent, pathMatch: 'full' }
 ];

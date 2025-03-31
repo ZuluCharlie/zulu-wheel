@@ -68,6 +68,11 @@
                 </ul>
                 <ul class="nav flex-column">
                     <li class="nav-item">
+                        <a class="nav-link btn" [routerLink]="['/about']" routerLinkActive="active"
+                            (click)="drawer.close()" zuluMainStyle [background]="false" zuluAnimatedUnderline>
+                            About</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link btn" (click)="onReload()" zuluMainStyle [background]="false"
                             zuluAnimatedUnderline>Reload</a>
                     </li>

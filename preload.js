@@ -38,4 +38,5 @@ contextBridge.exposeInMainWorld("electronAPI", {
     onFileWatchError: (cb => {
         ipcRenderer.on('file-watch-error', (event) => cb());
     }),
+    getAppVersionNumber: () => ipcRenderer.invoke("getAppVersionNumber"),
 });

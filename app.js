@@ -319,6 +319,10 @@ ipcMain.handle("openImportCsvTemplate", async (event) => {
     );
 })
 
+ipcMain.handle("getAppVersionNumber", async (event) => {
+    return app.getVersion();
+})
+
 function getGuid() {
     return 'xxxxxxxxxxxxxxxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, c => {
         const r = Math.random() * 16 | 0;

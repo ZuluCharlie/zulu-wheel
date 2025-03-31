@@ -24,23 +24,17 @@ module.exports = {
       },
     },
     {
-      name: '@electron-forge/maker-zip',
-      platforms: ['darwin', 'linux', 'win32']
-    },
-    {
       name: '@electron-forge/maker-deb',
       platforms: ['linux'],
       config: {
-        name: 'Zulu Wheel',
         icon: 'public/favicon.ico',
-        maintainer: 'ZuluCharlie'
+        maintainer: 'ZuluCharlie',
       },
     },
     {
       name: '@electron-forge/maker-rpm',
       platforms: ['linux'],
       config: {
-        name: 'Zulu Wheel',
         icon: 'public/favicon.ico',
       },
     },
@@ -49,9 +43,12 @@ module.exports = {
       platforms: ['darwin'],
       config: {
         format: 'ULFO',
-        name: 'Zulu Wheel',
         icon: 'public/favicon.ico',
       }
+    },
+    {
+      name: '@electron-forge/maker-zip',
+      platforms: ['darwin', 'linux', 'win32']
     },
   ],
   plugins: [
