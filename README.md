@@ -35,12 +35,13 @@ If you see a pop-up that says "zulu-wheel is damaged and can't be opened", run t
 ### Control every aspect of the giveaway! Everything from the background images to the sounds of the wheel can be customized! Play around with all the settings available and make this truly your own!
 ### Static Wheels - Highly specialized wheels with more options available, such as adding images, items weights, individual winner messages, and more.
 
-## [Send feedback](https://github.com/ZuluCharlie/zulu-wheel/issues)
+## Send feedback
 
 If you come across any issues or have a feature you'd like to request [please leave them here.](https://github.com/ZuluCharlie/zulu-wheel/issues)
 
-## [Support me](https://ko-fi.com/zulucharlie)
+## Support me
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B417KPE1)
 [Check out my Ko-Fi page](https://ko-fi.com/zulucharlie) to check out the various other projects I have going on, and please consider leaving a donation. Your support helps offset the costs of making cool stuff like this, and allows me to continue offering them free of charge.
 
 If you love the Zulu Wheel, please be sure to spread the word. The best support you can give is a recommendation! 
