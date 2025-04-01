@@ -42,7 +42,8 @@ If you come across any issues or have a feature you'd like to request [please le
 ## Support me
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B417KPE1)
-[Check out my Ko-Fi page](https://ko-fi.com/zulucharlie) to check out the various other projects I have going on, and please consider leaving a donation. Your support helps offset the costs of making cool stuff like this, and allows me to continue offering them free of charge.
+
+Check out my Ko-Fi page to see various other projects I have going on, and please consider leaving a donation. Your support helps offset the costs of making cool stuff like this, and allows me to continue offering them free of charge.
 
 If you love the Zulu Wheel, please be sure to spread the word. The best support you can give is a recommendation! 
 
