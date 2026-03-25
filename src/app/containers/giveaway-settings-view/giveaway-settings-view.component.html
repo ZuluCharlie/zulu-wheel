@@ -28,11 +28,11 @@
           }
           @if (currentGiveaway) {
             <div class="col-2">
-              @if (currentGiveaway?.winners && currentGiveaway?.winners?.length ?? 0 > 0) {
+              @if ((currentGiveaway.winners && currentGiveaway.winners.length) ?? 0 > 0) {
                 <div>
                   <h2 zuluMainStyle [background]="false">Winners</h2>
                   <zulu-card>
-                    @for (winner of currentGiveaway?.winners; track winner; let i = $index) {
+                    @for (winner of currentGiveaway.winners; track winner; let i = $index) {
                       <div
                         class="badge d-flex align-items-center" zuluMainStyle>
                         <span>{{winner}}</span>

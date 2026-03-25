@@ -16,7 +16,7 @@
     }
   </div>
   <div #wheelContainer class="wheel-container justify-content-center" [ngClass]="uiGuid">
-    @if (settings?.wheelCenterImagePath) {
+    @if (settings.wheelCenterImagePath) {
       <div
         class="wheel-center justify-content-center align-items-center d-flex">
         @if (wheel && wheel.items.length > 0) {
@@ -26,7 +26,7 @@
         }
       </div>
     }
-    @if (wheel && wheel.items.length > 0 && settings?.wheelOverlayImagePath) {
+    @if (wheel && wheel.items.length > 0 && settings.wheelOverlayImagePath) {
       <div
         [style.background-image]="'url(\'' + settings.wheelOverlayImagePath + '\')'"
         class="wheel-overlay">

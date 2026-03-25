@@ -10,7 +10,7 @@
           No Current Giveaway
         </div>
       }
-      @if (currentGiveaway?.trackWinners && currentGiveaway?.winners?.length ?? 0 > 0) {
+      @if ((currentGiveaway?.trackWinners && currentGiveaway?.winners?.length) ?? 0 > 0) {
         <div class="d-flex justify-content-start align-items-center flex-wrap">
           <div>Winners:</div>
           <div class="badge d-flex align-items-center"
