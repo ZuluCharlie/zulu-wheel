@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { ZuluButtonComponent } from "../zulu-button/zulu-button.component";
-import { CommonModule } from '@angular/common';
+
 import { AudioSettingsItem } from '../../../models/audio-settings';
 import { MatIconModule } from '@angular/material/icon';
 import { ZuluSliderComponent } from "../zulu-slider/zulu-slider.component";
@@ -9,7 +9,7 @@ import { ModalService } from '../../../services/modal-service';
 @Component({
   selector: 'zulu-audio',
   standalone: true,
-  imports: [CommonModule, ZuluButtonComponent, MatIconModule, ZuluSliderComponent],
+  imports: [ZuluButtonComponent, MatIconModule, ZuluSliderComponent],
   templateUrl: './zulu-audio.component.html',
   styleUrl: './zulu-audio.component.scss'
 })

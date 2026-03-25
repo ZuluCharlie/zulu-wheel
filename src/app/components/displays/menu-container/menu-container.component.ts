@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -13,11 +13,11 @@ import { AnimatedUnderlineDirective } from '../../../directives/animated-underli
   standalone: true,
   imports: [
     RouterModule,
-    CommonModule,
     MatToolbarModule,
     MatSidenavModule,
     MainStyleDirective,
-    AnimatedUnderlineDirective],
+    AnimatedUnderlineDirective
+],
   templateUrl: './menu-container.component.html',
   styleUrl: './menu-container.component.scss'
 })

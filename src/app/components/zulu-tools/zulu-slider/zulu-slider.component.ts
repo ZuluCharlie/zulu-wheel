@@ -3,7 +3,7 @@ import { WheelSettings } from '../../../models/wheel-settings';
 import { SettingsService } from '../../../services/settings-service';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, fromEvent, Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+
 import { StyleSettings } from '../../../models/style-settings';
 import { StyleService } from '../../../services/style-service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
@@ -12,7 +12,7 @@ import { InputStyleDirective } from '../../../directives/input-style.directive';
 @Component({
   selector: 'zulu-slider',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputStyleDirective],
+  imports: [FormsModule, InputStyleDirective],
   templateUrl: './zulu-slider.component.html',
   styleUrl: './zulu-slider.component.scss'
 })

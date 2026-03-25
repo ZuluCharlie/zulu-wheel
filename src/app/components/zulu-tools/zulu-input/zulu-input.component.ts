@@ -1,14 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { WheelSettings } from '../../../models/wheel-settings';
 import { SettingsService } from '../../../services/settings-service';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { InputStyleDirective } from '../../../directives/input-style.directive';
 
 @Component({
   selector: 'zulu-input',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputStyleDirective],
+  imports: [FormsModule, InputStyleDirective],
   templateUrl: './zulu-input.component.html',
   styleUrl: './zulu-input.component.scss'
 })

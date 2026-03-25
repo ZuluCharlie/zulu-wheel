@@ -6,7 +6,7 @@ import { ZuluCardComponent } from "../../zulu-tools/zulu-card/zulu-card.componen
 import { GiveawayDetailsComponent } from "../giveaway-details/giveaway-details.component";
 import { ZuluSelectComponent } from "../../zulu-tools/zulu-select/zulu-select.component";
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
-import { CommonModule } from '@angular/common';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ZuluInputComponent } from "../../zulu-tools/zulu-input/zulu-input.component";
@@ -19,8 +19,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'current-giveaway',
   standalone: true,
-  imports: [CommonModule, ZuluCardComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluButtonComponent, MatIconModule, MatButtonModule, ZuluInputComponent, FormsModule,
-    MainStyleDirective],
+  imports: [ZuluCardComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluButtonComponent, MatIconModule, MatButtonModule, ZuluInputComponent, FormsModule, MainStyleDirective],
   templateUrl: './current-giveaway.component.html',
   styleUrl: './current-giveaway.component.scss'
 })

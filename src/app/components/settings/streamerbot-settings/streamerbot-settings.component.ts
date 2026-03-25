@@ -3,7 +3,7 @@ import { StreamerBotSettings } from '../../../models/streamerbot-settings';
 import { StreamerBotAction, StreamerBotService } from '../../../services/streamerbot-service';
 import { Subscription } from 'rxjs';
 import { ZuluCardComponent } from "../../zulu-tools/zulu-card/zulu-card.component";
-import { CommonModule } from '@angular/common';
+
 import { MainStyleDirective } from '../../../directives/main-style.directive';
 import { SelectValue } from '../../../models/wheel-settings';
 import { ZuluInputComponent } from "../../zulu-tools/zulu-input/zulu-input.component";
@@ -18,7 +18,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-streamerbot-settings',
   standalone: true,
-  imports: [CommonModule, MainStyleDirective, ZuluCardComponent, ZuluInputComponent, ZuluInputNumberComponent, ZuluSelectComponent, ZuluButtonComponent, ZuluTextareaComponent, ZuluCheckboxComponent],
+  imports: [MainStyleDirective, ZuluCardComponent, ZuluInputComponent, ZuluInputNumberComponent, ZuluSelectComponent, ZuluButtonComponent, ZuluTextareaComponent, ZuluCheckboxComponent],
   templateUrl: './streamerbot-settings.component.html',
   styleUrl: './streamerbot-settings.component.scss'
 })

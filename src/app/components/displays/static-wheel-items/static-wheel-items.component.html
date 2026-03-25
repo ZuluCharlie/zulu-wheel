@@ -1,27 +1,29 @@
 <zulu-card header="Items" class="h-100" className="h-100">
-    <div class="d-flex flex-column h-100">
-        <zulu-button (buttonClick)="addWheelItem()">Add Item</zulu-button>
-        <div class="static-wheel-item-viewport" cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="onReorderItems($event)">
-            <div *ngFor="let item of items; let i = index; trackBy:itemTrack" class="d-flex mb-1" cdkDrag>
-                <div class="d-flex reorder-column justify-content-center align-items-center" cdkDragHandle
-                    mat-mini-fab>
-                    <mat-icon>reorder</mat-icon>
-                </div>
+  <div class="d-flex flex-column h-100">
+    <zulu-button (buttonClick)="addWheelItem()">Add Item</zulu-button>
+    <div class="static-wheel-item-viewport" cdkDropList [cdkDropListData]="items" (cdkDropListDropped)="onReorderItems($event)">
+      @for (item of items; track itemTrack(i); let i = $index) {
+        <div class="d-flex mb-1" cdkDrag>
+          <div class="d-flex reorder-column justify-content-center align-items-center" cdkDragHandle
+            mat-mini-fab>
+            <mat-icon>reorder</mat-icon>
+          </div>
                 <zulu-input [model]="item.label" class="flex-grow-1 align-content-center p-2" [ngStyle]="{
                     'background-color': item.backgroundColor,
                     'color': item.labelColor,
                     'font-family': wheelFont
                     }" (inputChange)="onSettingChange($event, 'label', i)" />
-                <zulu-button (buttonClick)="editItem.emit(i)">Edit</zulu-button>
-                <zulu-button (buttonClick)="deleteItem.emit(i)">Delete</zulu-button>
-                <div *cdkDragPreview class="d-flex">
+            <zulu-button (buttonClick)="editItem.emit(i)">Edit</zulu-button>
+            <zulu-button (buttonClick)="deleteItem.emit(i)">Delete</zulu-button>
+            <div *cdkDragPreview class="d-flex">
                     <div class="flex-grow-1 align-content-center p-2" [ngStyle]="{
                     'background-color': item.backgroundColor,
                     'color': item.labelColor,
                     'font-family': wheelFont
                     }">{{item.label}}</div>
-                </div>
             </div>
-        </div>
+          </div>
+        }
+      </div>
     </div>
-</zulu-card>
+  </zulu-card>

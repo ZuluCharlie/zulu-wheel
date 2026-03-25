@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { StaticWheelItem } from '../../../models/static-wheel';
 import { ZuluCardComponent } from "../../zulu-tools/zulu-card/zulu-card.component";
-import { CommonModule } from '@angular/common';
+
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
 import { StaticWheelService } from '../../../services/static-wheel-service';
 import { SettingsValue } from '../../../../main';
@@ -15,7 +15,7 @@ import { ZuluSliderComponent } from "../../zulu-tools/zulu-slider/zulu-slider.co
 @Component({
   selector: 'app-static-wheel-item-settings',
   standalone: true,
-  imports: [CommonModule, ZuluCardComponent, ZuluInputComponent, ZuluButtonComponent, ZuluInputNumberComponent, ZuluAudioComponent, ZuluSliderComponent],
+  imports: [ZuluCardComponent, ZuluInputComponent, ZuluButtonComponent, ZuluInputNumberComponent, ZuluAudioComponent, ZuluSliderComponent],
   templateUrl: './static-wheel-item-settings.component.html',
   styleUrl: './static-wheel-item-settings.component.scss'
 })

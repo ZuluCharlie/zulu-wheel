@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { easeOutBack, easeInBounce, easeOutCirc, easeOutCubic, easeOutElastic, easeOutQuad, easeOutQuart, easeOutQuint, easeOutSine, linear } from 'easing-utils';
 import { WheelSettings } from '../../../models/wheel-settings';
@@ -17,7 +17,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'app-wheel-settings',
   standalone: true,
   imports: [
-    CommonModule,
     ZuluCardComponent,
     ZuluInputNumberComponent,
     ZuluSelectComponent,

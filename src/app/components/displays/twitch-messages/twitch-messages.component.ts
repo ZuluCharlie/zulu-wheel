@@ -4,14 +4,14 @@ import { skip, take } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TwitchChatMessage } from '../../../types/twitch-message';
 import { MainStyleDirective } from '../../../directives/main-style.directive';
-import { CommonModule } from '@angular/common';
+
 import { ZuluTwitchMessageComponent } from "../../zulu-tools/zulu-twitch-message/zulu-twitch-message.component";
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
 
 @Component({
   selector: 'app-twitch-messages',
   standalone: true,
-  imports: [MainStyleDirective, CommonModule, ZuluTwitchMessageComponent, ZuluButtonComponent],
+  imports: [MainStyleDirective, ZuluTwitchMessageComponent, ZuluButtonComponent],
   templateUrl: './twitch-messages.component.html',
   styleUrl: './twitch-messages.component.scss',
 })

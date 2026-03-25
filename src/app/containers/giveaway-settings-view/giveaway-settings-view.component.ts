@@ -5,7 +5,7 @@ import { GiveawayDetails } from '../../models/giveaway-details';
 import { ZuluSelectComponent } from "../../components/zulu-tools/zulu-select/zulu-select.component";
 import { SettingsService } from '../../services/settings-service';
 import { Subscription, switchMap, take } from 'rxjs';
-import { CommonModule } from '@angular/common';
+
 import { ZuluCardComponent } from "../../components/zulu-tools/zulu-card/zulu-card.component";
 import { GiveawayListComponent } from "../../components/displays/giveaway-list/giveaway-list.component";
 import { SelectValue, WheelSettings } from '../../models/wheel-settings';
@@ -20,7 +20,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-giveaway-settings-view',
   standalone: true,
-  imports: [CommonModule, GiveawaySettingsComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluCardComponent, GiveawayListComponent, ZuluButtonComponent, MainStyleDirective, MatIconModule, MatButtonModule],
+  imports: [GiveawaySettingsComponent, GiveawayDetailsComponent, ZuluSelectComponent, ZuluCardComponent, GiveawayListComponent, ZuluButtonComponent, MainStyleDirective, MatIconModule, MatButtonModule],
   templateUrl: './giveaway-settings-view.component.html',
   styleUrl: './giveaway-settings-view.component.scss'
 })

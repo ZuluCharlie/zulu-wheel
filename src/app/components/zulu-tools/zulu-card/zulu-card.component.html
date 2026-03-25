@@ -1,10 +1,12 @@
 <ng-container>
-    <div class="card d-flex flex-column" [class]="className" zuluMainStyle [border]="true">
-        <div *ngIf="header" class="card-header" zuluMainStyle [background]="false" [border]="true">
-            {{header}}
-        </div>
-        <div class="card-body flex-grow-1" [ngClass]="{ 'p-0': noPadding }">
-            <ng-content></ng-content>
-        </div>
+  <div class="card d-flex flex-column" [class]="className" zuluMainStyle [border]="true">
+    @if (header) {
+      <div class="card-header" zuluMainStyle [background]="false" [border]="true">
+        {{header}}
+      </div>
+    }
+    <div class="card-body flex-grow-1" [ngClass]="{ 'p-0': noPadding }">
+      <ng-content></ng-content>
     </div>
+  </div>
 </ng-container>

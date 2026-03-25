@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { SettingsService } from '../../../services/settings-service';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { InputStyleDirective } from '../../../directives/input-style.directive';
 
 @Component({
   selector: 'zulu-textarea',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputStyleDirective],
+  imports: [FormsModule, InputStyleDirective],
   templateUrl: './zulu-textarea.component.html',
   styleUrl: './zulu-textarea.component.scss'
 })

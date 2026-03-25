@@ -1,41 +1,59 @@
-<zulu-card *ngIf="settings" header="Current Giveaway" className="h-100">
+@if (settings) {
+  <zulu-card header="Current Giveaway" className="h-100">
     <div class="d-flex flex-column h-100">
-        <giveaway-details *ngIf="currentGiveaway" [giveaway]="currentGiveaway"
-            class="giveaway-details flex-grow-1 p-2" />
-        <div *ngIf="!currentGiveaway" class="d-flex justify-content-around align-items-center flex-grow-1">
-            No Current Giveaway
+      @if (currentGiveaway) {
+        <giveaway-details [giveaway]="currentGiveaway"
+          class="giveaway-details flex-grow-1 p-2" />
+      }
+      @if (!currentGiveaway) {
+        <div class="d-flex justify-content-around align-items-center flex-grow-1">
+          No Current Giveaway
         </div>
-        <div *ngIf="currentGiveaway?.trackWinners && currentGiveaway?.winners?.length ?? 0 > 0" class="d-flex justify-content-start align-items-center flex-wrap">
-            <div>Winners:</div>
+      }
+      @if (currentGiveaway?.trackWinners && currentGiveaway?.winners?.length ?? 0 > 0) {
+        <div class="d-flex justify-content-start align-items-center flex-wrap">
+          <div>Winners:</div>
+          <div class="badge d-flex align-items-center"
+            zuluMainStyle>
+            <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 1]}}</span>
+            <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 1)">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </div>
+          @if (currentGiveaway!.winners.length > 1) {
             <div class="badge d-flex align-items-center"
-                zuluMainStyle>
-                <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 1]}}</span>
-                <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 1)">
-                    <mat-icon>cancel</mat-icon>
-                </button>
+              zuluMainStyle>
+              <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 2]}}</span>
+              <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 2)">
+                <mat-icon>cancel</mat-icon>
+              </button>
             </div>
-            <div *ngIf="currentGiveaway!.winners.length > 1" class="badge d-flex align-items-center"
-                zuluMainStyle>
-                <span>{{currentGiveaway!.winners[currentGiveaway!.winners.length - 2]}}</span>
-                <button mat-icon-button (click)="onRemoveWinner(currentGiveaway!.winners.length - 2)">
-                    <mat-icon>cancel</mat-icon>
-                </button>
+          }
+          @if (currentGiveaway!.winners.length > 2) {
+            <div class="badge d-flex align-items-center"
+              zuluMainStyle>
+              <span>+{{currentGiveaway!.winners.length - 2}} others...</span>
             </div>
-            <div *ngIf="currentGiveaway!.winners.length > 2" class="badge d-flex align-items-center"
-                zuluMainStyle>
-                <span>+{{currentGiveaway!.winners.length - 2}} others...</span>
-            </div>
+          }
         </div>
-        <div *ngIf="currentGiveaway?.trackWinners" class="d-flex justify-content-start align-items-center">
-            <zulu-input [model]="winnerToAdd" class="flex-grow-1" (inputChange)="winnerToAdd = $event" placeholder="Manually Add Winner" />
-            <zulu-button icon="add" (buttonClick)="onAddWinner()" [disabled]="!winnerToAdd">Add Winner</zulu-button>
+      }
+      @if (currentGiveaway?.trackWinners) {
+        <div class="d-flex justify-content-start align-items-center">
+          <zulu-input [model]="winnerToAdd" class="flex-grow-1" (inputChange)="winnerToAdd = $event" placeholder="Manually Add Winner" />
+          <zulu-button icon="add" (buttonClick)="onAddWinner()" [disabled]="!winnerToAdd">Add Winner</zulu-button>
         </div>
-        <div *ngIf="giveawayListItems && giveawayListItems.length > 0" class="d-flex justify-content-around align-items-center giveaway-footer">
-            <zulu-button (buttonClick)="onBack()" [disabled]="!canBack">Back</zulu-button>
-            <zulu-select [options]="giveawayListItems"
-                [model]="currentGiveawayIndex" (inputChange)="onSelect($event)" />
+      }
+      @if (giveawayListItems && giveawayListItems.length > 0) {
+        <div class="d-flex justify-content-around align-items-center giveaway-footer">
+          <zulu-button (buttonClick)="onBack()" [disabled]="!canBack">Back</zulu-button>
+          <zulu-select [options]="giveawayListItems"
+            [model]="currentGiveawayIndex" (inputChange)="onSelect($event)" />
             <zulu-button (buttonClick)="onForward()" [disabled]="!canForward">Next</zulu-button>
-            <zulu-button *ngIf="currentGiveawayIndex || currentGiveawayIndex === 0" (buttonClick)="onEditGiveaway()">Edit</zulu-button>
-        </div>
-    </div>
-</zulu-card>
+            @if (currentGiveawayIndex || currentGiveawayIndex === 0) {
+              <zulu-button (buttonClick)="onEditGiveaway()">Edit</zulu-button>
+            }
+          </div>
+        }
+      </div>
+    </zulu-card>
+  }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SelectValue } from '../../../models/wheel-settings';
-import { CommonModule } from '@angular/common';
+
 import { ZuluCardComponent } from "../../zulu-tools/zulu-card/zulu-card.component";
 import { ZuluButtonComponent } from '../../zulu-tools/zulu-button/zulu-button.component';
 import { ZuluInputComponent } from "../../zulu-tools/zulu-input/zulu-input.component";
@@ -17,7 +17,6 @@ import { ModalService } from '../../../services/modal-service';
   selector: 'app-winner-settings',
   standalone: true,
   imports: [
-    CommonModule,
     ZuluCardComponent,
     ZuluButtonComponent,
     ZuluInputComponent,
@@ -25,7 +24,7 @@ import { ModalService } from '../../../services/modal-service';
     ZuluInputNumberComponent,
     ZuluRadioGroupComponent,
     MainStyleDirective
-  ],
+],
   templateUrl: './winner-settings.component.html',
   styleUrl: './winner-settings.component.scss'
 })

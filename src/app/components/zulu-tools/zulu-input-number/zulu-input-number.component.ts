@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { SettingsService } from '../../../services/settings-service';
 import { FormsModule } from '@angular/forms';
@@ -7,7 +7,7 @@ import { InputStyleDirective } from '../../../directives/input-style.directive';
 @Component({
   selector: 'zulu-input-number',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputStyleDirective],
+  imports: [FormsModule, InputStyleDirective],
   templateUrl: './zulu-input-number.component.html',
   styleUrl: './zulu-input-number.component.scss'
 })

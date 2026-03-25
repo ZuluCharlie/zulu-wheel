@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { WheelSettings } from '../../../models/wheel-settings';
 import { SettingsService } from '../../../services/settings-service';
-import { CommonModule } from '@angular/common';
+
 import Pickr from '@simonwep/pickr';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -9,7 +9,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'zulu-color-picker',
   standalone: true,
-  imports: [CommonModule, ColorPickerModule],
+  imports: [ColorPickerModule],
   templateUrl: './zulu-color-picker.component.html',
   styleUrl: './zulu-color-picker.component.scss'
 })

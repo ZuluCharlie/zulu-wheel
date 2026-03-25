@@ -1,25 +1,47 @@
-<div *ngIf="settings" class="d-flex justify-content-center align-items-center h-100" zuluMainStyle [background]="false">
+@if (settings) {
+  <div class="d-flex justify-content-center align-items-center h-100" zuluMainStyle [background]="false">
     <div class="d-flex flex-column flex-grow-1">
-        <div class="d-flex flex-grow-1 w-100">
-            <zulu-image *ngIf="imgSrc || settings.winnerImagePath"
-                [imagePath]="!imgSrc ? settings.winnerImagePath : imgSrc" class="winner-image flex-grow-1" />
-            <div *ngIf="showHotSeat" class="winner-message-container m-2 h-100">
-                <app-twitch-messages class="winner-message" *ngIf="settings.showWinnerMessages"
-                    [chatterUserNames]="[winner]" />
-                <app-twitch-messages class="winner-message" *ngIf="twitchFeatureChatters.length > 0"
-                    [chatterUserNames]="twitchFeatureChatters" />
+      <div class="d-flex flex-grow-1 w-100">
+        @if (imgSrc || settings.winnerImagePath) {
+          <zulu-image
+            [imagePath]="!imgSrc ? settings.winnerImagePath : imgSrc" class="winner-image flex-grow-1" />
+        }
+        @if (showHotSeat) {
+          <div class="winner-message-container m-2 h-100">
+            @if (settings.showWinnerMessages) {
+              <app-twitch-messages class="winner-message"
+                [chatterUserNames]="[winner]" />
+            }
+            @if (twitchFeatureChatters.length > 0) {
+              <app-twitch-messages class="winner-message"
+                [chatterUserNames]="twitchFeatureChatters" />
+            }
+          </div>
+        }
+      </div>
+      @if (!isLapsed) {
+        <div>{{winnerMessageDisplay}}</div>
+      }
+      @if (runTimer) {
+        <div class="w-100">
+          @if (isLapsed) {
+            <div>{{settings.winnerRequireConfirmationLapsedMessage}}</div>
+          }
+          @if (!isConfirmed && !isLapsed) {
+            <div>{{settings.winnerRequireConfirmationMessage}}</div>
+          }
+          @if (!isConfirmed && !isLapsed) {
+            <div class="progress" role="progressbar" zuluMainStyle>
+              <div class="progress-bar-striped progress-bar-animated" zuluButtonStyle
+              [ngStyle]="{ 'width': percentRemaining + '%' }"></div>
             </div>
+          }
         </div>
-        <div *ngIf="!isLapsed">{{winnerMessageDisplay}}</div>
-        <div *ngIf="runTimer" class="w-100">
-            <div *ngIf="isLapsed">{{settings.winnerRequireConfirmationLapsedMessage}}</div>
-            <div *ngIf="!isConfirmed && !isLapsed">{{settings.winnerRequireConfirmationMessage}}</div>
-            <div *ngIf="!isConfirmed && !isLapsed" class="progress" role="progressbar" zuluMainStyle>
-                <div class="progress-bar-striped progress-bar-animated" zuluButtonStyle
-                    [ngStyle]="{ 'width': percentRemaining + '%' }"></div>
-            </div>
-        </div>
+      }
     </div>
-</div>
-<zulu-timer *ngIf="timerStarted" [time]="settings.winnerRequireConfirmationTimer * 1000" (ticked)="onTick($event)"
+  </div>
+}
+@if (timerStarted) {
+  <zulu-timer [time]="settings.winnerRequireConfirmationTimer * 1000" (ticked)="onTick($event)"
     (lapsed)="onLapsed()" />
+}

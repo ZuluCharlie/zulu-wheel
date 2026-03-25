@@ -5,13 +5,13 @@ import { ZuluAudioComponent } from "../../zulu-tools/zulu-audio/zulu-audio.compo
 import { Subscription } from 'rxjs';
 import { AudioSettings, AudioSettingsItem } from '../../../models/audio-settings';
 import { AudioService } from '../../../services/audio-service';
-import { CommonModule } from '@angular/common';
+
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-audio-settings',
   standalone: true,
-  imports: [CommonModule, MainStyleDirective, ZuluCardComponent, ZuluAudioComponent],
+  imports: [MainStyleDirective, ZuluCardComponent, ZuluAudioComponent],
   templateUrl: './audio-settings.component.html',
   styleUrl: './audio-settings.component.scss'
 })

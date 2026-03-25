@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SettingsService } from '../../../services/settings-service';
 import { WheelSettings } from '../../../models/wheel-settings';
-import { CommonModule } from '@angular/common';
+
 import { FontInterface, FontPickerModule } from 'ngx-font-picker';
 import { ZuluButtonComponent } from "../../zulu-tools/zulu-button/zulu-button.component";
 import { ZuluCardComponent } from '../../zulu-tools/zulu-card/zulu-card.component';
@@ -18,7 +18,6 @@ import { ModalService } from '../../../services/modal-service';
   selector: 'app-visual-settings',
   standalone: true,
   imports: [
-    CommonModule,
     FontPickerModule,
     ZuluButtonComponent,
     ZuluCardComponent,

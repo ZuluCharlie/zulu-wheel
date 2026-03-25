@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'zulu-modal-base',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, MatIconModule, ZuluButtonComponent, MainStyleDirective],
+  imports: [MatDialogModule, MatIconModule, ZuluButtonComponent, MainStyleDirective],
   templateUrl: './zulu-modal-base.component.html',
   styleUrl: './zulu-modal-base.component.scss'
 })

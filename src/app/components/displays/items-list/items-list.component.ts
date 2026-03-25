@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SettingsService } from '../../../services/settings-service';
@@ -15,7 +15,6 @@ import { Item } from '../../../spin-wheel-ts/item';
   selector: 'app-items-list',
   standalone: true,
   imports: [
-    CommonModule,
     FormsModule,
     ZuluCardComponent,
     MainStyleDirective,

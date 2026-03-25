@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import { ZuluModalBaseComponent } from "../zulu-modal-base/zulu-modal-base.component";
 import { ZuluButtonComponent } from "../../components/zulu-tools/zulu-button/zulu-button.component";
@@ -10,7 +10,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 @Component({
   selector: 'app-csv-import-modal',
   standalone: true,
-  imports: [CommonModule, ZuluModalBaseComponent, ZuluButtonComponent],
+  imports: [ZuluModalBaseComponent, ZuluButtonComponent],
   templateUrl: './csv-import-modal.component.html',
   styleUrl: './csv-import-modal.component.scss'
 })
