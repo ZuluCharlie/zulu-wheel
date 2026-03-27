@@ -182,12 +182,12 @@ export class GiveawayViewComponent {
   }
 
   removeAllFromWheel(label: string) {
-    this.items = this.items.filter(i => i.label !== label);
+    this.items = this.items.filter(i => i.label?.toLowerCase() !== label.toLowerCase());
     this.wheelService.updateItems(this.items);
   }
 
   removeOneFromWheel(label: string) {
-    const index = this.items.findIndex(i => i.label === label);
+    const index = this.items.findIndex(i => i.label?.toLowerCase() === label.toLowerCase());
     this.items = this.items.filter((i, idx) => idx !== index);
     this.wheelService.updateItems(this.items);
   }
@@ -390,10 +390,10 @@ export class GiveawayViewComponent {
       const messages = messageText.split(' ');
       if (messages.length > 1) {
         if (messages[0] === this.twitchSettings?.twitchEnterCommand?.toLowerCase()) {
-          this.addToWheel({ label: messages[1].replace('@', '') }, true);
+          this.addToWheel({ label: messages[1].replace('@', '').trim() }, true);
         }
         if (messages[0] === this.twitchSettings?.twitchRemoveCommand?.toLowerCase()) {
-          this.removeAllFromWheel(messages[1].replace('@', ''));
+          this.removeAllFromWheel(messages[1].replace('@', '').trim());
         }
       }
     }
