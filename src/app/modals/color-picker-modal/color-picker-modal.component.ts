@@ -22,12 +22,14 @@ export class ColorPickerModalComponent {
   header: string;
   backgroundColor: string;
   fontColor: string;
+  borderColor: string;
 
   constructor(private settingsService: StyleService, private modal: MatDialogRef<ColorPickerModalComponent>)  { 
     this.settingsService.styleSettings$.pipe(takeUntilDestroyed()).subscribe(ss => this.settings = ss);
     this.header = this.data.header;
     this.backgroundColor = this.data.backgroundColor;
     this.fontColor = this.data.fontColor;
+    this.borderColor = this.data.borderColor;
   }
 
   onBackgroundColorChanged(e: string) {
@@ -38,7 +40,11 @@ export class ColorPickerModalComponent {
     this.fontColor = e;
   }
 
+  onBorderColorChanged(e: string) {
+    this.borderColor = e;
+  }
+
   onSubmit() {
-    this.modal.close({ backgroundColor: this.backgroundColor, fontColor: this.fontColor });
+    this.modal.close({ backgroundColor: this.backgroundColor, fontColor: this.fontColor, borderColor: this.borderColor });
   }
 }

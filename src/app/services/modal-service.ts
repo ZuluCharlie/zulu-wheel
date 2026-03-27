@@ -37,9 +37,10 @@ export class ModalService {
         this.openModal(FilePickerAudioModalComponent, true, data, callback);
     }
 
-    openColorPicker(header: string, backgroundColor: string, fontColor: string, callback: (result: { backgroundColor: string, fontColor: string }) => void) {
-        const data = { header, backgroundColor, fontColor };
-        this.openModal(ColorPickerModalComponent, false, data, callback);
+    openColorPicker(header: string, backgroundColor: string, fontColor: string, borderColor: string, callback: (result: { backgroundColor: string, fontColor: string, borderColor: string }) => void) {
+        const data = { header, backgroundColor, fontColor, borderColor };
+        const config = { width: '60vw' };
+        this.openModal(ColorPickerModalComponent, false, data, callback, config);
     }  
     
     open<TComponent, TResult>(component: ComponentType<TComponent>, data: object, callback: (result: TResult) => void, config: Partial<MatDialogConfig> = {}) {

@@ -37,10 +37,13 @@ export class VisualSettingsComponent {
   wheelName: string;
   fontColor: string;
   backgroundColor: string;
+  borderColor: string;
   buttonFontColor: string;
   buttonColor: string;
+  buttonBorderColor: string;
   inputFontColor: string;
   inputBackgroundColor: string;
+  inputBorderColor: string;
   fontFamily: string;
 
   constructor(private styleService: StyleService, private settingsService: SettingsService, private fileService: FileService, private modalService: ModalService) {
@@ -51,10 +54,13 @@ export class VisualSettingsComponent {
     this.styleService.styleSettings$.subscribe(ss => {
       this.fontColor = ss.globalFontColor;
       this.backgroundColor = ss.globalBackgroundColor;
+      this.borderColor = ss.globalBorderColor;
       this.buttonFontColor = ss.globalButtonFontColor;
       this.buttonColor = ss.globalButtonColor;
+      this.buttonBorderColor = ss.globalButtonBorderColor;
       this.inputFontColor = ss.globalInputFontColor;
       this.inputBackgroundColor = ss.globalInputBackgroundColor;
+      this.inputBorderColor = ss.globalInputBorderColor;
       this.wheelName = ss.wheelName;
       this.fontFamily = ss.globalFont;
     })
@@ -79,23 +85,26 @@ export class VisualSettingsComponent {
   }
 
   openGlobalColorPickerModal() {
-    this.modalService.openColorPicker('Menu Color Settings', this.backgroundColor, this.fontColor, (result: { backgroundColor: string, fontColor: string }) => {
+    this.modalService.openColorPicker('Menu Color Settings', this.backgroundColor, this.fontColor, this.borderColor, (result: { backgroundColor: string, fontColor: string, borderColor: string }) => {
       this.styleService.saveSetting('globalBackgroundColor', result.backgroundColor);
       this.styleService.saveSetting('globalFontColor', result.fontColor);
+      this.styleService.saveSetting('globalBorderColor', result.borderColor);
     })
   }
 
   openButtonColorPickerModal() {
-    this.modalService.openColorPicker('Button Color Settings', this.buttonColor, this.buttonFontColor, (result: { backgroundColor: string, fontColor: string }) => {
+    this.modalService.openColorPicker('Button Color Settings', this.buttonColor, this.buttonFontColor, this.buttonBorderColor, (result: { backgroundColor: string, fontColor: string, borderColor: string }) => {
       this.styleService.saveSetting('globalButtonColor', result.backgroundColor);
       this.styleService.saveSetting('globalButtonFontColor', result.fontColor);
+      this.styleService.saveSetting('globalButtonBorderColor', result.borderColor);
     })
   }
 
   openInputColorPickerModal() {
-    this.modalService.openColorPicker('Input Color Settings', this.inputBackgroundColor, this.inputFontColor, (result: { backgroundColor: string, fontColor: string }) => {
+    this.modalService.openColorPicker('Input Color Settings', this.inputBackgroundColor, this.inputFontColor, this.inputBorderColor, (result: { backgroundColor: string, fontColor: string, borderColor: string }) => {
       this.styleService.saveSetting('globalInputBackgroundColor', result.backgroundColor);
       this.styleService.saveSetting('globalInputFontColor', result.fontColor);
+      this.styleService.saveSetting('globalInputBorderColor', result.borderColor);
     })
   }
 

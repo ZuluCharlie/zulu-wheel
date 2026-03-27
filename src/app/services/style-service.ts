@@ -39,19 +39,25 @@ export class StyleService {
             globalFont,
             globalFontColor,
             globalBackgroundColor,
+            globalBorderColor,
             globalButtonFontColor,
             globalButtonColor,
+            globalButtonBorderColor,
             globalInputFontColor,
-            globalInputBackgroundColor
+            globalInputBackgroundColor,
+            globalInputBorderColor
         ] = await Promise.all([
             window.electronAPI?.readSetting('wheelName'),
             window.electronAPI?.readSetting('globalFont'),
             window.electronAPI?.readSetting('globalFontColor'),
             window.electronAPI?.readSetting('globalBackgroundColor'),
+            window.electronAPI?.readSetting('globalBorderColor'),
             window.electronAPI?.readSetting('globalButtonFontColor'),
             window.electronAPI?.readSetting('globalButtonColor'),
+            window.electronAPI?.readSetting('globalButtonBorderColor'),
             window.electronAPI?.readSetting('globalInputFontColor'),
             window.electronAPI?.readSetting('globalInputBackgroundColor'),
+            window.electronAPI?.readSetting('globalInputBorderColor'),
         ]);
 
         return {
@@ -59,10 +65,13 @@ export class StyleService {
             globalFont: globalFont as string ?? defaultStyleSettings.globalFont,
             globalFontColor: globalFontColor as string ?? defaultStyleSettings.globalFontColor,
             globalBackgroundColor: globalBackgroundColor as string ?? defaultStyleSettings.globalBackgroundColor,
+            globalBorderColor: globalBorderColor as string ?? defaultStyleSettings.globalBorderColor,
             globalButtonFontColor: globalButtonFontColor as string ?? defaultStyleSettings.globalButtonFontColor,
             globalButtonColor: globalButtonColor as string ?? defaultStyleSettings.globalButtonColor,
+            globalButtonBorderColor: globalButtonBorderColor as string ?? defaultStyleSettings.globalButtonBorderColor,
             globalInputFontColor: globalInputFontColor as string ?? defaultStyleSettings.globalInputFontColor,
             globalInputBackgroundColor: globalInputBackgroundColor as string ?? defaultStyleSettings.globalInputBackgroundColor,
+            globalInputBorderColor: globalInputBorderColor as string ?? defaultStyleSettings.globalInputBorderColor
         }
     }
 }

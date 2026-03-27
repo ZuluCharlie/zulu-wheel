@@ -17,7 +17,7 @@ export class MainStyleDirective implements OnInit, OnDestroy {
     this.styleSettingsSubscription = this.styleService.styleSettings$.subscribe(ss => {
       this.elementRef.nativeElement.style.color = ss.globalFontColor;
       this.elementRef.nativeElement.style.fontFamily = ss.globalFont;
-      this.elementRef.nativeElement.style.accentColor = ss.globalFontColor;
+      this.elementRef.nativeElement.style.accentColor = ss.globalBorderColor;
 
       if (this.background) {
         this.elementRef.nativeElement.style.backgroundColor = ss.globalBackgroundColor;
@@ -25,7 +25,7 @@ export class MainStyleDirective implements OnInit, OnDestroy {
 
       if (this.border) {
         this.elementRef.nativeElement.style.borderWidth = '2px';
-        this.elementRef.nativeElement.style.borderColor = ss.globalFontColor;
+        this.elementRef.nativeElement.style.borderColor = ss.globalBorderColor;
       }
     });
   }

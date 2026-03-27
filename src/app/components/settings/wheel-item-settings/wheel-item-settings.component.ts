@@ -94,7 +94,7 @@ export class WheelItemSettingsComponent {
   openColorPickerModal(index: number) {
     const backgroundColor = this.settings.itemSettings[index].pieColor;
     const fontColor = this.settings.itemSettings[index].pieFontColor;
-    this.modalService.openColorPicker('Pie Color', backgroundColor, fontColor, (result: { backgroundColor: string, fontColor: string }) => {
+    this.modalService.openColorPicker('Pie Color', backgroundColor, fontColor, '#000000', (result: { backgroundColor: string, fontColor: string }) => {
       this.settings.itemSettings[index].pieColor = result.backgroundColor;
       this.settings.itemSettings[index].pieFontColor = result.fontColor;
       this.onItemsSettingsChange();

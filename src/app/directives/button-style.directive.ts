@@ -16,13 +16,13 @@ export class ButtonStyleDirective implements OnInit, OnDestroy, OnChanges {
   @HostListener('mouseenter')
   onHover() {
     if (!this.elementRef.nativeElement.disabled) {
-      this.elementRef.nativeElement.style.borderColor = this.textOverride ?? this.styleSettings?.globalFontColor;
+      this.elementRef.nativeElement.style.borderColor = this.textOverride ?? this.styleSettings?.globalButtonBorderColor;
     }
   }
 
   @HostListener('mouseleave')
   onUnhover() {
-    this.elementRef.nativeElement.style.borderColor = this.backgroundOverride ?? (this.isSecondary ? 'transparent' : this.styleSettings?.globalButtonColor);
+    this.elementRef.nativeElement.style.borderColor = this.backgroundOverride ?? (this.isSecondary ? 'transparent' : this.styleSettings?.globalButtonBorderColor);
   }
 
   styleSettings: StyleSettings;
@@ -36,8 +36,8 @@ export class ButtonStyleDirective implements OnInit, OnDestroy, OnChanges {
       this.elementRef.nativeElement.style.color = this.textOverride ?? (this.isSecondary ? ss.globalFontColor : ss.globalButtonFontColor);
       this.elementRef.nativeElement.style.fontFamily = this.fontOverride ?? ss.globalFont;
       this.elementRef.nativeElement.style.backgroundColor = this.backgroundOverride ?? (this.isSecondary ? 'transparent' : ss.globalButtonColor);
-      this.elementRef.nativeElement.style.accentColor = ss.globalButtonColor;
-      this.elementRef.nativeElement.style.borderColor = this.backgroundOverride ?? (this.isSecondary ? 'transparent' : ss.globalButtonColor);
+      this.elementRef.nativeElement.style.accentColor = ss.globalButtonBorderColor;
+      this.elementRef.nativeElement.style.borderColor = this.backgroundOverride ?? (this.isSecondary ? 'transparent' : ss.globalButtonBorderColor);
     });
   }
 

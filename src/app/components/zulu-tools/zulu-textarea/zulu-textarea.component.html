@@ -2,7 +2,7 @@
   @if (label) {
     <label zuluMainStyle>{{label}}</label>
   }
-  <textarea [(ngModel)]="model" class="form-control" [class]="className" [placeholder]="placeholder" [rows]="rows" [disabled]="disabled"
+  <textarea #input [(ngModel)]="model" class="form-control" [class]="className" [placeholder]="placeholder" [rows]="rows" [disabled]="disabled"
   (ngModelChange)="onInputChange($event)" zuluInputStyle></textarea>
   @if (small) {
     <small class="form-text text-muted">{{small}}</small>

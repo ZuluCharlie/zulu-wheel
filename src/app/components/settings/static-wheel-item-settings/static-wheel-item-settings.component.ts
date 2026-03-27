@@ -47,7 +47,7 @@ export class StaticWheelItemSettingsComponent {
   }
 
   openColorPickerModal() {
-    this.modalService.openColorPicker('Pie Color', this.staticWheelItem.backgroundColor, this.staticWheelItem.labelColor, (result: { backgroundColor: string, fontColor: string }) => {
+    this.modalService.openColorPicker('Pie Color', this.staticWheelItem.backgroundColor, this.staticWheelItem.labelColor, '#000000', (result: { backgroundColor: string, fontColor: string }) => {
       this.onSettingChange(result.backgroundColor, 'backgroundColor');
       this.onSettingChange(result.fontColor, 'labelColor');
     });

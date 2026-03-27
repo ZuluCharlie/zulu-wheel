@@ -2,12 +2,14 @@
     <div class="d-flex justify-content-around color-pickers">
         <zulu-color-picker [model]="data.backgroundColor" label="Background" (changed)="onBackgroundColorChanged($event)" />
         <zulu-color-picker [model]="data.fontColor" label="Font" (changed)="onFontColorChanged($event)" />
+        <zulu-color-picker [model]="data.borderColor" label="Border" (changed)="onBorderColorChanged($event)" />
     </div>
     <br />
     <div class="d-flex justify-content-center align-items-center sample-text" [ngStyle]="{
         'background-color': backgroundColor,
         'color': fontColor,
-        'font-family': settings.globalFont
+        'border': `3px solid ${borderColor}`,
+        'font-family': settings.globalFont,
         }">
         Sample Text
     </div>

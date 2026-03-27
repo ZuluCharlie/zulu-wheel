@@ -2,7 +2,7 @@
   @if (label) {
     <label zuluMainStyle>{{label}}</label>
   }
-  <input [type]="type" [(ngModel)]="model" class="form-control" [placeholder]="placeholder"
+  <input #input [type]="type" [(ngModel)]="model" class="form-control" [placeholder]="placeholder"
     (ngModelChange)="onInputChange($event)" zuluInputStyle cursor="text">
     @if (small) {
       <small class="form-text text-muted">{{small}}</small>
