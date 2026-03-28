@@ -177,6 +177,10 @@ export class GiveawayViewComponent {
       return;
     }
 
+    if (this.isSpinning) {
+      return;
+    }
+
     this.items = [...this.items, item].filter(i => i.label?.length! > 0);
     this.wheelService.updateItems(this.items);
   }
